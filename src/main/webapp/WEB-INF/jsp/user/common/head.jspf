@@ -35,7 +35,8 @@
 					<div class="text-[#161412] text-left font-semibold text-base leading-7 tracking-[0.88px] uppercase">로그인해주세요</div>
 				</c:if>
 				<c:if test="${rq.isLogined() }">
-					<div class="text-[#161412] text-left font-semibold text-base leading-7 tracking-[0.88px] uppercase">"${rq.loginedMember.nickname }"님 환영합니다.</div>
+					<div class="text-[#161412] text-left font-semibold text-base leading-7 tracking-[0.88px] uppercase">"${rq.loginedMember.nickname }"님
+						환영합니다.</div>
 					<div class="text-[#161412] text-left font-semibold text-base leading-7 tracking-[0.88px] uppercase">My일정확인</div>
 					<div class="text-[#161412] text-left font-semibold text-base leading-7 tracking-[0.88px] uppercase">My정보보기</div>
 				</c:if>
@@ -56,7 +57,8 @@
 					<div class="flex-shrink-0 ml-2.5">
 						<div class="bg-[#000000] rounded-full px-6 py-3 flex items-center justify-center">
 							<div class="text-[#ffffff] text-center font-semibold text-base leading-[120%] flex items-center justify-center">
-								회원가입</div>
+								<button class="nav-signup-button ">회원가입</button>
+							</div>
 						</div>
 					</div>
 				</c:if>
@@ -66,7 +68,8 @@
 					<div class="flex-shrink-0 ml-2.5">
 						<div class="bg-[#000000] rounded-full px-6 py-3 flex items-center justify-center">
 							<div class="text-[#ffffff] text-center font-semibold text-base leading-[120%] flex items-center justify-center">
-								<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" href="../member/doLogout">로그아웃</a></div>
+								<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" href="../member/doLogout">로그아웃</a>
+							</div>
 						</div>
 					</div>
 				</c:if>
