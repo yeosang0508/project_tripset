@@ -31,12 +31,6 @@ public class UsrMemberController {
 		return Ut.jsReplace("S-1", Ut.f("로그아웃 성공"), "/");
 	}
 
-	@RequestMapping("/usr/member/login")
-	public String showLogin(HttpServletRequest req) {
-
-		return "/usr/member/login";
-	}
-
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
 	public String doLogin(HttpServletRequest req, String loginId, String loginPw) {
@@ -67,5 +61,7 @@ public class UsrMemberController {
 		return Ut.jsReplace("S-1", Ut.f("%s님 환영합니다", member.getNickname()), "/");
 
 	}
+	
+	
 
 }

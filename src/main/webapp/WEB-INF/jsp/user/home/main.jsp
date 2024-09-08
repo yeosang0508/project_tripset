@@ -5,65 +5,91 @@
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-		// 로그인 팝업 열기
 		document.querySelector('.nav-login-button').addEventListener(
 				'click',
 				function() {
-					document.querySelector('.login-popup').classList.remove('hidden');
-					document.querySelector('.popup-bg').classList.remove('hidden');
+					document.querySelector('.login-popup').classList
+							.remove('hidden');
+					document.querySelector('.popup-bg').classList
+							.remove('hidden');
 				});
 
-		// 회원가입 팝업 열기
 		document.querySelector('.nav-signup-button').addEventListener(
 				'click',
 				function() {
-					document.querySelector('.signup-popup').classList.remove('hidden');
-					document.querySelector('.popup-bg').classList.remove('hidden');
+					document.querySelector('.signup-popup').classList
+							.remove('hidden');
+					document.querySelector('.popup-bg').classList
+							.remove('hidden');
 				});
 
-		// 로그인 팝업 닫기
-		document.querySelector('.login-popup .close-popup').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.login-popup').classList.add('hidden');
-					document.querySelector('.popup-bg').classList.add('hidden');
-				});
+		document.querySelector('.login-popup .close-popup')
+				.addEventListener(
+						'click',
+						function() {
+							document.querySelector('.login-popup').classList
+									.add('hidden');
+							document.querySelector('.popup-bg').classList
+									.add('hidden');
+						});
 
-		// 회원가입 팝업 닫기
-		document.querySelector('.signup-popup .close-popup').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.signup-popup').classList.add('hidden');
-					document.querySelector('.popup-bg').classList.add('hidden');
-				});
+		document.querySelector('.signup-popup .close-popup')
+				.addEventListener(
+						'click',
+						function() {
+							document.querySelector('.signup-popup').classList
+									.add('hidden');
+							document.querySelector('.popup-bg').classList
+									.add('hidden');
+						});
 
-		// 배경 클릭 시 팝업 닫기
-		document.querySelector('.popup-bg').addEventListener(
-				'click',
-				function() {
-					document.querySelectorAll('.login-popup, .signup-popup').forEach(function(popup) {
-						popup.classList.add('hidden');
+		document.querySelector('.popup-bg')
+				.addEventListener(
+						'click',
+						function() {
+							document.querySelectorAll(
+									'.login-popup, .signup-popup').forEach(
+									function(popup) {
+										popup.classList.add('hidden');
+									});
+							document.querySelector('.popup-bg').classList
+									.add('hidden');
+						});
+
+		document.querySelectorAll('.popup-container').forEach(
+				function(container) {
+					container.addEventListener('click', function(event) {
+						event.stopPropagation();
 					});
-					document.querySelector('.popup-bg').classList.add('hidden');
 				});
 
-		// 팝업 내부 클릭 시 이벤트 전파 중지 (배경 클릭으로 팝업 닫히지 않도록)
-		document.querySelectorAll('.popup-container').forEach(function(container) {
-			container.addEventListener('click', function(event) {
-				event.stopPropagation();
-			});
-		});
+		document.getElementById('next-step')
+				.addEventListener(
+						'click',
+						function() {
+							document.getElementById('step1').classList
+									.add('hidden');
 
-		// "다음" 버튼 클릭 시 회원가입 단계 전환
-		document.getElementById('next-step').addEventListener(
-			'click',
-			function() {
-				// 첫 번째 단계 숨기기
-				document.getElementById('step1').classList.add('hidden');
+							document.getElementById('step2').classList
+									.remove('hidden');
+						});
+	});
 
-				// 두 번째 단계 표시
-				document.getElementById('step2').classList.remove('hidden');
-			});
+	// 회원가입 다음 버튼 클릭 시 step1(아이디, 비밀번호)값을 임시 저장 
+
+	document.getElementById('next-step').addEventListener('click', function() {
+		const loginId = document.getElementById('loginId').value;
+		const loginPw = document.getElementById('loginPw').value;
+		const confirmPw = document.getElementById('confirmPw').value;
+
+		// step1의 값을 step2로 전달하기 위해 hidden input에 값 설정 
+		document.getElementById('hiddenLoginId').value = loginId;
+		document.getElementById('hiddenLoginPw').value = loginPw;
+
+		// step1을 숨기고 step2를 보여줌
+		document.getElementById('step1').classList.add('hidden');
+		document.getElementById('step2').classList.remove('hidden');
+
 	});
 </script>
 
@@ -401,7 +427,6 @@ html, body {
 </style>
 </head>
 <body>
-	<!-- 팝업 배경 -->
 	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
 
 	<!-- 로그인 팝업 -->
@@ -414,17 +439,14 @@ html, body {
 				<h2 class="text-center font-bold text-2xl mb-8">LOGIN</h2>
 				<div class="w-full mt-6">
 					<form class="input-container mb-4" action="../member/doLogin" method="POST" name="login">
-						<!-- ID 입력 -->
+
 						<label class="block text-left font-medium text-base mb-1">ID:</label>
 						<input type="text" name="loginId" class="input-field w-full h-[47px] px-4 border rounded-md mb-6"
 							placeholder="아이디를 입력해주세요." />
 
-						<!-- Password 입력 -->
 						<label class="block text-left font-medium text-base mb-1">Password:</label>
 						<input type="password" name="loginPw" class="input-field w-full h-[47px] px-4 border rounded-md mb-6"
 							placeholder="비밀번호를 입력해주세요." />
-
-						<!-- 로그인 버튼 -->
 						<button class="popup-login-button w-full h-[47px] bg-[#4D9FFF] text-white font-semibold rounded-md mt-4">
 							로그인</button>
 					</form>
@@ -444,7 +466,6 @@ html, body {
 			<h2 class="text-center font-bold text-2xl mb-8">SIGNUP</h2>
 
 			<form id="step1" class="input-container w-full flex flex-col items-center">
-				<!-- 아이디 -->
 				<label class="block text-left font-bold text-lg w-full mb-1">아이디</label>
 				<input type="text" name="loginId" class="input-field w-full h-[40px] px-4 border rounded-md mb-2"
 					placeholder="아이디 입력해주세요(6~20자)" />
@@ -464,7 +485,7 @@ html, body {
 					class="popup-login-button w-full h-[40px] bg-[#4D9FFF] text-white font-semibold rounded-md mt-4">다음</button>
 			</form>
 
-			<form id="step2" class="input-container w-full flex flex-col items-center hidden">
+			<form id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp" method="POST">
 
 				<label class="block text-left font-bold text-lg w-full mb-1">이름</label>
 				<input type="text" name="name" class="input-field w-full h-[40px] px-4 border rounded-md mb-4"
