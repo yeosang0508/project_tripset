@@ -424,6 +424,48 @@ html, body {
 		padding: 14px 24px;
 	}
 }
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 1.5vw;
+    height: 1.5vw;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
 </style>
 </head>
 <body>
@@ -485,7 +527,8 @@ html, body {
 					class="popup-login-button w-full h-[40px] bg-[#4D9FFF] text-white font-semibold rounded-md mt-4">다음</button>
 			</form>
 
-			<form id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp" method="POST">
+			<form id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp"
+				method="POST">
 
 				<label class="block text-left font-bold text-lg w-full mb-1">이름</label>
 				<input type="text" name="name" class="input-field w-full h-[40px] px-4 border rounded-md mb-4"
@@ -497,7 +540,7 @@ html, body {
 
 
 				<label class="block text-left font-bold text-lg w-full mb-1">전화번호</label>
-				<input type="text" name="phoneNum" class="input-field w-full h-[40px] px-4 border rounded-md mb-4"
+				<input type="text" name="cellphoneNum" class="input-field w-full h-[40px] px-4 border rounded-md mb-4"
 					placeholder="전화번호를 입력해주세요('-'제외)" />
 
 				<label class="block text-left font-bold text-lg w-full mb-1">이메일</label>
@@ -520,7 +563,14 @@ html, body {
 					<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
 				</div>
 				<div class="div8">
-					<img class="div9" src="div7.svg" />
+				<a href="..">
+					<div class="arrow">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</a>
+					
 				</div>
 			</div>
 			<div class="div10">
