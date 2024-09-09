@@ -34184,3 +34184,18 @@ Unconditional classes:
 2024-09-09 21:01:28 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy74@8e7671b'
 2024-09-09 21:01:28 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'jdk.proxy2.$Proxy75@367be24e'
 2024-09-09 21:01:28 [DEBUG] o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'scopedTarget.rq' via constructor to bean named 'memberService'
+2024-09-09 23:16:40 [INFO ] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2024-09-09 23:16:40 [DEBUG] o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2024-09-09 23:16:40 [DEBUG] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3666ef5b, started on Mon Sep 09 21:01:02 KST 2024
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'applicationTaskExecutor' completed its stop procedure
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599
+2024-09-09 23:16:40 [INFO ] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8082"]
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647
+2024-09-09 23:16:40 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure
+2024-09-09 23:16:40 [DEBUG] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2024-09-09 23:16:40 [DEBUG] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2024-09-09 23:16:40 [DEBUG] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

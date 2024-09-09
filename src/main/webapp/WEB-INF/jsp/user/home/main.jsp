@@ -99,32 +99,15 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
-
-.div, .div * {
-	box-sizing: border-box;
-}
-
-.div {
 	background: linear-gradient(180deg, rgba(218, 235, 255, 1) 12.5%,
 		rgba(220, 236, 255, 1) 25%, rgba(223, 238, 255, 1) 37.5%,
 		rgba(225, 239, 255, 1) 50%, rgba(228, 240, 255, 1) 56.25%,
 		rgba(232, 243, 255, 1) 62.5%, rgba(238, 245, 255, 1) 75%,
 		rgba(238, 245, 255, 1) 87.5%, rgba(255, 255, 255, 1) 100%);
-	border-style: solid;
-	border-color: rgba(0, 0, 0, 0.1);
-	border-width: 1px;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	align-items: center;
-	justify-content: flex-start;
-	width: 100%;
-	height: 100%;
-	position: relative;
-	overflow-y: auto;
+}
+
+.div * {
+	box-sizing: border-box;
 }
 
 .contents {
@@ -136,10 +119,15 @@ html, body {
 	padding: 20px;
 	flex-grow: 1;
 	position: relative;
+	 line-height: 2.0;
+}
+
+.div12, .div13, .paintings2, .paintings3 {
+    line-height: 1.8; /* 기존 1.6에서 1.8로 줄 간격을 넓힘 */
 }
 
 .tripset {
-	padding: 20px 90px 0 90px;
+	padding: 10px 90px 0 90px;
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
@@ -257,7 +245,7 @@ html, body {
 	font-family: "Inter-Regular", sans-serif;
 	font-size: 14px;
 	line-height: 16px;
-	font-weight: 400;
+	font-weight: bold;
 	position: relative;
 	width: 100%;
 }
@@ -266,36 +254,13 @@ html, body {
 	color: #000000;
 	text-align: left;
 	font-family: "Inter-Regular", sans-serif;
-	font-size: 10px;
+	font-size: 11px;
 	line-height: 16px;
 	font-weight: 400;
 	position: relative;
 	width: 100%;
+	margin-top: 10px;
 }
-
-.frame-3850 {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-	align-items: center;
-	justify-content: flex-start;
-	width: 100%;
-	padding: 20px;
-	margin-top: auto;
-	position: relative;
-}
-
-.div14 {
-	padding: 9px 83px;
-	display: flex;
-	flex-direction: row;
-	gap: 10px;
-	align-items: flex-start;
-	justify-content: flex-start;
-	width: 100%;
-	position: relative;
-}
-
 .paintings2 {
 	color: var(--black, #161412);
 	text-align: left;
@@ -308,32 +273,6 @@ html, body {
 	position: relative;
 }
 
-.div15 {
-	display: flex;
-	flex-direction: row;
-	gap: 100px;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	position: relative;
-}
-
-.div16 {
-	flex-shrink: 0;
-	width: 150px;
-	height: 151.51px;
-	position: relative;
-	object-fit: cover;
-}
-
-.div17 {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	align-items: flex-start;
-	justify-content: flex-end;
-	position: relative;
-}
 
 .paintings3 {
 	color: var(--black, #161412);
@@ -347,42 +286,7 @@ html, body {
 	position: relative;
 }
 
-.e-mail-yeosang-0508-gmail-com {
-	color: #000000;
-	text-align: left;
-	font-family: "-", sans-serif;
-	font-size: 14px;
-	line-height: 26px;
-	letter-spacing: 0.88px;
-	font-weight: 400;
-	position: relative;
-}
 
-.e-mail-yeosang-0508-gmail-com-span,
-	.e-mail-yeosang-0508-gmail-com-span2,
-	.e-mail-yeosang-0508-gmail-com-span3,
-	.e-mail-yeosang-0508-gmail-com-span4,
-	.e-mail-yeosang-0508-gmail-com-span5 {
-	color: #000000;
-	font-size: 14px;
-	line-height: 26px;
-	letter-spacing: 0.88px;
-	font-weight: 300;
-}
-
-.github {
-	flex-shrink: 0;
-	width: 29.95px;
-	height: 29.93px;
-	position: relative;
-}
-
-.github2 {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	overflow: visible;
-}
 
 @media ( max-width : 768px) {
 	.div2 {
@@ -426,31 +330,31 @@ html, body {
 }
 
 .arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform: rotate(-90deg);
-    cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transform: rotate(-90deg);
+	cursor: pointer;
 }
 
 .arrow span {
-    display: block;
-    width: 1.5vw;
-    height: 1.5vw;
-    border-bottom: 5px solid black;
-    border-right: 5px solid black;
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
+	display: block;
+	width: 1.5vw;
+	height: 1.5vw;
+	border-bottom: 5px solid black;
+	border-right: 5px solid black;
+	transform: rotate(45deg);
+	margin: -10px;
+	animation: animate 2s infinite;
 }
 
 .arrow span:nth-child(2) {
-    animation-delay: -0.2s;
+	animation-delay: -0.2s;
 }
 
 .arrow span:nth-child(3) {
-    animation-delay: -0.4s;
+	animation-delay: -0.4s;
 }
 
 @keyframes animate {
@@ -555,14 +459,14 @@ html, body {
 	</div>
 
 	<!-- 주요기능 -->
-	<div class="div">
-		<div class="contents">
-			<div class="tripset">
-				<div class="tripset2">
-					<div class="trip-set">TripSet</div>
-					<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
-				</div>
-				<div class="div8">
+
+	<div class="contents">
+		<div class="tripset">
+			<div class="tripset2">
+				<div class="trip-set">TripSet</div>
+				<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
+			</div>
+			<div class="div8">
 				<a href="../plans/write">
 					<div class="arrow">
 						<span></span>
@@ -570,77 +474,47 @@ html, body {
 						<span></span>
 					</div>
 				</a>
-					
-				</div>
-			</div>
-			<div class="div10">
-				<div class="div11">
-					<div class="image">
-						<img class="frame-3849" src="frame-38490.png" />
-					</div>
-					<div class="info">
-						<div class="div12">항공 및 숙박 예약하기</div>
-						<div class="div13">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</div>
-					</div>
-				</div>
-				<div class="div11">
-					<div class="image">
-						<img class="frame-3849" src="frame-38491.png" />
-					</div>
-					<div class="info">
-						<div class="div12">체크리스트</div>
-						<div class="div13">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</div>
-					</div>
-				</div>
-				<div class="div11">
-					<div class="image">
-						<img class="frame-3849" src="frame-38492.png" />
-					</div>
-					<div class="info">
-						<div class="div12">맞춤형 여행 추천 서비스</div>
-						<div class="div13">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</div>
-					</div>
-				</div>
-				<div class="div11">
-					<div class="image">
-						<img class="frame-3849" src="frame-38493.png" />
-					</div>
-					<div class="info">
-						<div class="div12">날씨 기반 옷 스타일링 추천</div>
-						<div class="div13">
-							오늘 날씨에 맞는 스타일링을 추천받으세요!
-							<br />
-							현재 위치의 날씨와 계절에 따라 적절한 옷차림을 제안합니다.
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
-		<div class="frame-3850">
-			<div class="div14">
-				<div class="paintings2">개발자 정보</div>
+		<div class="div10">
+			<div class="div11">
+				<div class="image">
+					<img class="frame-3849" src="/resource/images/reservation.png" />
+				</div>
+				<div class="info">
+					<div class="div12">항공 및 숙박 예약하기</div>
+					<div class="div13">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</div>
+				</div>
 			</div>
-			<div class="div15">
-				<img class="div16" src="div23.png" />
-				<div class="div17">
-					<div class="paintings3">
-						안녕하세요! 저는 웹 개발자 신승애입니다.
+			<div class="div11">
+				<div class="image">
+					<img class="frame-3849" src="/resource/images/checklist.png" />
+				</div>
+				<div class="info">
+					<div class="div12">체크리스트</div>
+					<div class="div13">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</div>
+				</div>
+			</div>
+			<div class="div11">
+				<div class="image">
+					<img class="frame-3849" src="/resource/images/customtravel.png" />
+				</div>
+				<div class="info">
+					<div class="div12">맞춤형 여행 추천 서비스</div>
+					<div class="div13">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</div>
+				</div>
+			</div>
+			<div class="div11">
+				<div class="image">
+					<img class="frame-3849" src="/resource/images/model.png" />
+				</div>
+				<div class="info">
+					<div class="div12">날씨 기반 옷 스타일링 추천</div>
+					<div class="div13">
+						오늘 날씨에 맞는 스타일링을 추천받으세요!
 						<br />
-						이 프로젝트는 여행을 계획하는 사람들에게 여행 계획에 소요되는 시간을 줄일 수 있고, 보다 직관적이고,
-						<br />
-						효율적인 계획을 세울 수 있도록 돕기 위해 개발되었습니다.
-					</div>
-					<div class="e-mail-yeosang-0508-gmail-com">
-						<span>
-							<span class="e-mail-yeosang-0508-gmail-com-span">e-mail :</span>
-							<span class="e-mail-yeosang-0508-gmail-com-span2"></span>
-							<span class="e-mail-yeosang-0508-gmail-com-span3">yeosang</span>
-							<span class="e-mail-yeosang-0508-gmail-com-span4">0508@</span>
-							<span class="e-mail-yeosang-0508-gmail-com-span5">gmail.com</span>
-						</span>
-					</div>
-					<div class="github">
-						<img class="github2" src="github1.svg" />
+						현재 위치의 날씨와 계절에 따라 적절한 옷차림을 제안합니다.
 					</div>
 				</div>
 			</div>

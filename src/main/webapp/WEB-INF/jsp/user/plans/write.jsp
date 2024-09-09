@@ -6,7 +6,7 @@
 
 
 <!-- Include Kakao Maps -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey= api key"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=apikey"></script>
 
 <!-- Include jQuery for datepicker -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -215,7 +215,6 @@ body {
 		});
 	</script>
 
-	<!-- 사용자 위치 정보 일정 설정 안할 경우 표시하도록 -->
 	<!-- Kakao Map 설정 -->
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
