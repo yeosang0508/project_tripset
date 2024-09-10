@@ -4,93 +4,93 @@
 <%@ include file="../common/head.jspf"%>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		document.querySelector('.nav-login-button').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.login-popup').classList
-							.remove('hidden');
-					document.querySelector('.popup-bg').classList
-							.remove('hidden');
-				});
+document.addEventListener('DOMContentLoaded', function() {
+	document.querySelector('.nav-login-button').addEventListener(
+			'click',
+			function() {
+				document.querySelector('.login-popup').classList
+						.remove('hidden');
+				document.querySelector('.popup-bg').classList
+						.remove('hidden');
+			});
 
-		document.querySelector('.nav-signup-button').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.signup-popup').classList
-							.remove('hidden');
-					document.querySelector('.popup-bg').classList
-							.remove('hidden');
-				});
+	document.querySelector('.nav-signup-button').addEventListener(
+			'click',
+			function() {
+				document.querySelector('.signup-popup').classList
+						.remove('hidden');
+				document.querySelector('.popup-bg').classList
+						.remove('hidden');
+			});
 
-		document.querySelector('.login-popup .close-popup')
-				.addEventListener(
-						'click',
-						function() {
-							document.querySelector('.login-popup').classList
-									.add('hidden');
-							document.querySelector('.popup-bg').classList
-									.add('hidden');
-						});
-
-		document.querySelector('.signup-popup .close-popup')
-				.addEventListener(
-						'click',
-						function() {
-							document.querySelector('.signup-popup').classList
-									.add('hidden');
-							document.querySelector('.popup-bg').classList
-									.add('hidden');
-						});
-
-		document.querySelector('.popup-bg')
-				.addEventListener(
-						'click',
-						function() {
-							document.querySelectorAll(
-									'.login-popup, .signup-popup').forEach(
-									function(popup) {
-										popup.classList.add('hidden');
-									});
-							document.querySelector('.popup-bg').classList
-									.add('hidden');
-						});
-
-		document.querySelectorAll('.popup-container').forEach(
-				function(container) {
-					container.addEventListener('click', function(event) {
-						event.stopPropagation();
+	document.querySelector('.login-popup .close-popup')
+			.addEventListener(
+					'click',
+					function() {
+						document.querySelector('.login-popup').classList
+								.add('hidden');
+						document.querySelector('.popup-bg').classList
+								.add('hidden');
 					});
+
+	document.querySelector('.signup-popup .close-popup')
+			.addEventListener(
+					'click',
+					function() {
+						document.querySelector('.signup-popup').classList
+								.add('hidden');
+						document.querySelector('.popup-bg').classList
+								.add('hidden');
+					});
+
+	document.querySelector('.popup-bg')
+			.addEventListener(
+					'click',
+					function() {
+						document.querySelectorAll(
+								'.login-popup, .signup-popup').forEach(
+								function(popup) {
+									popup.classList.add('hidden');
+								});
+						document.querySelector('.popup-bg').classList
+								.add('hidden');
+					});
+
+	document.querySelectorAll('.popup-container').forEach(
+			function(container) {
+				container.addEventListener('click', function(event) {
+					event.stopPropagation();
 				});
+			});
 
-		document.getElementById('next-step')
-				.addEventListener(
-						'click',
-						function() {
-							document.getElementById('step1').classList
-									.add('hidden');
+	document.getElementById('next-step')
+			.addEventListener(
+					'click',
+					function() {
+						document.getElementById('step1').classList
+								.add('hidden');
 
-							document.getElementById('step2').classList
-									.remove('hidden');
-						});
-	});
+						document.getElementById('step2').classList
+								.remove('hidden');
+					});
+});
 
-	// 회원가입 다음 버튼 클릭 시 step1(아이디, 비밀번호)값을 임시 저장 
+// 회원가입 다음 버튼 클릭 시 step1(아이디, 비밀번호)값을 임시 저장 
 
-	document.getElementById('next-step').addEventListener('click', function() {
-		const loginId = document.getElementById('loginId').value;
-		const loginPw = document.getElementById('loginPw').value;
-		const confirmPw = document.getElementById('confirmPw').value;
+document.getElementById('next-step').addEventListener('click', function() {
+	const loginId = document.getElementById('loginId').value;
+	const loginPw = document.getElementById('loginPw').value;
+	const confirmPw = document.getElementById('confirmPw').value;
 
-		// step1의 값을 step2로 전달하기 위해 hidden input에 값 설정 
-		document.getElementById('hiddenLoginId').value = loginId;
-		document.getElementById('hiddenLoginPw').value = loginPw;
+	// step1의 값을 step2로 전달하기 위해 hidden input에 값 설정 
+	document.getElementById('hiddenLoginId').value = loginId;
+	document.getElementById('hiddenLoginPw').value = loginPw;
 
-		// step1을 숨기고 step2를 보여줌
-		document.getElementById('step1').classList.add('hidden');
-		document.getElementById('step2').classList.remove('hidden');
+	// step1을 숨기고 step2를 보여줌
+	document.getElementById('step1').classList.add('hidden');
+	document.getElementById('step2').classList.remove('hidden');
 
-	});
+});
 </script>
 
 <style>
@@ -119,11 +119,11 @@ html, body {
 	padding: 20px;
 	flex-grow: 1;
 	position: relative;
-	 line-height: 2.0;
+	line-height: 2.0;
 }
 
 .div12, .div13, .paintings2, .paintings3 {
-    line-height: 1.8; /* 기존 1.6에서 1.8로 줄 간격을 넓힘 */
+	line-height: 1.8; /* 기존 1.6에서 1.8로 줄 간격을 넓힘 */
 }
 
 .tripset {
@@ -261,6 +261,7 @@ html, body {
 	width: 100%;
 	margin-top: 10px;
 }
+
 .paintings2 {
 	color: var(--black, #161412);
 	text-align: left;
@@ -273,7 +274,6 @@ html, body {
 	position: relative;
 }
 
-
 .paintings3 {
 	color: var(--black, #161412);
 	text-align: left;
@@ -285,8 +285,6 @@ html, body {
 	text-transform: uppercase;
 	position: relative;
 }
-
-
 
 @media ( max-width : 768px) {
 	.div2 {
@@ -373,9 +371,9 @@ html, body {
 </style>
 </head>
 <body>
-	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
 
-	<!-- 로그인 팝업 -->
+<!-- 로그인 팝업 -->
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
 	<div class="login-popup fixed inset-0 flex items-center justify-center hidden z-50">
 		<div class="popup-container w-[450px] h-[500px] p-8 bg-white rounded-lg shadow-lg relative">
 			<div class="popup-header flex justify-end">
@@ -400,10 +398,11 @@ html, body {
 				</div>
 			</div>
 		</div>
-	</div>
-
-
+	</div>>
+	
+	
 	<!-- 회원가입 팝업 -->
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
 	<div class="signup-popup fixed inset-0 flex items-center justify-center hidden z-50">
 		<div class="popup-container w-[450px] h-[500px] p-8 bg-white rounded-lg shadow-lg relative">
 			<div class="popup-header flex justify-end">
@@ -457,13 +456,12 @@ html, body {
 			</form>
 		</div>
 	</div>
-
 	<!-- 주요기능 -->
 
 	<div class="contents">
 		<div class="tripset">
 			<div class="tripset2">
-				<div class="trip-set">TripSet</div>
+				<div class="trip-set">TRIPSET</div>
 				<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
 			</div>
 			<div class="div8">
@@ -480,7 +478,9 @@ html, body {
 		<div class="div10">
 			<div class="div11">
 				<div class="image">
-					<img class="frame-3849" src="/resource/images/reservation.png" />
+					<button class="nav-reservation-button">
+						<img class="frame-3849" src="/resource/images/reservation.png" />
+					</button>
 				</div>
 				<div class="info">
 					<div class="div12">항공 및 숙박 예약하기</div>
