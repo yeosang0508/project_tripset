@@ -61,11 +61,17 @@ public class UsrMemberController {
 		return Ut.jsReplace("S-1", Ut.f("%s님 환영합니다", member.getNickname()), "/");
 
 	}
+	
 
 	@RequestMapping("/usr/member/doSignUp")
 	@ResponseBody
 	public String doSignUp(HttpServletRequest req, String loginId, String loginPw, String name, String nickname,
 			String cellphoneNum, String email) {
+		
+		
+		System.err.println(loginId);
+		System.err.println(loginPw);
+		
 		if(Ut.isEmptyOrNull(loginId)) {
 			return Ut.jsHistoryBack("F-1", "loginId 입력 x");
 		}
@@ -93,6 +99,23 @@ public class UsrMemberController {
 		Member member = memberService.getMemberById((int) joinRd.getData1());
 
 		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "/");
+	}
+	
+	@RequestMapping("/usr/member/getLoginIdDup")
+	@ResponseBody
+	public ResultData getLoginIdDup(String loginId) {
+
+		if (Ut.isEmpty(loginId)) {
+			return ResultData.from("F-1", "아이디를 입력해주세요");
+		}
+
+		Member existsMember = memberService.getMemberByLoginId(loginId);
+
+		if (existsMember != null) {
+			return ResultData.from("F-2", "해당 아이디는 이미 사용중이야", "loginId", loginId);
+		}
+
+		return ResultData.from("S-1", "사용 가능!", "loginId", loginId);
 	}
 
 }

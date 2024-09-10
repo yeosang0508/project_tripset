@@ -65,9 +65,21 @@ style>.popup-bg {
 }
 
 .popup-login-button {
-	width: 100%;
+	width: 70px;
 	height: 40px;
 	background-color: #4D9FFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+.next-button,.prev-button{
+	width: 70px;
+	height: 40px;
+	background-color: #DADADC;
 	color: white;
 	border: none;
 	border-radius: 5px;
