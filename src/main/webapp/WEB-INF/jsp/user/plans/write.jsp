@@ -4,8 +4,7 @@
 <%@ include file="../common/head.jspf"%>
 
 <!-- Include Kakao Maps -->
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=Apikey&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ApiKey&libraries=services"></script>
 
 <!-- Include jQuery for datepicker -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -311,6 +310,8 @@ body {
 
 </head>
 <body>
+<%@ include file="../popups/loginPopup.jspf" %>
+<%@ include file="../popups/signUpPopup.jspf" %>
 
 	<div id="container">
 		<!-- Map Container -->
@@ -322,6 +323,7 @@ body {
 		<ul id="sidebar">
 			<li class="date-picker">
 				<h3>날짜를 선택해주세요</h3>
+				<input class="carlendar-group">
 				<input type="text" class="duration" value="" />
 			</li>
 
@@ -344,7 +346,7 @@ body {
 		</ul>
 
 
-		<!-- Data Range Picker 설정 -->
+		<!-- Date Range Picker 설정 -->
 		<script type="text/javascript">
 			$(function() {
 				$('.duration').daterangepicker(
@@ -386,44 +388,40 @@ body {
 				level : 3
 			};
 
+			// 지도를 생성합니다    
 			var map = new kakao.maps.Map(mapContainer, mapOption);
 
 			// 장소 검색 객체를 생성합니다
 			var ps = new kakao.maps.services.Places();
 
-			var infoWindow = new kakao.maps.InfoWindow({
+			// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+			var infowindow = new kakao.maps.InfoWindow({
 				zIndex : 1
 			});
 
-			// 키워드로 장소를 검색한다.
+			// 키워드로 장소를 검색합니다
 			searchPlaces();
 
-			//키워드 검색을 요청하는 함수이다.
+			// 키워드 검색을 요청하는 함수입니다
 			function searchPlaces() {
 				var keyword = document.getElementById('keyword').value;
-
-				if (!keyword.replace(/^\s+|\s+$/g, '')) {
-					alert('목적지를 입력해주세요!')
-					return false;
-				}
-
-				// 키워드로 장소 검색
+				// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
 				ps.keywordSearch(keyword, placesSearchCB);
 			}
 
-			// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+			// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
 			function placesSearchCB(data, status, pagination) {
 				if (status === kakao.maps.services.Status.OK) {
 
-					//정상적으로 검색이 완료됐으면 
-					// 검색 목록과 마커를 표출
-
+					// 정상적으로 검색이 완료됐으면
+					// 검색 목록과 마커를 표출합니다
 					displayPlaces(data);
 
+					// 페이지 번호를 표출합니다
 					displayPagination(pagination);
 
 				} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-					removeAllChildNods(list);
+
 					alert('검색 결과가 존재하지 않습니다.');
 					return;
 
@@ -431,6 +429,7 @@ body {
 
 					alert('검색 결과 중 오류가 발생했습니다.');
 					return;
+
 				}
 			}
 
@@ -458,9 +457,6 @@ body {
 					// LatLngBounds 객체에 좌표를 추가합니다
 					bounds.extend(placePosition);
 
-					// 마커와 검색결과 항목에 mouseover 했을때
-					// 해당 장소에 인포윈도우에 장소명을 표시한다.
-					// mouseout 했을 때는 인포윈도우를 닫는다.
 					(function(marker, title) {
 						kakao.maps.event.addListener(marker, 'mouseover',
 								function() {

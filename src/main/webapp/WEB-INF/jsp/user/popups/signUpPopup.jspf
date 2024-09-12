@@ -1,0 +1,232 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- lodash debounce -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelector('.nav-signup-button').addEventListener(
+				'click',
+				function() {
+					document.querySelector('.signup-popup').classList
+							.remove('hidden');
+					document.querySelector('.popup-bg').classList
+							.remove('hidden');
+				});
+
+		document.querySelector('.signup-popup .close-popup')
+				.addEventListener(
+						'click',
+						function() {
+							document.querySelector('.signup-popup').classList
+									.add('hidden');
+							document.querySelector('.popup-bg').classList
+									.add('hidden');
+						});
+
+		document.querySelectorAll('.popup-container').forEach(
+				function(container) {
+					container.addEventListener('click', function(event) {
+						event.stopPropagation();
+					});
+				});
+
+		document.getElementById('next-step')
+				.addEventListener(
+						'click',
+						function() {
+							document.getElementById('step1').classList
+									.add('hidden');
+
+							document.getElementById('step2').classList
+									.remove('hidden');
+						});
+
+		document.getElementById('prev-step')
+				.addEventListener(
+						'click',
+						function() {
+							document.getElementById('step2').classList
+									.add('hidden');
+
+							document.getElementById('step1').classList
+									.remove('hidden');
+						});
+	});
+</script>
+
+<!-- 회원가입 -->
+<script>
+	let validLoginId = ""; // 유효한 로그인 아이디를 저장할 전역 변수
+	let loginId = ''; // 로그인 아이디 변수
+	let loginPw = ''; // 비밀번호 변수
+	let loginPwConfirm = '';
+
+	// 다음 버튼 클릭 시, 아이디와 비밀번호를 step 2에 넘김
+	document.addEventListener('DOMContentLoaded', function() {
+		const nextStepButton = document.getElementById('next-step');
+
+		if (nextStepButton) { // 요소가 존재하는지 확인
+			nextStepButton.addEventListener('click', function() {
+
+				// 입력된 값을 가져옴
+				loginId = document.getElementById('loginId').value.trim();
+				loginPw = document.getElementById('loginPw').value.trim();
+
+				const loginPwConfirm = document
+						.getElementById('loginPwConfirm').value.trim();
+
+				// 아이디 유효성 검사
+				if (loginId.length === 0) {
+					alert('아이디를 입력해주세요');
+					return;
+				}
+				if (loginId !== validLoginId) {
+					alert('사용할 수 없는 아이디입니다.');
+					document.getElementById('loginId').focus();
+					return;
+				}
+
+				// 비밀번호 유효성 검사
+				if (loginPw.length === 0) {
+					alert('비밀번호를 입력해주세요');
+					return;
+				}
+				if (loginPwConfirm.length === 0) {
+					alert('비밀번호 확인을 입력해주세요');
+					return;
+				}
+				if (loginPw !== loginPwConfirm) {
+					alert('비밀번호가 일치하지 않습니다.');
+					document.getElementById('loginPw').focus();
+					return;
+				}
+
+				/* step2에 loginId, loginPw 넘길 수 있도록 step1에서 입력한 값 설정 */
+				document.getElementById('hiddenLoginId').value = loginId;
+				document.getElementById('hiddenLoginPw').value = loginPw;
+
+			});
+		} else {
+			console.error("next-step 버튼을 찾을 수 없습니다.");
+		}
+	});
+	// 회원가입 제출 폼
+	function JoinForm__submit(form) {
+		// 이름, 닉네임, 이메일, 전화번호 유효성 검사
+		form.name.value = form.name.value.trim();
+		if (form.name.value.length === 0) {
+			alert('이름을 입력해주세요');
+			return;
+		}
+		form.nickname.value = form.nickname.value.trim();
+		if (form.nickname.value.length === 0) {
+			alert('닉네임을 입력해주세요');
+			return;
+		}
+		form.email.value = form.email.value.trim();
+		if (form.email.value.length === 0) {
+			alert('이메일을 입력해주세요');
+			return;
+		}
+		form.cellphoneNum.value = form.cellphoneNum.value.trim();
+		if (form.cellphoneNum.value.length === 0) {
+			alert('전화번호를 입력해주세요');
+			return;
+		}
+		// 모든 검증을 통과하면 폼 제출
+		form.submit();
+	}
+
+	// 아이디 중복 검사
+	function checkLoginIdDup(el) {
+		$('.checkDup-msg').empty();
+		const form = $(el).closest('form').get(0);
+		if (form.loginId.value.length === 0) {
+			validLoginId = '';
+			return;
+		}
+
+		// 서버로 아이디 중복 확인 요청
+		$.get('../member/getLoginIdDup', {
+			isAjax : 'Y',
+			loginId : form.loginId.value
+		}, function(data) {
+			$('.checkDup-msg').html('<div class="">' + data.msg + '</div>')
+			if (data.success) {
+				validLoginId = data.data1;
+			} else {
+				validLoginId = '';
+			}
+		}, 'json');
+	}
+
+	// 디바운스: 입력한 아이디를 일정 시간 후에 중복 확인 (600ms)
+	const checkLoginIdDupDebounced = _.debounce(checkLoginIdDup, 600);
+</script>
+</head>
+<body>
+	<!-- 회원가입 팝업 -->
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
+	<div class="signup-popup fixed inset-0 flex items-center justify-center hidden z-50">
+		<div class="popup-container w-[450px] h-[500px] p-8 bg-white rounded-lg shadow-lg relative">
+			<div class="popup-header flex justify-end">
+				<button class="close-popup text-3xl font-bold">×</button>
+			</div>
+			<h2 class="text-center font-bold text-2xl mb-8">SIGNUP</h2>
+
+
+			<form id="step1" class="input-container w-full flex flex-col items-center">
+				<label class="block text-left font-bold text-lg w-full mb-1">아이디</label>
+				<input onkeyup="checkLoginIdDupDebounced(this);" type="text" id="loginId" name="loginId"
+					class="input-field w-full h-[40px] px-4 border rounded-md mb-2" autocomplete="off" placeholder="아이디 입력해주세요(6~20자)" />
+				<div class=" text-red-500 text-xs w-full mb-4"></div>
+
+				<label class="block text-left font-bold text-lg w-full mb-1">비밀번호</label>
+				<input type="password" id="loginPw" name="loginPw" class="input-field w-full h-[40px] px-4 border rounded-md mb-2" autocomplete="off"
+					placeholder="비밀번호 입력해주세요(문자, 숫자, 특수문자 포함(8~20자)" />
+				<div class="text-red-500 text-xs w-full mb-4">20자 이내 비밀번호를 입력해주세요.</div>
+
+				<label class="block text-left font-bold text-lg w-full mb-1">비밀번호 확인</label>
+				<input type="password" id="loginPwConfirm" name="loginPwConfirm" class="input-field w-full h-[40px] px-4 border rounded-md mb-2"
+					autocomplete="off" placeholder="비밀번호를 다시 입력해주세요" />
+				<div class="text-red-500 text-xs w-full mb-4">비밀번호가 일치하지 않습니다.</div>
+				<div class="flex justify-end w-full gap-2">
+					<button type="button" id="next-step" class="popup-login-button next-button text-black font-semibold rounded-md">다음</button>
+				</div>
+			</form>
+
+
+			<form id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp" method="POST"
+				onsubmit="JoinForm__submit(this); return false;">
+
+				<!-- hidden 필드를 통해서 이전 단계에서 받은 loginId와 loginPw를 서버로 전송 -->
+				<input type="hidden" id="hiddenLoginId" name="loginId" />
+				<input type="hidden" id="hiddenLoginPw" name="loginPw" />
+				<label class="block text-left font-bold text-lg w-full mb-1">이름</label>
+				<input type="text" name="name" class="input-field w-full h-[40px] px-4 border rounded-md mb-4" autocomplete="off" placeholder="이름을 입력해주세요" />
+
+				<label class="block text-left font-bold text-lg w-full mb-1">닉네임</label>
+				<input type="text" name="nickname" class="input-field w-full h-[40px] px-4 border rounded-md mb-4" autocomplete="off" placeholder="닉네임을 입력해주세요" />
+
+				<label class="block text-left font-bold text-lg w-full mb-1">전화번호</label>
+				<input type="text" name="cellphoneNum" class="input-field w-full h-[40px] px-4 border rounded-md mb-4" autocomplete="off"
+					placeholder="전화번호를 입력해주세요('-'제외)" />
+
+				<label class="block text-left font-bold text-lg w-full mb-1">이메일</label>
+				<input type="email" name="email" class="input-field w-full h-[40px] px-4 border rounded-md mb-4" autocomplete="off" placeholder="이메일을 입력해주세요." />
+
+
+				<div class="flex justify-end w-full gap-2">
+					<button type="button" id="prev-step" class="prev-button text-black font-semibold rounded-md">이전</button>
+
+					<button type="submit" class="popup-login-button font-semibold rounded-md">가입하기</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

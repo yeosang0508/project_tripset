@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- 예약사이트 팝업 -->
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// 팝업 열기 버튼 클릭 시 팝업을 표시
+		document.querySelector('.nav-reservation-button').addEventListener(
+				'click',
+				function() {
+					document.querySelector('.reservation-popup').classList
+							.remove('hidden');
+					document.querySelector('.popup-bg').classList
+							.remove('hidden');
+				});
+
+		// 닫기 버튼 클릭 시 팝업 닫기
+		document.querySelector('.close-popup').addEventListener(
+				'click',
+				function() {
+					document.querySelector('.reservation-popup').classList
+							.add('hidden');
+					document.querySelector('.popup-bg').classList
+							.add('hidden');
+				});
+		
+		document.querySelectorAll('.popup-container').forEach(
+				function(container) {
+					container.addEventListener('click', function(event) {
+						event.stopPropagation();
+					});
+				});
+
+	});
+</script>
+
+</head>
+<body>
+	<!-- 예약사이트 팝업창 -->
+
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
+	<div class="reservation-popup fixed inset-0 flex items-center justify-center hidden z-50">
+		<div class="w-[1200px] h-[900px] p-8 bg-white rounded-lg shadow-lg relative overflow-y-auto">
+			<div class="flex justify-between items-start">
+				<div class="text-black text-left font-bold text-2xl">예약사이트</div>
+				<button class="close-popup text-3xl font-bold">×</button>
+			</div>
+			<div class="mt-8">
+				<!-- 항공예약 섹션 -->
+				<div class="px-8 mb-10">
+					<div class="text-blue-500 text-left font-bold text-2xl mb-6">항공예약</div>
+					<div class="grid grid-cols-4 gap-10 justify-items-center">
+						<div class="flex flex-col items-center">
+							<a href="https://m.flyasiana.com/C/KR/KO/index" target="_blank">
+								<img class="w-[200px] h-[200px] rounded-lg object-cover" src="/resource/images/asiana.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">아시아나항공</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a
+								href="https://kr.trip.com/?locale=ko_kr&allianceid=14887&sid=1621818&ppcid=ckid-14179040861_adid-701322319668_akid-kwd-415216391968_adgid-164000253518&utm_source=google&utm_medium=cpc&utm_campaign=21356875675&gad_source=1&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwMKp3_RHC20fucfOF2bCORLm1IgkwUSv2X4bpXqVa3Trz9Y1u5pBtxoCRHEQAvD_BwE"
+								target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/tripcom.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">트립닷컴</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a
+								href="https://www.finnair.com/kr-ko?utm_source=google&utm_medium=cpc&utm_campaign=kr_book_always-on_always-on_kr-brand_ko&utm_content=MASTERBRAND&utm_term=&gad_source=1&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwCHKHONrQFttox9AkS_yny4UyJHGL2qQxkYvihqlXj_fTSz8bAYxbBoCY1sQAvD_BwE&gclsrc=aw.ds"
+								target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/finnair.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">핀에어</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a
+								href="https://www.skyscanner.co.kr/?&utm_source=google&utm_medium=cpc&utm_campaign=KR-Travel-Search-Brand-SkyscannerPure-Desktop&utm_term=%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%8A%A4%EC%BA%90%EB%84%88&associateID=SEM_FLI_19465_00000&campaign_id=21457301665&adgroupid=170117947168&keyword_id=kwd-328473592748&gad_source=1&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwNWqK2DaItqiWt924Th2kNKwaRIimIvwnkSo-YHz_E4ISDtu7S6-uRoCkmcQAvD_BwE&gclsrc=aw.ds"
+								target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/skyscanner.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">스카이스캐너</div>
+						</div>
+					</div>
+				</div>
+				<!-- 숙박예약 섹션 -->
+				<div class="px-8">
+					<div class="text-blue-500 text-left font-bold text-2xl mb-6">숙박예약</div>
+					<div class="grid grid-cols-4 gap-10 justify-items-center">
+						<div class="flex flex-col items-center">
+							<a
+								href="https://www.agoda.com/ko-kr/?site_id=1922887&tag=eeeb2a37-a3e0-4932-8325-55d6a8ba95a4&gad_source=1&device=c&network=g&adid=702606525837&rand=10582393992057784631&expid=&adpos=&aud=kwd-304551434341&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwDlUJV76sly4sOwQK3KlJirsHtibq6WxwksEhDi1Yphu02dPFSz3oxoCuCYQAvD_BwE&pslc=1&ds=wGwGYTAtyu38D9OO"
+								target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/agoda.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">아고다</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a
+								href="https://www.hotelscombined.co.kr/Place/Daejeon_Metropolitan_City.htm?sck=SEM&skipapp=true&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwCSZlUQ4jDQHE1G3_W0FeRfRlqH3rC_0Ld3rdOfiHmBjZmQ6RGxbjhoCNIsQAvD_BwE"
+								target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/hotelscombined.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">호텔스컴바인</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a
+								href="https://www.trivago.co.kr/ko-KR?themeId=280&sem_keyword=%ED%8A%B8%EB%A6%AC%EB%B0%94%EA%B3%A0&sem_creativeid=550079560013&sem_matchtype=e&sem_network=g&sem_device=c&sem_placement=&sem_target=&sem_adposition=&sem_param1=&sem_param2=&sem_campaignid=304262920&sem_adgroupid=100658847299&sem_targetid=kwd-309008850360&sem_location=1009880&cipc=br&cip=8219000005&gad_source=1&gclid=CjwKCAjw3P-2BhAEEiwA3yPhwKf6Vg2khIo6tgQkFggGrjpBkUwWDKSFGMK_YwtnIsMuZar-ZkuUFxoCGTEQAvD_BwE"
+								target="_blank">
+								<img class="w-[200px] h-[200px] rounded-lg object-cover" src="/resource/images/trivago.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">트리바고</div>
+						</div>
+						<div class="flex flex-col items-center">
+							<a href="https://www.yanolja.com/" target="_blank">
+								<img class="w-[200px] h-[200px]  rounded-lg object-cover" src="/resource/images/yanolja.png" />
+							</a>
+							<div class="text-black text-center font-normal text-base mt-2">야놀자</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

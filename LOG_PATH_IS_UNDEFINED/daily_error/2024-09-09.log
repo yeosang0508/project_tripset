@@ -1,0 +1,2165 @@
+2024-09-09 09:22:40 [ERROR] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrPlansController' defined in file [C:\work_ssa\sts-4.24.0.RELEASE-workspace-1\project_tripset\target\classes\com\example\demo\controller\UsrPlansController.class]: Failed to instantiate [com.example.demo.controller.UsrPlansController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.example.demo.ProjectTripsetApplication.main(ProjectTripsetApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrPlansController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 20 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token "Invalid Character", delete this token
+
+	at com.example.demo.controller.UsrPlansController.<init>(UsrPlansController.java:14)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 22 common frames omitted
+2024-09-09 09:49:48 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+
+
+An error occurred at line: [52] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [56] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+
+
+An error occurred at line: [58] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+60: 	</div>
+61: 	<%@ include file="../common/foot.jspf"%>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:49:48 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+
+
+An error occurred at line: [52] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [56] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+
+
+An error occurred at line: [58] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+60: 	</div>
+61: 	<%@ include file="../common/foot.jspf"%>
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+
+
+An error occurred at line: [50] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+
+
+An error occurred at line: [52] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+49: 			value="<% if(test.length !== 0) { %>
+50:         <%= test[0].startTest %>
+51:         <% } else { %>
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test.length cannot be resolved to a type
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [55] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+Syntax error on token "=", delete this token
+52:         <%= lastMondayStr %> 
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+
+
+An error occurred at line: [56] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+53:         <% } %>" />
+54: 		<input type="hidden" name="endDate"
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+
+
+An error occurred at line: [58] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+55: 			value="<% if(test.length !== 0) { %>
+56:         <%= test[0].endTest %>
+57:         <% } else { %>
+58:         <%= lastSundayStr %>
+59:         <% } %>" />
+60: 	</div>
+61: 	<%@ include file="../common/foot.jspf"%>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:54:59 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:54:59 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:55:32 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:55:32 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [49] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+46: 		<span>기간</span>
+47: 		<input type="text" name="daterange" value="" />
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+An error occurred at line: [51] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+48: 		<input type="hidden" name="startDate"
+49: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+50: 		<input type="hidden" name="endDate"
+51: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+52: 	</div>
+53: 	<%@ include file="../common/foot.jspf"%>
+54: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:59:03 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 09:59:03 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [44] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+41: 		<span>기간</span>
+42: 		<input type="text" name="daterange" value="" />
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+An error occurred at line: [46] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+43: 		<input type="hidden" name="startDate"
+44: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+45: 		<input type="hidden" name="endDate"
+46: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+47: 	</div>
+48: 	<%@ include file="../common/foot.jspf"%>
+49: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 10:14:37 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 10:14:37 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+Stacktrace:] with root cause
+org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [81] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastMondayStr cannot be resolved to a variable
+78: 		<span>기간</span>
+79: 		<input type="text" name="daterange" value="" />
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+test cannot be resolved
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+An error occurred at line: [83] in the jsp file: [/WEB-INF/jsp/user/plans/write.jsp]
+lastSundayStr cannot be resolved to a variable
+80: 		<input type="hidden" name="startDate"
+81: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getStartTest() : lastMondayStr%>" />
+82: 		<input type="hidden" name="endDate"
+83: 			value="<%=(test != null && !test.isEmpty()) ? test.get(0).getEndTest() : lastSundayStr%>" />
+84: 	</div>
+85: 	<%@ include file="../common/foot.jspf"%>
+86: </body>
+
+
+Stacktrace:
+	at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:81)
+	at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+	at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:543)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:377)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:325)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:632)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:408)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:330)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:267)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-09-09 14:05:52 [ERROR] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2024-09-09 20:58:42 [ERROR] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+

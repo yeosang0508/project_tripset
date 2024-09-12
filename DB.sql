@@ -48,49 +48,49 @@ INSERT INTO `member` (
 
 #여행일정관리 테이블 생성
 CREATE TABLE `TravelPlans` (
-	`id` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`memberId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	 `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`memberId` INT UNSIGNED NOT NULL,
 	`loginId` VARCHAR(255) NOT NULL	COMMENT '로그인아이디',
 	`startDate` DATE NOT NULL COMMENT '여행시작날짜(사용자 설정)',
 	`endDate` DATE NOT NULL	COMMENT '여행종료날짜(사용자 설정)',
 	`regDate` DATETIME NOT NULL,
 	`updateDate` DATETIME NOT NULL,
-	`regionId` INT NOT NULL,
-	`regionName` CHAR(20) NULL,
+	`destinationId` INT NOT NULL,
+	`destinationName` CHAR(20) NULL COMMENT '목적지 이름',
 	`status` INT NULL DEFAULT 2 COMMENT '0=종료, 1=현재, 2=예정',
-	`delStatus` TINYINT(1), UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부(0 = 삭제 안함, 1 = 삭제됨)',
+	`delStatus` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부(0 = 삭제 안함, 1 = 삭제됨)',
 	`delDate` DATETIME NULL	COMMENT '삭제날짜'
 );
 
 #일정상세항목관리 테이블 생성
 CREATE TABLE `scheduleDetailsArticle` (
-	`id` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`planId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT	NOT NULL,
-	`regionId` INT FOREIGN KEY NOT NULL,
-	`location_address` CHAR	NOT NULL,
-	`description` TEXT NOT NULL,
-	`distance` INT NOT NULL	COMMENT '장소거리',
-	`estimated_time` VARCHAR NOT NULL COMMENT '예상소요시간',
-	`reservation_info` TEXT	NULL COMMENT '비행기, 숙박 등 예약정보(고민)',
-	`regDate` DATETIME NOT NULL,
-	`updateDate` DATETIME NOT NULL,
-	`checklistId` INT FOREIGN KEY NOT NULL COMMENT '체크리스트 table ???????'
+    `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    `planId` INT UNSIGNED NOT NULL,
+    `regionId` INT NOT NULL,
+    `location_address` CHAR(100) NOT NULL,
+    `description` TEXT NOT NULL,
+    `distance` INT NOT NULL COMMENT '장소 거리',
+    `estimated_time` VARCHAR(50) NOT NULL COMMENT '예상 소요 시간',
+    `reservation_info` TEXT NULL COMMENT '비행기, 숙박 등 예약 정보',
+    `regDate` DATETIME NOT NULL,
+    `updateDate` DATETIME NOT NULL,
+    `checklistId` INT NOT NULL,
 );
 
 
 #체크리스트 테이블 생성
 CREATE TABLE `checkList` (
-	`id` UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	`memberId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`planId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	 `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`memberId` INT UNSIGNED NOT NULL,
+	`planId` INT UNSIGNED NOT NULL,
 	`checklistItems` CHAR(100) NOT NULL,
 	`isChecked` BOOLEAN NULL COMMENT '체크여부(0: 미체크, 1: 체크됨)'
 );
 
 #여행지추천 테이블 생성
 CREATE TABLE `recommendedDestination` (
-	`id` UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	`travelRecommendChecklistId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`travelRecommendChecklistId` INT UNSIGNED NOT NULL,
 	`recommendationRegion`	CHAR(100) NOT NULL,
 	`recommendationRegionId` INT NOT NULL,
 	`regionInfo` TEXT NOT NULL COMMENT '지역에 관한 정보',
@@ -99,8 +99,8 @@ CREATE TABLE `recommendedDestination` (
 
 #여행추천체크리스트 테이블 생성
 CREATE TABLE `travelRecommendChecklist` (
-	`id` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`memberId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT	NOT NULL,
+	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`memberId` INT UNSIGNED NOT NULL,
 	`TravelItemNumber` INT	NOT NULL COMMENT '항목별 번호',
 	`isChecked` BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'true = 체크, false= 미체크',
 	`companion` INT	NOT NULL COMMENT '1 = 혼자, 2 = 연인, 3 = 친구, 4 = 가족',
@@ -112,7 +112,7 @@ CREATE TABLE `travelRecommendChecklist` (
 
 #날씨 테이블 생성
 CREATE TABLE `weather` (
-	`id` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`regDate` DATETIME NOT NULL,
 	`updateDate` DATETIME NOT NULL,
 	`date` DATE NOT NULL COMMENT '현재날짜',
@@ -124,9 +124,9 @@ CREATE TABLE `weather` (
 );
 #스타일링정보 테이블 생성
 CREATE TABLE `stylingInfo` (
-	`id` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`weatherId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
-	`stylingChecklistid` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`weatherId` INT UNSIGNED NOT NULL,
+	`stylingChecklistid` INT UNSIGNED NOT NULL,
 	`regDate` DATETIME NOT NULL,
 	`updateDate` DATETIME NOT NULL,
 	`productName` CHAR(100)	NOT NULL COMMENT '상품이름',
@@ -139,8 +139,8 @@ CREATE TABLE `stylingInfo` (
 
 #스타일링체크리스트 테이블 생성
 CREATE TABLE `stylingChecklist` (
-	`id` INT primarykey UNSIGNED AUTO_INCREMENT NOT NULL,
-	`memberId` INT PRIMARY KEY UNSIGNED AUTO_INCREMENT NOT NULL,
+	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`memberId` INT UNSIGNED NOT NULL,
 	`StylingItemNumber` INT NOT NULL COMMENT '항목별 번호',
 	`isChecked` BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'true = 체크, false = 미체크',
 	`gender` INT NOT NULL COMMENT '1 = 남자, 2 = 여자',
