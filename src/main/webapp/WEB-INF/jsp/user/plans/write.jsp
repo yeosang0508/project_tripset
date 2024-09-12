@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="../common/head.jspf"%>
 
@@ -126,7 +126,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-	font-size: 12px;
+	font-size: 15px;
 }
 
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
@@ -145,6 +145,7 @@ body {
 	top: 0;
 	left: 0;
 	bottom: 0;
+	rightn: 0;
 	width: 250px;
 	margin: 10px 0 30px 10px;
 	padding: 5px;
@@ -311,8 +312,8 @@ body {
 
 </head>
 <body>
-<%@ include file="../popups/loginPopup.jspf" %>
-<%@ include file="../popups/signUpPopup.jspf" %>
+	<%@ include file="../popups/loginPopup.jspf"%>
+	<%@ include file="../popups/signUpPopup.jspf"%>
 
 	<div id="container">
 		<!-- Map Container -->
@@ -321,33 +322,35 @@ body {
 		</div>
 
 		<!-- Sidebar -->
-		<ul id="sidebar">
+		<ul id="sidebar" class="flex items-center justify-center">
 			<li class="date-picker">
 				<h3>날짜를 선택해주세요</h3>
 				<input type="text" class="duration" value="" />
 			</li>
-
-			<li>
-				<div id="menu-wrap" class="bg-white">
-					<div class="option">
-						<div>
+			<li >
+				<div class="map_wrap">
+					<div id="menu_wrap" class="bg_white">
+						<div class="option">
 							<form onsubmit="searchPlaces(); return false;">
 								<input type="text" id="keyword" placeholder="목적지를 입력해주세요" />
 								<button type="submit">검색하기</button>
 							</form>
 						</div>
+						<hr>
+						<ul id="placesList"></ul>
+						<div id="pagination"></div>
 					</div>
-					<hr>
-					<ul id="placesList"></ul>
-					<div id="pagination"></div>
 				</div>
 			</li>
 		</ul>
+</div>
 
 
 		<!-- Date Range Picker 설정 -->
 		<script type="text/javascript">
 			$(function() {
+				var today = moment().format('YYYY/MM/DD'); // 현재 날짜를 YYYY/MM/DD 형식으로 설정
+				
 				$('.duration').daterangepicker(
 						{
 							"locale" : {
@@ -365,8 +368,8 @@ body {
 										"6월", "7월", "8월", "9월", "10월", "11월",
 										"12월" ]
 							},
-							"startDate" : "2024/09/09",
-							"endDate" : "2024/10/10",
+							"startDate" : today,
+							"endDate" : today,
 							"opens" : "center"
 						},
 						function(start, end, label) {
