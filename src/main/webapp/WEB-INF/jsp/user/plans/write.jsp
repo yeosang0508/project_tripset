@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="../common/head.jspf"%>
 
@@ -323,12 +324,10 @@ body {
 		<ul id="sidebar">
 			<li class="date-picker">
 				<h3>날짜를 선택해주세요</h3>
-				<input class="carlendar-group">
 				<input type="text" class="duration" value="" />
 			</li>
 
 			<li>
-
 				<div id="menu-wrap" class="bg-white">
 					<div class="option">
 						<div>

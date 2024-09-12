@@ -114,7 +114,6 @@
 	});
 	// 회원가입 제출 폼
 	function JoinForm__submit(form) {
-		// 이름, 닉네임, 이메일, 전화번호 유효성 검사
 		form.name.value = form.name.value.trim();
 		if (form.name.value.length === 0) {
 			alert('이름을 입력해주세요');
@@ -135,7 +134,6 @@
 			alert('전화번호를 입력해주세요');
 			return;
 		}
-		// 모든 검증을 통과하면 폼 제출
 		form.submit();
 	}
 
@@ -165,6 +163,23 @@
 	// 디바운스: 입력한 아이디를 일정 시간 후에 중복 확인 (600ms)
 	const checkLoginIdDupDebounced = _.debounce(checkLoginIdDup, 600);
 </script>
+
+
+<!-- 실시간 비밀번호 확인 -->
+<script>
+	function loginPwCheck() {
+		if ($('#loginPw').val() == $('#loginPwConfirm').val()) {
+			$('#loginPwChk').text('비밀번호 일치').css('color', 'green')
+
+		} else if ($('#loginPw').val() == ''
+				|| $('#loginPwConfirm').val() == '') {
+			$('#loginPwChk').text('비밀번호를 입력해주세요.').css('color', 'red')
+
+		} else {
+			$('#loginPwChk').text('비밀번호 불일치').css('color', 'red')
+		}
+	}
+</script>
 </head>
 <body>
 	<!-- 회원가입 팝업 -->
@@ -184,14 +199,14 @@
 				<div class=" text-red-500 text-xs w-full mb-4"></div>
 
 				<label class="block text-left font-bold text-lg w-full mb-1">비밀번호</label>
-				<input type="password" id="loginPw" name="loginPw" class="input-field w-full h-[40px] px-4 border rounded-md mb-2" autocomplete="off"
-					placeholder="비밀번호 입력해주세요(문자, 숫자, 특수문자 포함(8~20자)" />
+				<input type="password" id="loginPw" name="loginPw" class="input-field w-full h-[40px] px-4 border rounded-md mb-2" oninput="loginPwCheck()"
+					autocomplete="off" placeholder="비밀번호 입력해주세요(문자, 숫자, 특수문자 포함(8~20자)" />
 				<div class="text-red-500 text-xs w-full mb-4">20자 이내 비밀번호를 입력해주세요.</div>
 
 				<label class="block text-left font-bold text-lg w-full mb-1">비밀번호 확인</label>
 				<input type="password" id="loginPwConfirm" name="loginPwConfirm" class="input-field w-full h-[40px] px-4 border rounded-md mb-2"
-					autocomplete="off" placeholder="비밀번호를 다시 입력해주세요" />
-				<div class="text-red-500 text-xs w-full mb-4">비밀번호가 일치하지 않습니다.</div>
+					oninput="loginPwCheck()" autocomplete="off" placeholder="비밀번호를 다시 입력해주세요" />
+				<div id="loginPwChk" class="text-red-500 text-xs w-full mb-4"></div>
 				<div class="flex justify-end w-full gap-2">
 					<button type="button" id="next-step" class="popup-login-button next-button text-black font-semibold rounded-md">다음</button>
 				</div>
