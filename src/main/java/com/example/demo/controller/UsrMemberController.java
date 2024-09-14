@@ -103,19 +103,21 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/getLoginIdDup")
 	@ResponseBody
-	public ResultData getLoginIdDup(String loginId) {
+	public int getLoginIdDup(String loginId) {
 
 		if (Ut.isEmpty(loginId)) {
-			return ResultData.from("F-1", "아이디를 입력해주세요");
+			ResultData.from("F-1", "아이디를 입력해주세요");
+			return -1;
 		}
 
 		Member existsMember = memberService.getMemberByLoginId(loginId);
 
 		if (existsMember != null) {
-			return ResultData.from("F-2", "해당 아이디는 이미 사용중이야", "loginId", loginId);
+			ResultData.from("F-2", "해당 아이디는 이미 사용중이야", "loginId", loginId);
+			return -2;
 		}
-
-		return ResultData.from("S-1", "사용 가능!", "loginId", loginId);
+		ResultData.from("S-1", "사용 가능!", "loginId", loginId);
+		return 1;
 	}
 
 }
