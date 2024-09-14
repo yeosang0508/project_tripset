@@ -13,13 +13,13 @@ public class TravelPlansService {
 	@Autowired
 	private TravelPlansRepository travelPlansRepository;
 
-	public TravelPlans giveDateValue(int loginedMemberId, String loginId, String startDate, String endDate) {
+	public TravelPlans writeTravelPlan(int loginedMemberId, String loginId, String startDate, String endDate) {
 		System.err.println(loginedMemberId);
 		System.err.println(loginId);
 		System.err.println(startDate);
 		System.err.println(endDate);
 		
-		return travelPlansRepository.giveDateValue(loginedMemberId, loginId, startDate, endDate);
+		return travelPlansRepository.writeTravelPlan(loginedMemberId, loginId, startDate, endDate);
 	}
 
 

@@ -34,9 +34,9 @@ public class UsrPlansController {
 
 
 	
-	@RequestMapping("/usr/plans/giveDateValue")
+	@RequestMapping("/usr/plans/doWriteTravelPlan")
 	@ResponseBody
-	public String giveDateValue(HttpServletRequest req, String startDate, String endDate) {
+	public String doWriteTravelPlan(HttpServletRequest req, String startDate, String endDate) {
 
 		Rq rq = (Rq) req.getAttribute("rq");
 		
@@ -51,13 +51,8 @@ public class UsrPlansController {
 		Member loginedMember = rq.getLoginedMember();	
 		String loginId = loginedMember.getLoginId();
 	
-		System.err.println(loginedMemberId);
-		System.err.println(loginedMember.getLoginId());
-		System.err.println(startDate);
-		System.err.println(endDate);
-		
-		System.err.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf");
-		TravelPlans giveDateValue = travelPlansService.giveDateValue(loginedMemberId,loginId, startDate, endDate);
+	
+		travelPlansService.writeTravelPlan(loginedMemberId,loginId, startDate, endDate);
 		
 		
 		

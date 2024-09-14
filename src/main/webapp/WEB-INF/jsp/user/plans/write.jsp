@@ -392,7 +392,7 @@ body {
 						// AJAX 요청
 						$.ajax({
 							type : 'POST',
-							url : '../plans/giveDateValue',
+							url : '../plans/doWriteTravelPlan',
 							data : {
 								startDate : startDate,
 								endDate : endDate
