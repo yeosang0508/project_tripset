@@ -49,77 +49,52 @@ body {
 	align-items: center;
 }
 
-.date-picker {
-	margin-bottom: 20px;
-}
-
-.location-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	overflow-y: auto;
-	max-height: calc(100vh - 150px);
-}
-
-.location-list li {
-	padding: 15px 10px;
-	margin: 5px 0;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	cursor: pointer;
+.container-layout {
 	display: flex;
-	align-items: flex-start;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px;
+}
+
+.map-container-layout {
+	flex: 2;
 	position: relative;
 }
 
-/* 좌측 아이콘과 점선 스타일 */
-.location-list li::before {
-	content: '●';
-	position: absolute;
-	left: 10px;
-	top: 20px;
-	font-size: 12px;
-	color: #333;
+.sidebar-layout {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
-.location-list li::after {
-	content: '';
-	position: absolute;
-	left: 16px;
-	top: 35px;
-	bottom: 0;
-	width: 2px;
-	background-color: #333;
+.date-picker {
+	padding: 10px;
+	background-color: #f9f9f9;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	height: 50px;
 }
 
-/* 상세 정보 텍스트와 아이콘 간격 설정 */
-.location-details {
-	margin-left: 40px;
+.date-picker input {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 14px;
 }
 
-.location-name {
+#daterange {
+	width: 100%;
+	max-width: 300px;
+	height: 40px;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: #f9f9f9;
 	font-weight: bold;
-	margin-bottom: 5px;
-}
-
-.location-info {
-	font-size: 12px;
-	color: #888;
-}
-
-.save-button {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	padding: 10px 20px;
-	cursor: pointer;
-	margin-top: auto;
-	align-self: flex-end;
-}
-
-.save-button:hover {
-	background-color: #0056b3;
+	text-align: center;
 }
 
 .map_wrap, .map_wrap * {
@@ -135,36 +110,27 @@ body {
 }
 
 .map_wrap {
-	position: relative;
-	width: 100%;
-	height: 500px;
+	flex-grow: 1;
 }
 
 #menu_wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	rightn: 0;
-	width: 250px;
-	margin: 10px 0 30px 10px;
-	padding: 5px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
-	z-index: 1;
-	font-size: 12px;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
+	height: 40px;
 }
 
 .bg_white {
 	background: #fff;
 }
 
+#placesList {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
 #menu_wrap hr {
 	display: block;
-	height: 1px;
 	border: 0;
-	border-top: 2px solid #5F5F5F;
 	margin: 3px 0;
 }
 
@@ -178,6 +144,50 @@ body {
 
 #menu_wrap .option button {
 	margin-left: 5px;
+}
+
+/* 검색창 스타일 */
+.search-box {
+	display: flex;
+	align-items: center;
+	height: 40px;
+	width: 100%;
+	max-width: 600px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-txt {
+	flex-grow: 1;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	padding: 10px;
+	height: 40px;
+	background-color: #f9f9f9;
+	border-radius: 10px 0 0 10px;
+}
+
+.search-btn {
+	background-color: #58aaff;
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 0 10px 10px 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+}
+
+.search-btn i {
+	font-size: 2em;
+}
+
+.search-btn:hover {
+	background-color: #007bff;
 }
 
 #placesList li {
@@ -308,6 +318,7 @@ body {
 	cursor: default;
 	color: #777;
 }
+
 </style>
 
 </head>
@@ -315,34 +326,39 @@ body {
 	<%@ include file="../popups/loginPopup.jspf"%>
 	<%@ include file="../popups/signUpPopup.jspf"%>
 
-	<div id="container">
+	<div id="container" class="container-layout">
 		<!-- Map Container -->
-		<div id="map-container">
+		<div id="map-container" class="map-container-layout">
 			<div id="map"></div>
 		</div>
 
 		<!-- Sidebar -->
-		<ul id="sidebar" class="flex items-center justify-center">
-			<li class="date-picker">
-				<h3>날짜를 선택해주세요</h3>
-				<input type="text" name="date" id="daterange" />
-			</li>
-			<li>
-				<div class="map_wrap">
-					<div id="menu_wrap" class="bg_white">
-						<div class="option">
-							<form onsubmit="searchPlaces(); return false;">
-								<input type="text" id="keyword" placeholder="목적지를 입력해주세요" />
-								<button type="submit">검색하기</button>
-							</form>
-						</div>
-						<hr>
-						<ul id="placesList"></ul>
-						<div id="pagination"></div>
+		<div id="sidebar" class="sidebar-layout">
+			<!-- Date Picker -->
+			<div class="date-picker">
+				<input type="text" name="date" id="daterange" placeholder="날짜를 선택해주세요" />
+			</div>
+
+			<!-- Map Search and Options -->
+			<div class="map_wrap">
+				<div id="menu_wrap" class="bg_white">
+					<div class="option">
+						<form onsubmit="searchPlaces(); return false;" class="search-box">
+							<input type="text" id="keyword" class="search-txt" placeholder="목적지를 입력해주세요" />
+							<button type="submit" class="search-btn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path
+										d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+</svg>
+
+							</button>
+						</form>
 					</div>
+					<hr>
+					<ul id="placesList"></ul>
 				</div>
-			</li>
-		</ul>
+			</div>
+		</div>
 	</div>
 
 
@@ -351,7 +367,7 @@ body {
 		$(function() {
 			let today = moment().format('YYYY/MM/DD'); // 현재 날짜를 YYYY/MM/DD 형식으로 설정
 			// daterangepicker 초기화
-			
+
 			$('input[name="date"]')
 					.daterangepicker(
 							{
@@ -370,8 +386,8 @@ body {
 											"5월", "6월", "7월", "8월", "9월",
 											"10월", "11월", "12월" ]
 								},
-								"startDate" : today, 
-								"endDate" : today, 
+								"startDate" : today,
+								"endDate" : today,
 								"opens" : "center"
 							},
 							function(start, end, label) {
@@ -380,15 +396,13 @@ body {
 										+ end.format('YYYY/MM/DD')
 										+ ' (predefined range: ' + label + ')');
 							});
-			
-			
-			
+
 			// 날짜가 선택된 후에 발생하는 이벤트 핸들러
 			$('input[name="date"]').on('apply.daterangepicker',
 					function(ev, picker) {
 						let startDate = picker.startDate.format('YYYY/MM/DD');
 						let endDate = picker.endDate.format('YYYY/MM/DD');
-										
+
 						// AJAX 요청
 						$.ajax({
 							type : 'POST',
@@ -396,7 +410,7 @@ body {
 							data : {
 								startDate : startDate,
 								endDate : endDate
-							}, 
+							},
 							success : function(data) {
 								alert(data);
 							}

@@ -21,7 +21,7 @@ CREATE TABLE `member` (
 );
 
 
-##회원 테스트 데이터 생성
+##회원 테이블 테스트 데이터 생성
 ##(관리자)
 INSERT INTO `member`
 SET regDate = NOW(),
@@ -40,10 +40,10 @@ INSERT INTO `member` (
     `regDate`, `updateDate`, `loginId`, `loginPw`, `authLevel`, 
     `name`, `nickname`, `cellphoneNum`, `email`, `delStatus`, `delDate`
 ) VALUES
-('2023-01-01 12:00:00', '2023-01-01 12:00:00', 'user1', 'password1', 3, '김민준', '민준', '010-1234-5678', 'user1@example.com', 0, NULL),
-('2023-01-03 18:00:00', '2023-01-03 18:00:00', 'user2', 'password2', 3, '이서윤', '서윤', '010-2233-4455', 'user2@example.com', 0, NULL),
-('2023-01-04 20:00:00', '2023-01-04 20:00:00', 'user3', 'password3', 3, '박지호', '지호', '010-3344-5566', 'user3@example.com', 1, '2023-01-05 14:00:00'),
-('2023-01-05 10:00:00', '2023-01-05 10:00:00', 'user4', 'password4', 3, '정하린', '하린', '010-4455-6677', 'user4@example.com', 0, NULL);
+('2023-01-01 12:00:00', '2023-01-01 12:00:00', 'user123', 'password1', 3, '김민준', '민준', '010-1234-5678', 'user1@example.com', 0, NULL),
+('2023-01-03 18:00:00', '2023-01-03 18:00:00', 'user234', 'password2', 3, '이서윤', '서윤', '010-2233-4455', 'user2@example.com', 0, NULL),
+('2023-01-04 20:00:00', '2023-01-04 20:00:00', 'user345', 'password3', 3, '박지호', '지호', '010-3344-5566', 'user3@example.com', 1, '2023-01-05 14:00:00'),
+('2023-01-05 10:00:00', '2023-01-05 10:00:00', 'user456', 'password4', 3, '정하린', '하린', '010-4455-6677', 'user4@example.com', 0, NULL);
 
 
 #여행일정관리 테이블 생성
@@ -61,6 +61,20 @@ CREATE TABLE `TravelPlans` (
 	`delStatus` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부(0 = 삭제 안함, 1 = 삭제됨)',
 	`delDate` DATETIME NULL	COMMENT '삭제날짜'
 );
+
+# 여행일정관리 테이블 테스트 데이터 생성
+INSERT INTO `TravelPlans` (
+    `memberId`, `loginId`, `startDate`, `endDate`, `regDate`, `updateDate`, 
+    `destinationId`, `destinationName`, `status`, `delStatus`, `delDate`
+) VALUES
+(1, 'user123', '2023-09-01', '2023-09-10', NOW(), NOW(), 1, '서울', 0, 0, NULL),
+(2, 'user234', '2023-09-15', '2023-09-20', NOW(), NOW(), 2, '부산', 2, 0, NULL),
+(3, 'user345', '2023-07-01', '2023-07-10', NOW(), NOW(), 3, '제주도', 0, 0, NULL),
+(4, 'user456', '2023-12-01', '2023-12-05', NOW(), NOW(), 4, '강릉', 2, 0, NULL),
+(1, 'user123', '2023-10-01', '2023-10-05', NOW(), NOW(), 5, '경주', 1, 0, NULL),
+(2, 'user234', '2023-11-10', '2023-11-15', NOW(), NOW(), 6, '인천', 2, 0, NULL),
+(3, 'user345', '2023-01-05', '2023-01-10', NOW(), NOW(), 7, '대구', 0, 1, '2023-01-16 12:00:00'),
+(4, 'user456', '2024-01-01', '2024-01-10', NOW(), NOW(), 8, '광주', 2, 0, NULL);
 
 #일정상세항목관리 테이블 생성
 CREATE TABLE `scheduleDetailsArticle` (
@@ -257,4 +271,11 @@ SELECT * FROM `member`;
 
 SELECT * 
 FROM `member`
-WHERE loginId = 'user1'
+WHERE loginId = 'user1';
+
+
+SELECT * FROM `TravelPlans`;
+
+
+###################################
+
