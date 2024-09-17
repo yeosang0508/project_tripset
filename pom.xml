@@ -121,6 +121,13 @@
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
 
+		<!--chatgpt-->
+		<dependency>
+			<groupId>io.github.flashvayne</groupId>
+			<artifactId>chatgpt-spring-boot-starter</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
