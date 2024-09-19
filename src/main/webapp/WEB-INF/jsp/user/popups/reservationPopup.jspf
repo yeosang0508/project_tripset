@@ -39,7 +39,7 @@
 	<!-- 예약사이트 팝업창 -->
 
 	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
-	<div class="reservation-popup fixed inset-0 flex items-center justify-center hidden z-50">
+	<div class="reservation-popup fixed w-[1200px] inset-0 flex items-center justify-center hidden z-50">
 		<div class="w-[1200px] h-[900px] p-8 bg-white rounded-lg shadow-lg relative overflow-y-auto">
 			<div class="flex justify-between items-start">
 				<div class="text-black text-left font-bold text-2xl">예약사이트</div>

@@ -2,37 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../common/head.jspf"%>
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		document.querySelector('.nav-login-button').addEventListener(
-				'click',
-				function() {
-					document.querySelector('.login-popup').classList
-							.remove('hidden');
-					document.querySelector('.popup-bg').classList
-							.remove('hidden');
-				});
-
-		document.querySelector('.login-popup .close-popup')
-				.addEventListener(
-						'click',
-						function() {
-							document.querySelector('.login-popup').classList
-									.add('hidden');
-							document.querySelector('.popup-bg').classList
-									.add('hidden');
-						});
-
-	
-		document.querySelectorAll('.popup-container').forEach(
-				function(container) {
-					container.addEventListener('click', function(event) {
-						event.stopPropagation();
-					});
-				});
-
-	});
-</script>
 
 <style>
 html, body {
@@ -313,10 +282,11 @@ html, body {
 </head>
 <body>
 
-<%@ include file="../popups/reservationPopup.jspf" %>
-<%@ include file="../popups/loginPopup.jspf" %>
-<%@ include file="../popups/signUpPopup.jspf" %>
-
+	<%@ include file="../popups/reservationPopup.jspf"%>
+	<%@ include file="../popups/loginPopup.jspf"%>
+	<%@ include file="../popups/signUpPopup.jspf"%>
+	<%@ include file="../popups/travelRecommendChecklist.jspf"%>
+	
 	<!-- 주요기능 -->
 
 	<div class="contents">
@@ -358,7 +328,9 @@ html, body {
 			</div>
 			<div class="div11">
 				<div class="image">
-					<img class="frame-3849" src="/resource/images/customtravel.png" />
+					<button class="nav-travelRecommend-button">
+						<img class="frame-3849" src="/resource/images/customtravel.png" />
+					</button>
 				</div>
 				<div class="info">
 					<div class="div12">맞춤형 여행 추천 서비스</div>

@@ -21,7 +21,6 @@
 									.add('hidden');
 						});
 
-	
 		document.querySelectorAll('.popup-container').forEach(
 				function(container) {
 					container.addEventListener('click', function(event) {
@@ -47,14 +46,11 @@
 					<form class="input-container mb-4" action="../member/doLogin" method="POST" name="login">
 
 						<label class="block text-left font-medium text-base mb-1">ID:</label>
-						<input type="text" name="loginId" class="input-field w-full h-[47px] px-4 border rounded-md mb-6"
-							placeholder="아이디를 입력해주세요." />
-					
+						<input type="text" name="loginId" class="input-field w-full h-[47px] px-4 border rounded-md mb-6" placeholder="아이디를 입력해주세요." />
+
 						<label class="block text-left font-medium text-base mb-1">Password:</label>
-						<input type="password" name="loginPw" class="input-field w-full h-[47px] px-4 border rounded-md mb-6"
-							placeholder="비밀번호를 입력해주세요." />
-						<button class="popup-login-button w-full h-[47px] bg-[#4D9FFF] text-white font-semibold rounded-md mt-4">
-							로그인</button>
+						<input type="password" name="loginPw" class="input-field w-full h-[47px] px-4 border rounded-md mb-6" placeholder="비밀번호를 입력해주세요." />
+						<button class="popup-login-button w-full h-[47px] bg-[#4D9FFF] text-white font-semibold rounded-md mt-4">로그인</button>
 					</form>
 					<button class="nav-signup-button signup-message mt-4 text-left text-gray-500 text-sm">회원가입이 필요한가요?</button>
 				</div>
