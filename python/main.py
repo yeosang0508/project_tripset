@@ -39,7 +39,7 @@ def TextMassageMaker():
             {"role": "user", "content": f"선호하는 일정은 {time}"},
             {"role": "user", "content": f"여행 스타일은 {style}"},
             {"role": "user", "content": f"선호하는 지역은 {region}"},
-            {"role": "user", "content": "위의 정보를 참고하고, 네이버에 검색했을 때 가장 조회수가 많은 장소로 추천해주고, 장소의 자세한 주소만 6개 제안하고, 장소 이름:, 도로명 주소: 형식으로 보내"}
+            {"role": "user", "content": "위의 정보를 참고하고, 네이버에 검색했을 때 가장 조회수가 많은 장소로 추천해주고, 장소의 자세한 주소만 10개 제안하고, '장소 이름:' 으로 장소 이름만 보내"}
         ],
         temperature=0.7,
         max_tokens=1000
@@ -66,10 +66,6 @@ def parse_text_to_json(text):
                 locations.append(location)
             location_name = line.replace("장소 이름:", "").strip()
             location = {"name": location_name}  # 새로운 location 객체 생성
-        elif "도로명 주소:" in line:
-            address = line.replace("도로명 주소:","").strip()
-            if location is not None:  # location이 초기화된 경우에만 추가
-                location["address"] = address
         else:
             continue
 
