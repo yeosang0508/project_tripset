@@ -1,5 +1,10 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,22 +24,16 @@ public class UsrRecommendedController {
     public UsrRecommendedController(RecommendedService recommendedService) {
         this.recommendedService = recommendedService;
     }
-
-    // 질문 입력 페이지를 렌더링하는 메서드
-    @GetMapping("/question")
-    public String showQuestionForm() {
-        return "user/recommended/question";  
-    }
-
+    
     // 질문을 받아 Flask 서버에 보내는 메서드
     @GetMapping("/ask")
-    public String askQuestion(@RequestParam("question") String question, Model model) {
-        // 질문을 Flask 서버로 전달하고 응답을 받음
-        String response = recommendedService.sendQuestionToFlask(question);
+    public String askQuestion(@RequestParam Map<String, String> params, Model model) {
+        // Flask 서버로 질문을 전달하고 응답을 받음
+        List<Map<String, String>> response = recommendedService.sendQuestionToFlask(params);
 
+        // JSP로 데이터 전달
         model.addAttribute("response", response);
-
-        return "user/recommended/answer";
+        return "user/recommended/travelAnswer"; 
     }
 }
 
