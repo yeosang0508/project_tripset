@@ -10,10 +10,15 @@
 <!-- Include Kakao Maps -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=Apikey&libraries=services"></script>
 
+<script>
+// 앞의 숫자와 점 제거
+	function removeLeadingNumber(name){
+		  return name.replace(/^\d+\.\s*/, '');
+	}
+</script>
 
 </head>
 <body>
-
 
 	<div class="absolute left-1/4" style="top: 130px">
 		<c:choose>
@@ -21,19 +26,25 @@
 				<p>추천 결과가 없습니다.</p>
 			</c:when>
 			<c:otherwise>
-				<c:forEach var="location" items="${response}">
-					<p>
-						<a href="#" onclick="handleAddressClick('${location.name}')"> ${location.name}</a>
-						<br>
-					</p>
-				</c:forEach>
+				<ul class="steps steps-vertical">
+					<c:forEach var="location" items="${response}">
+						<li class="step">
+
+							<a href="#" onclick="handleAddressClick('${location.name.replaceFirst('^\\d+\\.\\s*', '')}')"> ${location.name.replaceFirst('^\\d+\\.\\s*', '')}
+							</a>
+
+							<br>
+
+						</li>
+					</c:forEach>
+				</ul>
 			</c:otherwise>
 		</c:choose>
+	</div>
 
+	<div id="map" style="width: 700px; height: 400px; top: 130px" class="absolute left-2/4"></div>
 
-		<div id="map" style="width: 700px; height: 400px;" class="absolute left-2/4"></div>
-
-		<script>
+	<script>
 			// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 			var infowindow = new kakao.maps.InfoWindow({
 				zIndex : 1
@@ -107,4 +118,4 @@
 								});
 			}
 		</script>
-		<%@ include file="../common/foot.jspf"%>
+	<%@ include file="../common/foot.jspf"%>
