@@ -17,5 +17,11 @@ public class UsrHomeController {
 
 		return "redirect:/usr/home/main";
 	}
+	
+	@RequestMapping("/usr/recommended/travelAnswer")
+	public String show() {
+
+		return "/user/recommended/travelAnswer";
+	}
 
 }

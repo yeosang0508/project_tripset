@@ -4,24 +4,105 @@
 
 <%@ include file="../common/head.jspf"%>
 
+<%@ include file="../popups/loginPopup.jspf"%>
+<%@ include file="../popups/signUpPopup.jspf"%>
+
+<!-- Include Kakao Maps -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=apikey&libraries=services"></script>
+
+
 </head>
 <body>
-<h2>여행 추천 결과</h2>
-<div>
-    <c:choose>
-        <c:when test="${empty response}">
-            <p>추천 결과가 없습니다.</p>
-        </c:when>
-        <c:otherwise>
-            <c:forEach var="location" items="${response}">
-                <p>
-                    <strong>장소 이름:</strong> ${location.name} <br>
-                    <strong>주소:</strong> ${location.address} <br>
-                   
-                </p>
-            </c:forEach>
-        </c:otherwise>
-    </c:choose>
-</div>
-	
+
+
+	<div class="absolute left-1/4" style="top: 130px">
+		<%-- 	<c:choose>
+			<c:when test="${empty response}">
+				<p>추천 결과가 없습니다.</p>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="location" items="${response}">
+					<p> --%>
+
+		<%-- ${location.name} --%>
+		해운대해수욕장
+		<br>
+
+		<a href="#" onclick="handleAddressClick('부산광역시 해운대구 해운대해변로 264번길')"> 부산광역시 해운대구 해운대해변로 264번길</a>
+		<%-- <a href="#" class="text-blue-500 hover:text-blue-700 underline" onclick="handleAddressClick('${location.address}')"> ${location.address} </a> --%>
+
+		<br>
+		<%-- 
+					</p>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose> --%>
+	</div>
+
+
+	<div id="map" style="width: 700px; height: 400px;" class="absolute left-2/4"></div>
+
+	<script>
+		function handleAddressClick(address) {
+			alert("선택한 주소: " + address);
+		}
+
+		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+		var infowindow = new kakao.maps.InfoWindow({
+			zIndex : 1
+		});
+
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(36.332326, 127.434211), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 장소 검색 객체를 생성합니다
+		var ps = new kakao.maps.services.Places();
+
+		// 키워드로 장소를 검색합니다
+		ps.keywordSearch('이태원 맛집', placesSearchCB);
+
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB(data, status, pagination) {
+			if (status === kakao.maps.services.Status.OK) {
+
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+				// LatLngBounds 객체에 좌표를 추가합니다
+				var bounds = new kakao.maps.LatLngBounds();
+
+				for (var i = 0; i < data.length; i++) {
+					displayMarker(data[i]);
+					bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+				}
+
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+				map.setBounds(bounds);
+			}
+		}
+
+		// 지도에 마커를 표시하는 함수입니다
+		function displayMarker(place) {
+
+			// 마커를 생성하고 지도에 표시합니다
+			var marker = new kakao.maps.Marker({
+				map : map,
+				position : new kakao.maps.LatLng(place.y, place.x)
+			});
+
+			// 마커에 클릭이벤트를 등록합니다
+			kakao.maps.event.addListener(marker, 'click', function() {
+				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+				infowindow
+						.setContent('<div style="padding:5px;font-size:12px;">'
+								+ place.place_name + '</div>');
+				infowindow.open(map, marker);
+			});
+		}
+	</script>
 	<%@ include file="../common/foot.jspf"%>
