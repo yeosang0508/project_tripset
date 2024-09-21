@@ -33,6 +33,7 @@ public class UsrRecommendedController {
 
 		String region = params.get("region");
 		String style = params.get("style");
+		
 
 		// JSP로 데이터 전달
 		model.addAttribute("response", response);

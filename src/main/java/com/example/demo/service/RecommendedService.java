@@ -44,7 +44,6 @@ public class RecommendedService {
         // Flask 서버에 POST 요청 보내기
         ResponseEntity<String> response = restTemplate.postForEntity(url, requestData, String.class);
 
-        System.err.println("응답 데이터: " + response.getBody());
         
         // Flask 서버에서 받은 응답 처리
         if (response.getStatusCode() == HttpStatus.OK) {
