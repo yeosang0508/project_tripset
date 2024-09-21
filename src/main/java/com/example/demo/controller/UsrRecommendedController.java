@@ -18,24 +18,27 @@ import com.example.demo.service.RecommendedService;
 @RequestMapping("/usr/recommended")
 public class UsrRecommendedController {
 
-    private final RecommendedService recommendedService;
+	private final RecommendedService recommendedService;
 
-    @Autowired
-    public UsrRecommendedController(RecommendedService recommendedService) {
-        this.recommendedService = recommendedService;
-    }
-    
-    // 질문을 받아 Flask 서버에 보내는 메서드
-    @GetMapping("/ask")
-    public String askQuestion(@RequestParam Map<String, String> params, Model model) {
-        // Flask 서버로 질문을 전달하고 응답을 받음
-        List<Map<String, String>> response = recommendedService.sendQuestionToFlask(params);
+	@Autowired
+	public UsrRecommendedController(RecommendedService recommendedService) {
+		this.recommendedService = recommendedService;
+	}
 
-        // JSP로 데이터 전달
-        model.addAttribute("response", response);
-        return "user/recommended/travelAnswer"; 
-    }
+	// 질문을 받아 Flask 서버에 보내는 메서드
+	@GetMapping("/ask")
+	public String askQuestion(@RequestParam Map<String, String> params, Model model) {
+		// Flask 서버로 질문을 전달하고 응답을 받음
+		List<Map<String, String>> response = recommendedService.sendQuestionToFlask(params);
+
+		String region = params.get("region");
+		String style = params.get("style");
+
+		// JSP로 데이터 전달
+		model.addAttribute("response", response);
+		model.addAttribute("region", region);
+		model.addAttribute("style", style);
+		
+		return "user/recommended/travelAnswer";
+	}
 }
-
-
-
