@@ -418,7 +418,6 @@ ul.numbered li:before {
 					const selectedRegion = regionSelect.value;
 					if (selectedRegion) {
 						localStorage.setItem('selectedRegion', selectedRegion);
-						alert('선택된 지역: ' + selectedRegion);
 						document.querySelector('.region-popup').classList
 								.add('hidden');
 						document.querySelector('.popup-bg').classList
@@ -484,6 +483,9 @@ ul.numbered li:before {
 		</div>
 	</div>
 
+	<div class="flex justify-center mt-6">
+		<button id="saveButton" class="w-32 h-10 bg-blue-500 text-white font-bold rounded-lg">저장</button>
+	</div>
 	<!-- Date Range Picker 설정 -->
 	<script type="text/javascript">
 		$(function() {
@@ -509,16 +511,20 @@ ul.numbered li:before {
 						},
 						startDate : currentDate,
 						endDate : currentDate
-					}, function(start, end) {
+					},
+					function(start, end) {
 						startDate = start;
 						endDate = end;
 						currentDate = startDate.clone(); // 선택된 범위의 첫날을 현재 날짜로 설정
 						updateDateDisplay(); // 현재 날짜를 필드에 업데이트
-						
+
 						// localStorage에 startDate와 endDate를 저장
-						localStorage.setItem('startDate', startDate.format('YYYY/MM/DD'));
-						localStorage.setItem('endDate', endDate.format('YYYY/MM/DD'));
-						console.log('Start Date:', startDate.format('YYYY/MM/DD'));
+						localStorage.setItem('startDate', startDate
+								.format('YYYY/MM/DD'));
+						localStorage.setItem('endDate', endDate
+								.format('YYYY/MM/DD'));
+						console.log('Start Date:', startDate
+								.format('YYYY/MM/DD'));
 						console.log('End Date:', endDate.format('YYYY/MM/DD'));
 					});
 
@@ -607,16 +613,16 @@ ul.numbered li:before {
 			}
 		}
 
-		function hidePlacesList(){
+		function hidePlacesList() {
 			var placesListEl = document.getElementById('placesList');
 			placesListEl.style.display = 'none';
 		}
-		
-		function showPlacesList(){
+
+		function showPlacesList() {
 			var placesListEl = document.getElementById('placesList');
 			placesListEl.style.display = 'block';
 		}
-		
+
 		// 검색 결과 목록과 마커를 표출하는 함수입니다
 		function displayPlaces(places) {
 			var listEl = document.getElementById('placesList'), menuEl = document
@@ -674,7 +680,7 @@ ul.numbered li:before {
 
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 			map.setBounds(bounds);
-			
+
 			showPlacesList(); // 검색 결과 목록 표시
 		}
 
@@ -686,11 +692,11 @@ ul.numbered li:before {
 				const li = document.createElement('li');
 				li.textContent = destination;
 				listEl.appendChild(li);
-				
+
 				// 목적지를 localstorage에 저장
-				localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
-				
-			
+				localStorage
+						.setItem('savedPlaces', JSON.stringify(savedPlaces));
+
 				console.log(localStorage.getItem('savedPlaces'));
 			} else {
 				alert('이미 추가된 목적지입니다.');
@@ -812,7 +818,46 @@ ul.numbered li:before {
 			}
 		}
 	</script>
+	<script>
+		document.getElementById('saveButton').addEventListener(
+				'click',
+				function() {
+					// localStorage에 저장된 값 가져오기
+					const savedPlaces = JSON.parse(localStorage
+							.getItem('savedPlaces'))
+							|| [];
+					const startDate = localStorage.getItem('startDate');
+					const endDate = localStorage.getItem('endDate');
+					const selectedRegion = localStorage
+							.getItem('selectedRegion');
 
+					// 저장할 데이터를 하나의 객체로 구성
+					const dataToSend = {
+						places : savedPlaces,
+						startDate : startDate,
+						endDate : endDate,
+						region : selectedRegion
+					};
 
-
+					// 저장할 목적지 배열이 비어있는지 확인
+					if (savedPlaces.length > 0 && startDate && endDate
+							&& selectedRegion) {
+						$.ajax({
+							type : 'POST',
+							url : '/usr/plans/doWriteTravelPlan',
+							contentType : 'application/json',
+							data : JSON.stringify(dataToSend),
+							success : function(response) {
+								alert('목적지와 일정이 저장되었습니다.');
+							},
+							error : function(xhr, status, error) {
+								console.error('저장 중 오류 발생:', error);
+								alert('저장 중 오류가 발생했습니다.');
+							}
+						});
+					} else {
+						alert('저장할 목적지, 날짜 또는 지역 정보가 부족합니다.');
+					}
+				});
+	</script>
 </body>

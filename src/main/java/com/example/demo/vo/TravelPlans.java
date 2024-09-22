@@ -10,17 +10,15 @@ import lombok.NoArgsConstructor;
 public class TravelPlans {
 
 	private int id;
-	private String regDate;
-	private String updateDate;
+	private int memberId; 
 	private String loginId;
-	private String memberId;
-	private int startDate;
+	private String startDate;
 	private String endDate;
-	private String destinationId;
-	private String destinationName;
-	private String status;
+	private String regDate;
+	private String updateDate; 
+	private String region; 
+	private int status;
 	private boolean delStatus;
-	private String delDate;
-
+	private String delDate; 
 
 }
