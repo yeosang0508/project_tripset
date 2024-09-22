@@ -5,7 +5,6 @@
 <%@ include file="../popups/loginPopup.jspf"%>
 <%@ include file="../popups/signUpPopup.jspf"%>
 
-<hr />
 
 <section class="mt-24 text-xl px-4">
 	<div class="mx-auto">
@@ -45,11 +44,11 @@
 			<thead>
 				<tr>
 					<th style="text-align: center;">ID</th>
-					<th style="text-align: center;">Registration Date</th>
-					<th style="text-align: center;">Title</th>
-					<th style="text-align: center;">Writer</th>
-					<th style="text-align: center;">Like</th>
-					<th style="text-align: center;">Dislike</th>
+					<th style="text-align: center;">등록한 날짜</th>
+					<th style="text-align: center;">제목</th>
+					<th style="text-align: center;">작성자</th>
+					<th style="text-align: center;">지역</th>
+					<th style="text-align: center;">좋아요</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -66,7 +65,7 @@
 						</td>
 						<td style="text-align: center;">${article.extra__writer}</td>
 						<td style="text-align: center;">${article.goodReactionPoint}</td>
-						<td style="text-align: center;">${article.badReactionPoint}</td>
+						<td style="text-align: center;">${article.goodReactionPoint}</td>
 					</tr>
 				</c:forEach>
 
