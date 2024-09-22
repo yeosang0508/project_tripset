@@ -28,7 +28,7 @@ public class UsrPlansController {
 	@RequestMapping("/usr/plans/write")
 	public String showWrite(HttpServletRequest req,Model model) {
 		
-		return "/user/plans/write";
+		return "/user/plans/planWrite";
 
 	}
 

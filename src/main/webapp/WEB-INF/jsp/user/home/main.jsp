@@ -281,7 +281,6 @@ html, body {
 </style>
 </head>
 <body>
-
 	<%@ include file="../popups/reservationPopup.jspf"%>
 	<%@ include file="../popups/loginPopup.jspf"%>
 	<%@ include file="../popups/signUpPopup.jspf"%>
@@ -296,7 +295,7 @@ html, body {
 				<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
 			</div>
 			<div class="div8">
-				<a href="../plans/write">
+				<a href="../plans/write" class="write">
 					<div class="arrow">
 						<span></span>
 						<span></span>
