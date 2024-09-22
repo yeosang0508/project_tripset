@@ -514,6 +514,12 @@ ul.numbered li:before {
 						endDate = end;
 						currentDate = startDate.clone(); // 선택된 범위의 첫날을 현재 날짜로 설정
 						updateDateDisplay(); // 현재 날짜를 필드에 업데이트
+						
+						// localStorage에 startDate와 endDate를 저장
+						localStorage.setItem('startDate', startDate.format('YYYY/MM/DD'));
+						localStorage.setItem('endDate', endDate.format('YYYY/MM/DD'));
+						console.log('Start Date:', startDate.format('YYYY/MM/DD'));
+						console.log('End Date:', endDate.format('YYYY/MM/DD'));
 					});
 
 			// 이전 날짜로 이동
@@ -680,6 +686,12 @@ ul.numbered li:before {
 				const li = document.createElement('li');
 				li.textContent = destination;
 				listEl.appendChild(li);
+				
+				// 목적지를 localstorage에 저장
+				localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
+				
+			
+				console.log(localStorage.getItem('savedPlaces'));
 			} else {
 				alert('이미 추가된 목적지입니다.');
 			}
