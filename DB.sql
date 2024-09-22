@@ -4,6 +4,51 @@ DROP DATABASE IF EXISTS `project_tripset`;
 CREATE DATABASE `project_tripset`;
 USE `project_tripset`;
 
+# 게시글 테이블 생성
+CREATE TABLE article(
+      id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      regDate DATETIME NOT NULL,
+      updateDate DATETIME NOT NULL,
+      title CHAR(100) NOT NULL,
+      `body` TEXT NOT NULL
+);
+
+## 게시글 테스트 데이터 생성
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목1',
+`body` = '내용1';
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목2',
+`body` = '내용2';
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목3',
+`body` = '내용3';
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목4',
+`body` = '내용4';
+
+ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDate;
+
+UPDATE article
+SET memberId = 2
+WHERE id IN (1,2);
+
+UPDATE article
+SET memberId = 3
+WHERE id IN (3,4);
+
+
 #회원 테이블 생성
 CREATE TABLE `member` (
 	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -47,7 +92,7 @@ INSERT INTO `member` (
 
 
 #여행일정관리 테이블 생성
-CREATE TABLE `TravelPlans` (
+CREATE TABLE `travelPlans` (
 	 `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`memberId` INT UNSIGNED NOT NULL,
 	`loginId` VARCHAR(255) NOT NULL	COMMENT '로그인아이디',
@@ -55,26 +100,143 @@ CREATE TABLE `TravelPlans` (
 	`endDate` DATE NOT NULL	COMMENT '여행종료날짜(사용자 설정)',
 	`regDate` DATETIME NOT NULL,
 	`updateDate` DATETIME NOT NULL,
-	`destinationId` INT NOT NULL,
-	`destinationName` CHAR(20) NULL COMMENT '목적지 이름',
+	`region` CHAR(20) NOT NULL,
 	`status` INT NULL DEFAULT 2 COMMENT '0=종료, 1=현재, 2=예정',
 	`delStatus` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제여부(0 = 삭제 안함, 1 = 삭제됨)',
 	`delDate` DATETIME NULL	COMMENT '삭제날짜'
 );
 
+#여행일정 목적지 테이블 생성
+CREATE TABLE `travelPlanPlaces`(
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `travelPlanId` INT UNSIGNED,
+    `placeName` VARCHAR(255),
+    `regDate` DATETIME
+);
+
+
 # 여행일정관리 테이블 테스트 데이터 생성
-INSERT INTO `TravelPlans` (
-    `memberId`, `loginId`, `startDate`, `endDate`, `regDate`, `updateDate`, 
-    `destinationId`, `destinationName`, `status`, `delStatus`, `delDate`
-) VALUES
-(1, 'user123', '2023-09-01', '2023-09-10', NOW(), NOW(), 1, '서울', 0, 0, NULL),
-(2, 'user234', '2023-09-15', '2023-09-20', NOW(), NOW(), 2, '부산', 2, 0, NULL),
-(3, 'user345', '2023-07-01', '2023-07-10', NOW(), NOW(), 3, '제주도', 0, 0, NULL),
-(4, 'user456', '2023-12-01', '2023-12-05', NOW(), NOW(), 4, '강릉', 2, 0, NULL),
-(1, 'user123', '2023-10-01', '2023-10-05', NOW(), NOW(), 5, '경주', 1, 0, NULL),
-(2, 'user234', '2023-11-10', '2023-11-15', NOW(), NOW(), 6, '인천', 2, 0, NULL),
-(3, 'user345', '2023-01-05', '2023-01-10', NOW(), NOW(), 7, '대구', 0, 1, '2023-01-16 12:00:00'),
-(4, 'user456', '2024-01-01', '2024-01-10', NOW(), NOW(), 8, '광주', 2, 0, NULL);
+INSERT INTO `travelPlans` (`memberId`, `loginId`, `startDate`, `endDate`, `regDate`, `updateDate`, `region`, `status`, `delStatus`)
+VALUES 
+(1, 'user123', '2024-10-01', '2024-10-10', NOW(), NOW(), '서울', 2, 0),
+(2, 'user234', '2024-11-01', '2024-11-15', NOW(), NOW(), '부산', 2, 0),
+(3, 'user345', '2024-12-01', '2024-12-20', NOW(), NOW(), '제주', 2, 0),
+(4, 'user456', '2024-12-21', '2024-12-30', NOW(), NOW(), '대구', 2, 0);
+
+
+# 여행일정 목적지 테이블 테스트 데이터 생성
+INSERT INTO `travelPlanPlaces` (`travelPlanId`, `placeName`, `regDate`)
+VALUES 
+(1, '경복궁', NOW()),
+(1, '남산타워', NOW()),
+(2, '해운대', NOW()),
+(2, '광안리', NOW()),
+(3, '한라산', NOW()),
+(3, '섭지코지', NOW()),
+(4, '동성로', NOW()),
+(4, '팔공산', NOW());
+
+
+# 게시판(board) 테이블 생성
+CREATE TABLE board (
+      id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      regDate DATETIME NOT NULL,
+      updateDate DATETIME NOT NULL,
+      `code` CHAR(50) NOT NULL UNIQUE COMMENT 'notice(공지사항) free(자유) QnA(질의응답) ...',
+      `name` CHAR(20) NOT NULL UNIQUE COMMENT '게시판 이름',
+      delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제 여부 (0=삭제 전, 1=삭제 후)',
+      delDate DATETIME COMMENT '삭제 날짜'
+);
+
+## 게시판(board) 테스트 데이터 생성
+INSERT INTO board
+SET regDate = NOW(),
+updateDate = NOW(),
+`code` = 'NOTICE',
+`name` = '공지사항';
+
+INSERT INTO board
+SET regDate = NOW(),
+updateDate = NOW(),
+`code` = 'FREE',
+`name` = '자유';
+
+INSERT INTO board
+SET regDate = NOW(),
+updateDate = NOW(),
+`code` = 'QnA',
+`name` = '질의응답';
+
+ALTER TABLE article ADD COLUMN boardId INT(10) UNSIGNED NOT NULL AFTER `memberId`;
+
+UPDATE article
+SET boardId = 1
+WHERE id IN (1,2);
+
+UPDATE article
+SET boardId = 2
+WHERE id = 3;
+
+UPDATE article
+SET boardId = 3
+WHERE id = 4;
+
+ALTER TABLE article ADD COLUMN hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `body`;
+
+
+
+# reactionPoint 테이블 생성
+CREATE TABLE reactionPoint(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    regDate DATETIME NOT NULL,
+    updateDate DATETIME NOT NULL,
+    memberId INT(10) UNSIGNED NOT NULL,
+    relTypeCode CHAR(50) NOT NULL COMMENT '관련 데이터 타입 코드',
+    relId INT(10) NOT NULL COMMENT '관련 데이터 번호',
+    `point` INT(10) NOT NULL
+);
+
+# reactionPoint 테스트 데이터 생성
+
+# 1번 회원이 2번 글에 좋아요
+INSERT INTO reactionPoint
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 1,
+relTypeCode = 'article',
+relId = 2,
+`point` = 1;
+
+
+# 3번 회원이 1번 글에 좋아요
+INSERT INTO reactionPoint
+SET regDate = NOW(),
+updateDate = NOW(),
+memberId = 3,
+relTypeCode = 'article',
+relId = 1,
+`point` = 1;
+
+# article 테이블에 reactionPoint(좋아요) 관련 컬럼 추가
+ALTER TABLE article ADD COLUMN goodReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
+ALTER TABLE article ADD COLUMN badReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
+
+# update join -> 기존 게시글의 good bad RP 값을 RP 테이블에서 추출해서 article table에 채운다
+UPDATE article AS A
+INNER JOIN (
+    SELECT RP.relTypeCode, Rp.relId,
+    SUM(IF(RP.point > 0,RP.point,0)) AS goodReactionPoint,
+    SUM(IF(RP.point < 0,RP.point * -1,0)) AS badReactionPoint
+    FROM reactionPoint AS RP
+    GROUP BY RP.relTypeCode,Rp.relId
+) AS RP_SUM
+ON A.id = RP_SUM.relId
+SET A.goodReactionPoint = RP_SUM.goodReactionPoint,
+A.badReactionPoint = RP_SUM.badReactionPoint;
+
+
+#init 종료
+############################################################
 
 #일정상세항목관리 테이블 생성
 CREATE TABLE `scheduleDetailsArticle` (
@@ -101,55 +263,6 @@ CREATE TABLE `checkList` (
 	`isChecked` BOOLEAN NULL COMMENT '체크여부(0: 미체크, 1: 체크됨)'
 );
 
-#여행지추천 테이블 생성
-CREATE TABLE `recommendedDestination` (
-	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	`travelRecommendChecklistId` INT UNSIGNED NOT NULL,
-	`recommendationRegion`	CHAR(100) NOT NULL,
-	`recommendationRegionId` INT NOT NULL,
-	`regionInfo` TEXT NOT NULL COMMENT '지역에 관한 정보',
-	`regionImageUrl` CHAR NOT NULL COMMENT '지역 이미지 png'
-);
-
-#여행추천체크리스트 테이블 생성
-CREATE TABLE `travelRecommendChecklist` (
-	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	`memberId` INT UNSIGNED NOT NULL,
-	`TravelItemNumber` INT	NOT NULL COMMENT '항목별 번호',
-	`isChecked` BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'true = 체크, false= 미체크',
-	`companion` INT	NOT NULL COMMENT '1 = 혼자, 2 = 연인, 3 = 친구, 4 = 가족',
-	`recommendationRegionId`INT FOREIGN KEY	NOT NULL COMMENT '추천지역id',
-	`travelPeriod`	INT NOT NULL COMMENT '1 = 당일치기,  2 = 1박 2일, 3 = 2박 3일, 4 = 3박 4일',
-	`travelSchedule` INT NOT NULL COMMENT '1 = 1시간, 2 = 2시간, 3 = 널널',
-	`travelStyle` CHAR NOT NULL
-);
-
-#날씨 테이블 생성
-CREATE TABLE `weather` (
-	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	`regDate` DATETIME NOT NULL,
-	`updateDate` DATETIME NOT NULL,
-	`date` DATE NOT NULL COMMENT '현재날짜',
-	`temp`	INT NULL COMMENT '현재온도',
-	`feels_like` INT NOT NULL COMMENT '체감온도',
-	`nowWeatherId` INT NOT NULL COMMENT '현재날씨id',
-	`nowWeather` CHAR NOT NULL COMMENT '현재날씨',
-	`regionId` INT FOREIGN KEY	NOT NULL
-);
-#스타일링정보 테이블 생성
-CREATE TABLE `stylingInfo` (
-	`id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-	`weatherId` INT UNSIGNED NOT NULL,
-	`stylingChecklistid` INT UNSIGNED NOT NULL,
-	`regDate` DATETIME NOT NULL,
-	`updateDate` DATETIME NOT NULL,
-	`productName` CHAR(100)	NOT NULL COMMENT '상품이름',
-	`brand`	CHAR(50) NOT NULL COMMENT '상품브랜드',
-	`clothesImageUrl` CHAR	NOT NULL COMMENT '이미지url',
-	`regionId` INT foreginkey NOT NULL,
-	`clothesKind` CHAR NOT NULL COMMENT '상의, 하의, 신발, 모자, 악세사리',
-	`styleDescription` TEXT	NOT NULL COMMENT '스타일 설명'
-);
 
 #스타일링체크리스트 테이블 생성
 CREATE TABLE `stylingChecklist` (
@@ -161,121 +274,50 @@ CREATE TABLE `stylingChecklist` (
 	`age` INT NOT NULL COMMENT '1 = 10대, 2 = 20대, 3 = 30대 , 4 = 40대',
 	`clothesStyle` CHAR NOT NULL,
 	`activity` CHAR NOT NULL,
-	`stylingId` INT foreginkey NOT NULL,
-	`regionId` INT foreginkey NOT NULL
+	`stylingId` INT NOT NULL,
+	`regionId` INT NOT NULL
 );
 
-ALTER TABLE `TravelPlans` ADD CONSTRAINT `PK_TRAVELPLANS` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `scheduleDetailsArticle` ADD CONSTRAINT `PK_SCHEDULEDETAILSARTICLE` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `member` ADD CONSTRAINT `PK_MEMBER` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `checkList` ADD CONSTRAINT `PK_CHECKLIST` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `recommendedDestination` ADD CONSTRAINT `PK_RECOMMENDEDDESTINATION` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `travelRecommendChecklist` ADD CONSTRAINT `PK_TRAVELRECOMMENDCHECKLIST` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `weather` ADD CONSTRAINT `PK_WEATHER` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `stylingInfo` ADD CONSTRAINT `PK_STYLINGINFO` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `stylingChecklist` ADD CONSTRAINT `PK_STYLINGCHECKLIST` PRIMARY KEY (
-	`id`
-);
-
-ALTER TABLE `TravelPlans` ADD CONSTRAINT `FK_member_TO_TravelPlans_1` FOREIGN KEY (
-	`memberId`
-)
-REFERENCES `member` (
-	`id`
-);
-
-ALTER TABLE `scheduleDetailsArticle` ADD CONSTRAINT `FK_TravelPlans_TO_scheduleDetailsArticle_1` FOREIGN KEY (
-	`planId`
-)
-REFERENCES `TravelPlans` (
-	`id`
-);
-
-ALTER TABLE `checkList` ADD CONSTRAINT `FK_member_TO_checkList_1` FOREIGN KEY (
-	`memberId`
-)
-REFERENCES `member` (
-	`id`
-);
-
-ALTER TABLE `checkList` ADD CONSTRAINT `FK_TravelPlans_TO_checkList_1` FOREIGN KEY (
-	`planId`
-)
-REFERENCES `TravelPlans` (
-	`id`
-);
-
-ALTER TABLE `recommendedDestination` ADD CONSTRAINT `FK_travelRecommendChecklist_TO_recommendedDestination_1` FOREIGN KEY (
-	`travelRecommendChecklistId`
-)
-REFERENCES `travelRecommendChecklist` (
-	`id`
-);
-
-ALTER TABLE `travelRecommendChecklist` ADD CONSTRAINT `FK_member_TO_travelRecommendChecklist_1` FOREIGN KEY (
-	`memberId`
-)
-REFERENCES `member` (
-	`id`
-);
-
-ALTER TABLE `stylingInfo` ADD CONSTRAINT `FK_weather_TO_stylingInfo_1` FOREIGN KEY (
-	`weatherId`
-)
-REFERENCES `weather` (
-	`id`
-);
-
-ALTER TABLE `stylingInfo` ADD CONSTRAINT `FK_stylingChecklist_TO_stylingInfo_1` FOREIGN KEY (
-	`stylingChecklistid`
-)
-REFERENCES `stylingChecklist` (
-	`id`
-);
-
-ALTER TABLE `stylingChecklist` ADD CONSTRAINT `FK_member_TO_stylingChecklist_1` FOREIGN KEY (
-	`memberId`
-)
-REFERENCES `member` (
-	`id`
-);
 
 
 ##(INIT 끝)
 ###########################################
 SELECT * FROM `member`;
 
-SELECT * 
-FROM `member`
-WHERE loginId = 'user1';
-
-
 SELECT * FROM `TravelPlans`;
 
+SELECT *
+FROM article
+ORDER BY id DESC;
 
-###################################
+SELECT * FROM board;
 
+
+SELECT * FROM `reactionPoint`;
+
+SELECT * FROM `travelPlanPlaces`;
+
+###################################333
+
+SELECT R.*, M.nickname AS extra__writer
+			FROM reply AS R
+			INNER JOIN `member` AS M
+			ON R.memberId = M.id
+			WHERE relTypeCode = 'article'
+			AND relId = 2
+			ORDER BY R.id ASC;
+
+SELECT IFNULL(SUM(RP.point),0)
+FROM reactionPoint AS RP
+WHERE RP.relTypeCode = 'article'
+AND RP.relId = 3
+AND RP.memberId = 2
+
+
+## 게시글 테스트 데이터 대량 생성
+INSERT INTO article
+(
+    regDate, updateDate, memberId, boardId, title, `body`
+)
+SELECT NOW(), NOW(), FLOOR(RAND() * 2) + 2, FLOOR(RAND() * 3) + 1, CONCAT('제목__', RAND()), CONCAT('내용__', RAND())
+FROM article;
