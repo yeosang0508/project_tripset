@@ -129,7 +129,7 @@ html, body {
 	position: relative;
 }
 
-.frame-3849 {
+.button, .frame-3849 {
 	background: linear-gradient(to left, #d9d9d9, #d9d9d9);
 	border-radius: 10px;
 	flex: 1;
@@ -286,7 +286,7 @@ html, body {
 	<%@ include file="../popups/loginPopup.jspf"%>
 	<%@ include file="../popups/signUpPopup.jspf"%>
 	<%@ include file="../popups/travelRecommendChecklist.jspf"%>
-	
+
 	<!-- 주요기능 -->
 
 	<div class="contents">
@@ -338,15 +338,19 @@ html, body {
 				</div>
 			</div>
 			<div class="div11">
+			
 				<div class="image">
-					<img class="frame-3849" src="/resource/images/model.png" />
+					<a href="/usr/article/list" class="button">
+						<img class="frame-3849" src="/resource/images/article.png" />
+					</a>	
 				</div>
+				
 				<div class="info">
-					<div class="div12">날씨 기반 옷 스타일링 추천</div>
+					<div class="div12">여행 계획 모아보기</div>
 					<div class="div13">
-						오늘 날씨에 맞는 스타일링을 추천받으세요!
+						다양한 사람들이 공유한 여행 계획을 확인해보세요!
 						<br />
-						현재 위치의 날씨와 계절에 따라 적절한 옷차림을 제안합니다.
+						다른 사람들의 경험을 참고하여 더욱 알찬 여행을 준비해보세요.
 					</div>
 				</div>
 			</div>
