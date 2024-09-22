@@ -146,6 +146,11 @@ body {
 #placesList {
 	max-height: 400px;
 	overflow-y: auto;
+	position: absolute;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+	z-index: 2;
 }
 
 #menu_wrap hr {
@@ -208,11 +213,6 @@ body {
 
 .search-btn:hover {
 	background-color: #007bff;
-}
-
-#placesList {
-	background-color: #f9f9f9;
-	z-index: 10;
 }
 
 #placesList li {
@@ -601,6 +601,16 @@ ul.numbered li:before {
 			}
 		}
 
+		function hidePlacesList(){
+			var placesListEl = document.getElementById('placesList');
+			placesListEl.style.display = 'none';
+		}
+		
+		function showPlacesList(){
+			var placesListEl = document.getElementById('placesList');
+			placesListEl.style.display = 'block';
+		}
+		
 		// 검색 결과 목록과 마커를 표출하는 함수입니다
 		function displayPlaces(places) {
 			var listEl = document.getElementById('placesList'), menuEl = document
@@ -645,6 +655,7 @@ ul.numbered li:before {
 					// 리스트 항목을 클릭하면 선택한 장소로 이동 및 리스트에 추가
 					itemEl.onclick = function() {
 						addDestination(place.place_name); // numbered-list에 장소 추가
+						hidePlacesList(); //클릭하면 placesList 숨기기
 					};
 				})(marker, places[i].place_name, places[i]);
 
@@ -657,6 +668,8 @@ ul.numbered li:before {
 
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 			map.setBounds(bounds);
+			
+			showPlacesList(); // 검색 결과 목록 표시
 		}
 
 		// 목적지를 numbered-list에 추가하는 함수
