@@ -63,11 +63,9 @@ select {
 	<div class="region-popup fixed inset-0 flex items-center justify-center z-50">
 		<div class="popup-container w-72 h-60 p-8 bg-white rounded-lg shadow-lg relative">
 			<div class="popup-body mt-10">
-				<h2 class="text-center font-bold text-2xl">어디로 가나요?</h2>
-
-				<form class="input-container" action="../member/doLogin" method="POST" name="login">
-					<div class="selectbox mt-2">
-                        <select name="region" id="region">
+				<h2 class="text-center font-bold text-2xl">어디로 가나요?</h2>	
+					<div class="selectbox mt-2 w-56">
+                        <select name="region" id="region-select">
                             <option value="none" selected>지역을 선택해주세요</option>
                             <option value="서울">서울</option>
                             <option value="부산">부산</option>
@@ -88,8 +86,7 @@ select {
                             <option value="제주">제주</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg mt-4 float-right">확인</button>
-                </form>
+                    <button type="submit" id="region-confirm-btn" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg mt-4 float-right">확인</button>
 			</div>
 		</div>
 	</div>

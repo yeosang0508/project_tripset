@@ -408,6 +408,26 @@ ul.numbered li:before {
 }
 </style>
 
+<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const regionSelect = document.getElementById('region-select');
+		const regionConfirmBtn = document.getElementById('region-confirm-btn');
+		
+		regionConfirmBtn.addEventListener('click', function(){
+			const selectedRegion = regionSelect.value;
+			if(selectedRegion){
+				localStorage.setItem('selectedRegion', selectedRegion);
+				alert('선택된 지역: ' + selectedRegion);
+				document.querySelector('.region-popup').classList.add('hidden');
+				document.querySelector('.popup-bg').classList.add('hidden');
+			} else {
+				alert('지역을 선택해주세요!');
+			}
+			
+		});
+	});
+</script>
+
 </head>
 <body>
 	<%@ include file="../popups/loginPopup.jspf"%>
@@ -449,21 +469,14 @@ ul.numbered li:before {
                             </svg>
 							</button>
 						</form>
-
 					</div>
 					<hr>
 					<ul id="placesList"></ul>
-
-
 				</div>
 				<div>
 					<ul class="numbered" id="numbered-list"></ul>
 				</div>
-
-
 			</div>
-
-
 		</div>
 	</div>
 
@@ -546,7 +559,7 @@ ul.numbered li:before {
 
 		// 키워드로 장소를 검색합니다
 		function searchPlaces() {
-			var keyword = document.getElementById('keyword').value;
+			let keyword = document.getElementById('keyword').value;
 
 			if (keyword.trim() === "") {
 				alert("검색어를 입력하세요.");
