@@ -6,7 +6,7 @@
 <%@ include file="../popups/regionalSelectionPopup.jspf"%>
 
 <!-- Include Kakao Maps -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ApiKey&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
 
 <!-- Include jQuery for datepicker -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -409,22 +409,26 @@ ul.numbered li:before {
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function(){
+	document.addEventListener('DOMContentLoaded', function() {
 		const regionSelect = document.getElementById('region-select');
 		const regionConfirmBtn = document.getElementById('region-confirm-btn');
-		
-		regionConfirmBtn.addEventListener('click', function(){
-			const selectedRegion = regionSelect.value;
-			if(selectedRegion){
-				localStorage.setItem('selectedRegion', selectedRegion);
-				alert('선택된 지역: ' + selectedRegion);
-				document.querySelector('.region-popup').classList.add('hidden');
-				document.querySelector('.popup-bg').classList.add('hidden');
-			} else {
-				alert('지역을 선택해주세요!');
-			}
-			
-		});
+
+		regionConfirmBtn.addEventListener('click',
+				function() {
+					const selectedRegion = regionSelect.value;
+					if (selectedRegion) {
+						localStorage.setItem('selectedRegion', selectedRegion);
+						alert('선택된 지역: ' + selectedRegion);
+						document.querySelector('.region-popup').classList
+								.add('hidden');
+						document.querySelector('.popup-bg').classList
+								.add('hidden');
+					} else {
+						alert('지역을 선택해주세요!');
+					}
+
+					console.log(selectedRegion);
+				});
 	});
 </script>
 
@@ -515,20 +519,20 @@ ul.numbered li:before {
 			// 이전 날짜로 이동
 			$('#prevDay').on('click', function() {
 				if (currentDate.isAfter(startDate)) { // 시작 날짜보다 크면 이전 날짜로 이동 가능
-					currentDate = currentDate.subtract(1, 'days'); 
-					updateDateDisplay(); 
+					currentDate = currentDate.subtract(1, 'days');
+					updateDateDisplay();
 				} else {
-					alert("이전 날짜로 이동할 수 없습니다."); 
+					alert("이전 날짜로 이동할 수 없습니다.");
 				}
 			});
 
 			// 다음 날짜로 이동
 			$('#nextDay').on('click', function() {
 				if (currentDate.isSameOrBefore(endDate)) { // 종료 날짜보다 같거나 작을 때만 이동 가능
-					updateDateDisplay(); 
-					currentDate = currentDate.add(1, 'days'); 
+					updateDateDisplay();
+					currentDate = currentDate.add(1, 'days');
 				} else {
-					alert("다음 날짜로 이동할 수 없습니다."); 
+					alert("다음 날짜로 이동할 수 없습니다.");
 				}
 			});
 		});
@@ -557,15 +561,19 @@ ul.numbered li:before {
 			zIndex : 1
 		});
 
-		// 키워드로 장소를 검색합니다
+		// 장소 선택 시 저장된 지역을 기반으로 키워드 검색
 		function searchPlaces() {
+			const savedRegion = localStorage.getItem('selectedRegion');
 			let keyword = document.getElementById('keyword').value;
+
+			if (savedRegion && keyword) {
+				keyword = savedRegion + ' ' + keyword;
+			}
 
 			if (keyword.trim() === "") {
 				alert("검색어를 입력하세요.");
 				return;
 			}
-
 			// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
 			ps.keywordSearch(keyword, placesSearchCB);
 
