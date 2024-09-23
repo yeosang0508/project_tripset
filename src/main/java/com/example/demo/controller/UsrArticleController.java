@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.example.demo.service.ArticleService;
-import com.example.demo.service.BoardService;
 import com.example.demo.service.ReactionPointService;
 import com.example.demo.util.Ut;
 import com.example.demo.vo.Article;
-import com.example.demo.vo.Board;
 import com.example.demo.vo.ResultData;
 import com.example.demo.vo.Rq;
 
@@ -31,8 +29,6 @@ public class UsrArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @Autowired
-    private BoardService boardService;
 
     @Autowired
     private ReactionPointService reactionPointService;
@@ -151,7 +147,7 @@ public class UsrArticleController {
             return Ut.jsHistoryBack("F-3", "게시판을 선택해주세요");
         }
 
-        ResultData writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body, boardId);
+        ResultData writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body);
         int id = (int) writeArticleRd.getData1();
 
         return Ut.jsReplace(writeArticleRd.getResultCode(), writeArticleRd.getMsg(), "../article/detail?id=" + id);
@@ -163,28 +159,21 @@ public class UsrArticleController {
             @RequestParam(defaultValue = "") String searchKeyword) throws IOException {
         Rq rq = (Rq) req.getAttribute("rq");
 
-        Board board = boardService.getBoardById(boardId);
 
-        if (board == null) {
-            return rq.historyBackOnView("없는 게시판입니다.");
-        }
-
-        int articlesCount = articleService.getArticlesCount(boardId, searchKeywordTypeCode, searchKeyword);
+        int articlesCount = articleService.getArticlesCount(searchKeywordTypeCode, searchKeyword);
         int itemsInAPage = 10;
         int pagesCount = (int) Math.ceil(articlesCount / (double) itemsInAPage);
 
-        List<Article> articles = articleService.getForPrintArticles(boardId, itemsInAPage, page, searchKeywordTypeCode,
+        List<Article> articles = articleService.getForPrintArticles(itemsInAPage, page, searchKeywordTypeCode,
                 searchKeyword);
 
         model.addAttribute("articles", articles);
         model.addAttribute("articlesCount", articlesCount);
         model.addAttribute("pagesCount", pagesCount);
-        model.addAttribute("board", board);
         model.addAttribute("page", page);
         model.addAttribute("searchKeywordTypeCode", searchKeywordTypeCode);
         model.addAttribute("searchKeyword", searchKeyword);
-        model.addAttribute("boardId", boardId);
-
+        
         return "user/article/list";
     }
 }

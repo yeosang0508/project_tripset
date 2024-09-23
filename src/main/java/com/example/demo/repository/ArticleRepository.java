@@ -18,11 +18,10 @@ public interface ArticleRepository {
             SET regDate = NOW(),
             updateDate = NOW(),
             memberId = #{memberId},
-            boardId = #{boardId},
             title = #{title},
             `body` = #{body}
             """)
-    public void writeArticle(int memberId, String title, String body, String boardId);
+    public void writeArticle(int memberId, String title, String body);
 
     @Delete("""
             DELETE FROM article
@@ -62,9 +61,6 @@ public interface ArticleRepository {
                 INNER JOIN `member` AS M
                 ON A.memberId = M.id
                 WHERE 1
-                <if test="boardId != 0">
-                    AND boardId = #{boardId}
-                </if>
                 <if test="searchKeyword != ''">
                     <choose>
                         <when test="searchKeywordTypeCode == 'title'">
@@ -89,7 +85,7 @@ public interface ArticleRepository {
                 </if>
             </script>
             """)
-    public List<Article> getForPrintArticles(int boardId, int limitFrom, int limitTake, String searchKeywordTypeCode,
+    public List<Article> getForPrintArticles(int limitFrom, int limitTake, String searchKeywordTypeCode,
                                              String searchKeyword);
 
     @Select("""
@@ -111,9 +107,6 @@ public interface ArticleRepository {
                 INNER JOIN `member` AS M
                 ON A.memberId = M.id
                 WHERE 1
-                <if test="boardId != 0">
-                    AND A.boardId = #{boardId}
-                </if>
                 <if test="searchKeyword != ''">
                     <choose>
                         <when test="searchKeywordTypeCode == 'title'">
@@ -134,7 +127,7 @@ public interface ArticleRepository {
                 ORDER BY A.id DESC
             </script>
             """)
-    public int getArticleCount(int boardId, String searchKeywordTypeCode, String searchKeyword);
+    public int getArticleCount(String searchKeywordTypeCode, String searchKeyword);
 
     @Select("""
             SELECT hitCount

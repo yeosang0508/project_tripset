@@ -33,11 +33,13 @@ body {
 #map-container {
 	flex: 2;
 	position: relative;
+	align-items: center;
 }
 
 #map {
-	width: 100%;
-	height: 100%;
+	width: 800px;
+	height: 600px;
+	
 }
 
 #sidebar {
@@ -550,7 +552,53 @@ ul.numbered li:before {
 		});
 	</script>
 
+<script>
 
+// numbered-list에 추가된 장소의 좌표를 저장할 배열
+var savedPlacesCoordinates = [];
+
+//목적지를 numbered-list에 추가하는 함수
+function addDestination(destination) {
+    if (!savedPlaces.includes(destination)) {
+        savedPlaces.push(destination);
+        const listEl = document.getElementById('numbered-list');
+        const li = document.createElement('li');
+        li.textContent = destination;
+        listEl.appendChild(li);
+
+        // 목적지를 localStorage에 저장
+        localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
+
+        // 검색어로 장소 검색 후 해당 위치의 좌표를 가져옴
+        ps.keywordSearch(destination, function(data, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                // 검색된 첫 번째 장소의 좌표를 가져와 마커를 표시
+                const placePosition = new kakao.maps.LatLng(data[0].y, data[0].x);
+                addMarker(placePosition, savedPlaces.length - 1);
+                map.setCenter(placePosition); // 지도의 중심을 해당 위치로 이동
+                savedPlacesCoordinates.push(placePosition);
+                
+                removeMarker(); // 기존 마커 제거
+                
+                //저장된 좌표들만 마커로 표시
+                savedPlacesCoordinates.forEach((position, index) => {
+                	addMarker(position, index);
+                });
+                
+                // 지도의 중심을 마지막 추가된 위치로 이동
+                map.setCenter(placePosition);
+            } else {
+                console.error('목적지의 좌표를 찾을 수 없습니다.');
+            }
+        });
+
+        console.log(localStorage.getItem('savedPlaces'));
+    } else {
+        alert('이미 추가된 목적지입니다.');
+    }
+}
+
+</script>
 
 	<!-- Kakao Map 설정 -->
 	<script>
@@ -684,25 +732,6 @@ ul.numbered li:before {
 			showPlacesList(); // 검색 결과 목록 표시
 		}
 
-		// 목적지를 numbered-list에 추가하는 함수
-		function addDestination(destination) {
-			if (!savedPlaces.includes(destination)) {
-				savedPlaces.push(destination);
-				const listEl = document.getElementById('numbered-list');
-				const li = document.createElement('li');
-				li.textContent = destination;
-				listEl.appendChild(li);
-
-				// 목적지를 localstorage에 저장
-				localStorage
-						.setItem('savedPlaces', JSON.stringify(savedPlaces));
-
-				console.log(localStorage.getItem('savedPlaces'));
-			} else {
-				alert('이미 추가된 목적지입니다.');
-			}
-		}
-
 		// 검색결과 목록을 숨기는 함수
 		function hidePlacesList() {
 			var placesListEl = document.getElementById('placesList');
@@ -739,6 +768,14 @@ ul.numbered li:before {
 			return el;
 		}
 
+		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+		function removeMarker() {
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].setMap(null);
+			}
+			markers = [];
+		}
+		
 		// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 		function addMarker(position, idx) {
 			var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', imageSize = new kakao.maps.Size(
@@ -758,13 +795,7 @@ ul.numbered li:before {
 			return marker;
 		}
 
-		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-		function removeMarker() {
-			for (var i = 0; i < markers.length; i++) {
-				markers[i].setMap(null);
-			}
-			markers = [];
-		}
+		
 
 		// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
 		function displayPagination(pagination) {

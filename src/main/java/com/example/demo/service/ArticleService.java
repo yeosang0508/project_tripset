@@ -20,8 +20,8 @@ public class ArticleService {
 		this.articleRepository = articleRepository;
 	}
 
-	public ResultData writeArticle(int memberId, String title, String body, String boardId) {
-		articleRepository.writeArticle(memberId, title, body, boardId);
+	public ResultData writeArticle(int memberId, String title, String body) {
+		articleRepository.writeArticle(memberId, title, body);
 
 		int id = articleRepository.getLastInsertId();
 
@@ -37,27 +37,19 @@ public class ArticleService {
 	}
 
 	public Article getForPrintArticle(int loginedMemberId, int id) {
-
 		Article article = articleRepository.getForPrintArticle(id);
-
 		controlForPrintData(loginedMemberId, article);
-
 		return article;
 	}
 
 	public Article getArticleById(int id) {
-
 		return articleRepository.getArticleById(id);
 	}
 
-	public List<Article> getForPrintArticles(int boardId, int itemsInAPage, int page, String searchKeywordTypeCode,
-			String searchKeyword) {
-
+	public List<Article> getForPrintArticles(int itemsInAPage, int page, String searchKeywordTypeCode, String searchKeyword) {
 		int limitFrom = (page - 1) * itemsInAPage;
 		int limitTake = itemsInAPage;
-
-		return articleRepository.getForPrintArticles(boardId, limitFrom, limitTake, searchKeywordTypeCode,
-				searchKeyword);
+		return articleRepository.getForPrintArticles(limitFrom, limitTake, searchKeywordTypeCode, searchKeyword);
 	}
 
 	public List<Article> getArticles() {
@@ -66,7 +58,6 @@ public class ArticleService {
 
 	public int getCurrentArticleId() {
 		return articleRepository.getCurrentArticleId();
-
 	}
 
 	private void controlForPrintData(int loginedMemberId, Article article) {
@@ -94,8 +85,8 @@ public class ArticleService {
 		return ResultData.from("S-1", Ut.f("%d번 게시글을 수정했습니다", article.getId()), "수정된 게시글", article);
 	}
 
-	public int getArticlesCount(int boardId, String searchKeywordTypeCode, String searchKeyword) {
-		return articleRepository.getArticleCount(boardId, searchKeywordTypeCode, searchKeyword);
+	public int getArticlesCount(String searchKeywordTypeCode, String searchKeyword) {
+		return articleRepository.getArticleCount(searchKeywordTypeCode, searchKeyword);
 	}
 
 	public ResultData increaseHitCount(int id) {
@@ -106,7 +97,6 @@ public class ArticleService {
 		}
 
 		return ResultData.from("S-1", "해당 게시글 조회수 증가", "id", id);
-
 	}
 
 	public ResultData increaseGoodReactionPoint(int relId) {
@@ -136,5 +126,4 @@ public class ArticleService {
 	public int getGoodRP(int relId) {
 		return articleRepository.getGoodRP(relId);
 	}
-
 }
