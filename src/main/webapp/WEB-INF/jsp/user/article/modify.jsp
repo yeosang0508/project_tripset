@@ -41,26 +41,26 @@
 						<td style="text-align: center;">${article.id}</td>
 					</tr>
 					<tr>
-						<th style="text-align: center;">Registration Date</th>
+						<th style="text-align: center;">작성날짜</th>
 						<td style="text-align: center;">${article.regDate.substring(0,10)}</td>
 					</tr>
 					<tr>
-						<th style="text-align: center;">Modified date</th>
+						<th style="text-align: center;">수정한 날짜</th>
 						<td style="text-align: center;">${article.updateDate}</td>
 					</tr>
 					<tr>
-						<th style="text-align: center;">Writer</th>
+						<th style="text-align: center;">작성자</th>
 						<td style="text-align: center;">${article.extra__writer}</td>
 					</tr>
 					<tr>
-						<th style="text-align: center;">Title</th>
+						<th style="text-align: center;">제목</th>
 						<td style="text-align: center;">
 							<input name="title" value="${article.title}" type="text" autocomplete="off" placeholder="새 제목을 입력해"
 								class="input input-bordered input-primary w-full max-w-xs input-sm " />
 						</td>
 					</tr>
 					<tr>
-						<th style="text-align: center;">Body</th>
+						<th style="text-align: center;">내용</th>
 						<td style="text-align: center;">
 							<div class="toast-ui-editor">
 								<script type="text/x-template">${article.body }

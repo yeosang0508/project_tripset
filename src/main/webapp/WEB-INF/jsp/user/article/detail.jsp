@@ -19,7 +19,6 @@
 	console.log(params.memberId);
 
 	var isAlreadyAddGoodRp = ${isAlreadyAddGoodRp};
-	var isAlreadyAddBadRp = ${isAlreadyAddBadRp};
 </script>
 
 <!-- 조회수 -->
@@ -48,13 +47,11 @@
 	})
 </script>
 
-<!-- 좋아요 싫어요  -->
+<!-- 좋아요 -->
 <script>
 	function checkRP() {
 		if (isAlreadyAddGoodRp) {
 			$('#likeButton').toggleClass('btn-outline');
-		} else if (isAlreadyAddBadRp) {
-			$('#DislikeButton').toggleClass('btn-outline');
 		}
 	}
 
@@ -80,11 +77,6 @@
 					$('#likeButton').toggleClass('btn-outline');
 					$('#likeCount').text(data.data1);
 					$('.likeCount').text(data.data1);
-					if (data.resultCode == 'S-2') {
-						$('#DislikeButton').toggleClass('btn-outline');
-						$('#DislikeCount').text(data.data2);
-						$('.DislikeCount').text(data.data2);
-					}
 				} else {
 					alert(data.msg);
 				}
@@ -95,41 +87,7 @@
 		});
 	}
 
-	function doBadReaction(articleId) {
-		if (isNaN(params.memberId)) {
-		    if (confirm('로그인 창을 여시겠습니까?')) {
-		        // 로그인 팝업을 열기 위한 클래스 제거
-		        document.querySelector('.login-popup').classList.remove('hidden');
-		        document.querySelector('.popup-bg').classList.remove('hidden');
-		    }
-		    return; 
-		}
-
-		$.ajax({
-			url: '/usr/reactionPoint/doBadReaction',
-			type: 'POST',
-			data: { relTypeCode: 'article', relId: articleId },
-			dataType: 'json',
-			success: function(data) {
-				console.log(data);
-				if (data.resultCode.startsWith('S-')) {
-					$('#DislikeButton').toggleClass('btn-outline');
-					$('#DislikeCount').text(data.data2);
-					$('.DislikeCount').text(data.data2);
-					if (data.resultCode == 'S-2') {
-						$('#likeButton').toggleClass('btn-outline');
-						$('#likeCount').text(data.data1);
-						$('.likeCount').text(data.data1);
-					}
-				} else {
-					alert(data.msg);
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				alert('싫어요 오류 발생: ' + textStatus);
-			}
-		});
-	}
+	
 
 	$(function() {
 		checkRP();
@@ -145,19 +103,15 @@
 					<td style="text-align: center;">${article.id}</td>
 				</tr>
 				<tr>
-					<th style="text-align: center;">Registration Date</th>
-					<td style="text-align: center;">${article.regDate.substring(0,10)}</td>
+					<th style="text-align: center;">지역</th>
+					<td style="text-align: center;">${article.region}</td>
 				</tr>
 				<tr>
-					<th style="text-align: center;">Modified date</th>
+					<th style="text-align: center;">작성날짜</th>
 					<td style="text-align: center;">${article.updateDate}</td>
 				</tr>
 				<tr>
-					<th style="text-align: center;">BoardId</th>
-					<td style="text-align: center;">${article.boardId}</td>
-				</tr>
-				<tr>
-					<th style="text-align: center;">Writer</th>
+					<th style="text-align: center;">작성자</th>
 					<td style="text-align: center;">${article.extra__writer}</td>
 				</tr>
 				<tr>
@@ -165,19 +119,11 @@
 					<td id="likeCount" style="text-align: center;">${article.goodReactionPoint}</td>
 				</tr>
 				<tr>
-					<th style="text-align: center;">Dislike</th>
-					<td id="DislikeCount" style="text-align: center;">${article.badReactionPoint}</td>
-				</tr>
-				<tr>
-					<th style="text-align: center;">LIKE / Dislike</th>
+					<th style="text-align: center;">LIKE</th>
 					<td style="text-align: center;">
 						<button id="likeButton" class="btn btn-outline btn-success" onclick="doGoodReaction(${param.id})">
 							👍 LIKE
 							<span class="likeCount">${article.goodReactionPoint}</span>
-						</button>
-						<button id="DislikeButton" class="btn btn-outline btn-error" onclick="doBadReaction(${param.id})">
-							👎 DISLIKE
-							<span class="DislikeCount">${article.badReactionPoint}</span>
 						</button>
 					</td>
 				</tr>
