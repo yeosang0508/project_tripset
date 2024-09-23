@@ -10,7 +10,8 @@ CREATE TABLE article(
       regDate DATETIME NOT NULL,
       updateDate DATETIME NOT NULL,
       title CHAR(100) NOT NULL,
-      `body` TEXT NOT NULL
+      `body` TEXT NOT NULL,
+      `region` CHAR(20) NOT NULL
 );
 
 ## 게시글 테스트 데이터 생성
@@ -18,25 +19,29 @@ INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 title = '제목1',
-`body` = '내용1';
+`body` = '내용1',
+region = '대전';
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 title = '제목2',
-`body` = '내용2';
+`body` = '내용2',
+region = '제주';
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 title = '제목3',
-`body` = '내용3';
+`body` = '내용3',
+region = '서울';
 
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
 title = '제목4',
-`body` = '내용4';
+`body` = '내용4',
+region = '포천';
 
 ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDate;
 
@@ -136,7 +141,6 @@ VALUES
 (4, '동성로', NOW()),
 (4, '팔공산', NOW());
 
-
 # 게시판(board) 테이블 생성
 CREATE TABLE board (
       id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -219,23 +223,20 @@ relId = 1,
 
 # article 테이블에 reactionPoint(좋아요) 관련 컬럼 추가
 ALTER TABLE article ADD COLUMN goodReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
-ALTER TABLE article ADD COLUMN badReactionPoint INT(10) UNSIGNED NOT NULL DEFAULT 0;
 
 # update join -> 기존 게시글의 good bad RP 값을 RP 테이블에서 추출해서 article table에 채운다
 UPDATE article AS A
 INNER JOIN (
     SELECT RP.relTypeCode, Rp.relId,
-    SUM(IF(RP.point > 0,RP.point,0)) AS goodReactionPoint,
-    SUM(IF(RP.point < 0,RP.point * -1,0)) AS badReactionPoint
+    SUM(IF(RP.point > 0,RP.point,0)) AS goodReactionPoint
     FROM reactionPoint AS RP
     GROUP BY RP.relTypeCode,Rp.relId
 ) AS RP_SUM
 ON A.id = RP_SUM.relId
-SET A.goodReactionPoint = RP_SUM.goodReactionPoint,
-A.badReactionPoint = RP_SUM.badReactionPoint;
+SET A.goodReactionPoint = RP_SUM.goodReactionPoint
 
 
-#init 종료
+##(INIT 끝)
 ############################################################
 
 #일정상세항목관리 테이블 생성
@@ -280,7 +281,6 @@ CREATE TABLE `stylingChecklist` (
 
 
 
-##(INIT 끝)
 ###########################################
 SELECT * FROM `member`;
 
@@ -315,9 +315,17 @@ AND RP.memberId = 2
 
 
 ## 게시글 테스트 데이터 대량 생성
-INSERT INTO article
-(
-    regDate, updateDate, memberId, boardId, title, `body`
+INSERT INTO article (
+    regDate, updateDate, memberId, boardId, title, `body`, region
 )
-SELECT NOW(), NOW(), FLOOR(RAND() * 2) + 2, FLOOR(RAND() * 3) + 1, CONCAT('제목__', RAND()), CONCAT('내용__', RAND())
-FROM article;
+SELECT 
+    NOW(), 
+    NOW(), 
+    FLOOR(RAND() * 4) + 1,
+    FLOOR(RAND() * 3) + 1, 
+    CONCAT('제목__', ROUND(RAND() * 100000)),
+    CONCAT('내용__', ROUND(RAND() * 100000)),
+    ELT(FLOOR(1 + (RAND() * 17)), '서울', '부산', '대구', '인천', '광주', '대전', '울산', '세종', '경기', '강원', '충북', '충남', '경북', '경남', '전북', '전남', '제주') -- 무작위 지역 선택
+FROM 
+    article 
+LIMIT 1000; 
