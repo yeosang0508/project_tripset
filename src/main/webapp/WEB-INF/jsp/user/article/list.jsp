@@ -24,7 +24,7 @@
 						<option value="title">title</option>
 						<option value="body">body</option>
 						<option value="title,body">title+body</option>
-						<option value="writer">writer</option>
+						<option value="region">region</option>
 					</select> <label class="ml-3 input input-bordered input-sm flex items-center gap-2"> <input type="text"
 						placeholder="Search" name="searchKeyword" value="${param.searchKeyword }" />
 						<button type="submit">
@@ -64,7 +64,7 @@
 							</a>
 						</td>
 						<td style="text-align: center;">${article.extra__writer}</td>
-						<td style="text-align: center;">${article.goodReactionPoint}</td>
+						<td style="text-align: center;">${article.region}</td>
 						<td style="text-align: center;">${article.goodReactionPoint}</td>
 					</tr>
 				</c:forEach>

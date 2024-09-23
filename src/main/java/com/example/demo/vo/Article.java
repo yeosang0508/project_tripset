@@ -17,8 +17,9 @@ public class Article {
 	private String title;
 	private String body;
 	private int hitCount;
+	private String region;
 	private int goodReactionPoint;
-	private int badReactionPoint;
+
 
 	private String extra__writer;
 

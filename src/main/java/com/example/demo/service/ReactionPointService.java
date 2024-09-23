@@ -52,21 +52,6 @@ public class ReactionPointService {
 		return ResultData.from("S-1", "좋아요!");
 	}
 
-	public ResultData addBadReactionPoint(int loginedMemberId, String relTypeCode, int relId) {
-		int affectedRow = reactionPointRepository.addBadReactionPoint(loginedMemberId, relTypeCode, relId);
-
-		if (affectedRow != 1) {
-			return ResultData.from("F-1", "싫어요 실패");
-		}
-
-		switch (relTypeCode) {
-		case "article":
-			articleService.increaseBadReactionPoint(relId);
-			break;
-		}
-
-		return ResultData.from("S-1", "싫어요!");
-	}
 
 	public ResultData deleteGoodReactionPoint(int loginedMemberId, String relTypeCode, int relId) {
 		reactionPointRepository.deleteReactionPoint(loginedMemberId, relTypeCode, relId);
@@ -80,17 +65,6 @@ public class ReactionPointService {
 
 	}
 
-	public ResultData deleteBadReactionPoint(int loginedMemberId, String relTypeCode, int relId) {
-		reactionPointRepository.deleteReactionPoint(loginedMemberId, relTypeCode, relId);
-
-		switch (relTypeCode) {
-		case "article":
-			articleService.decreaseBadReactionPoint(relId);
-			break;
-		}
-		return ResultData.from("S-1", "싫어요 취소 됨");
-	}
-
 	public boolean isAlreadyAddGoodRp(int memberId, int relId, String relTypeCode) {
 		int getPointTypeCodeByMemberId = reactionPointRepository.getSumReactionPoint(memberId, relTypeCode, relId);
 
@@ -101,14 +75,6 @@ public class ReactionPointService {
 		return false;
 	}
 
-	public boolean isAlreadyAddBadRp(int memberId, int relId, String relTypeCode) {
-		int getPointTypeCodeByMemberId = reactionPointRepository.getSumReactionPoint(memberId, relTypeCode, relId);
 
-		if (getPointTypeCodeByMemberId < 0) {
-			return true;
-		}
-
-		return false;
-	}
 
 }

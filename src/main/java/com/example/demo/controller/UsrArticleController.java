@@ -52,8 +52,6 @@ public class UsrArticleController {
         model.addAttribute("article", article);
         model.addAttribute("isAlreadyAddGoodRp",
                 reactionPointService.isAlreadyAddGoodRp(rq.getLoginedMemberId(), id, "article"));
-        model.addAttribute("isAlreadyAddBadRp",
-                reactionPointService.isAlreadyAddBadRp(rq.getLoginedMemberId(), id, "article"));
 
         return "user/article/detail";
     }
