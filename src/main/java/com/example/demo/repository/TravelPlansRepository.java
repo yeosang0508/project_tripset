@@ -41,8 +41,6 @@ public interface TravelPlansRepository {
     		WHERE memberId = #{loginedMemberId}
     		AND delStatus = 0
     		ORDER BY startDate DESC
-    		LIMIT 3
     		""")
 	List<TravelPlans> getRecentPlans(int loginedMemberId);
- // 로그인한 회원 최근 일정 3개 가져오기
 }

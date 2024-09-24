@@ -63,14 +63,12 @@ public class UsrPlansController {
 	}
 
 	@RequestMapping("/usr/plans/getUserTravelPlan")
-	public String getUserTravelPlan(Model model,  HttpServletRequest req) {
+	@ResponseBody
+	public List<TravelPlans> getUserTravelPlan(HttpServletRequest req) {
 		Rq rq = (Rq) req.getAttribute("rq");
 		
 		int loginedMemberId = rq.getLoginedMemberId();
 		
-		List<TravelPlans> plans = travelPlansService.getRecentPlans(loginedMemberId);
-		model.addAttribute("plans", plans);
-		
-		return "user/popups/CheckMySchedulePopup";
+		return travelPlansService.getRecentPlans(loginedMemberId);
 	}
 }
