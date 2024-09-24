@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.TravelPlansRepository;
+import com.example.demo.vo.TravelPlans;
 
 
 @Service
@@ -31,6 +32,12 @@ public class TravelPlansService {
 	        // travelPlanPlaces 테이블에 장소 목록을 삽입
 	        travelPlansRepository.insertTravelPlanPlaces(travelPlanId, places);
 	}
+
+	    // 로그인한 회원 일정 가져오기
+		public List<TravelPlans> getRecentPlans(int loginedMemberId) {
+			
+			return travelPlansRepository.getRecentPlans(loginedMemberId);
+		}
 
 		
 }

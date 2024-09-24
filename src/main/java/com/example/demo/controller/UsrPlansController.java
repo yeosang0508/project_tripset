@@ -14,6 +14,7 @@ import com.example.demo.service.TravelPlansService;
 import com.example.demo.util.Ut;
 import com.example.demo.vo.Member;
 import com.example.demo.vo.Rq;
+import com.example.demo.vo.TravelPlans;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -61,4 +62,15 @@ public class UsrPlansController {
 		return Ut.jsReplace("저장되었습니다.", "/usr/plans/list");
 	}
 
+	@RequestMapping("/usr/plans/getUserTravelPlan")
+	public String getUserTravelPlan(Model model,  HttpServletRequest req) {
+		Rq rq = (Rq) req.getAttribute("rq");
+		
+		int loginedMemberId = rq.getLoginedMemberId();
+		
+		List<TravelPlans> plans = travelPlansService.getRecentPlans(loginedMemberId);
+		model.addAttribute("plans", plans);
+		
+		return "user/popups/CheckMySchedulePopup";
+	}
 }

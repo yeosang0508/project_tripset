@@ -879,7 +879,8 @@ function addDestination(destination) {
 							contentType : 'application/json',
 							data : JSON.stringify(dataToSend),
 							success : function(response) {
-								alert('목적지와 일정이 저장되었습니다.');
+								alert('일정이 저장되었습니다.');
+								window.location.href = '/usr/home/main';
 							},
 							error : function(xhr, status, error) {
 								console.error('저장 중 오류 발생:', error);

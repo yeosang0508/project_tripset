@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.example.demo.vo.TravelPlans;
+
 @Mapper
 public interface TravelPlansRepository {
 
@@ -31,4 +33,16 @@ public interface TravelPlansRepository {
     // 마지막 삽입된 ID 가져오기
     @Select("SELECT LAST_INSERT_ID()")
     int getLastInsertedId();
+
+    
+    @Select("""
+    		SELECT * 
+    		FROM `travelPlans`
+    		WHERE memberId = #{loginedMemberId}
+    		AND delStatus = 0
+    		ORDER BY startDate DESC
+    		LIMIT 3
+    		""")
+	List<TravelPlans> getRecentPlans(int loginedMemberId);
+ // 로그인한 회원 최근 일정 3개 가져오기
 }

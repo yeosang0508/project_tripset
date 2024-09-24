@@ -2,6 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ include file="../common/head.jspf"%>
+<%@ include file="../popups/reservationPopup.jspf"%>
+<%@ include file="../popups/loginPopup.jspf"%>
+<%@ include file="../popups/signUpPopup.jspf"%>
+<%@ include file="../popups/travelRecommendChecklist.jspf"%>
+<%@ include file="../popups/CheckMySchedulePopup.jspf"%>
 
 <style>
 html, body {
@@ -278,13 +283,11 @@ html, body {
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+
 </style>
 </head>
 <body>
-	<%@ include file="../popups/reservationPopup.jspf"%>
-	<%@ include file="../popups/loginPopup.jspf"%>
-	<%@ include file="../popups/signUpPopup.jspf"%>
-	<%@ include file="../popups/travelRecommendChecklist.jspf"%>
+
 
 	<!-- 주요기능 -->
 
@@ -337,13 +340,13 @@ html, body {
 				</div>
 			</div>
 			<div class="div11">
-			
+
 				<div class="image">
 					<a href="/usr/article/list" class="button">
 						<img class="frame-3849" src="/resource/images/article.png" />
-					</a>	
+					</a>
 				</div>
-				
+
 				<div class="info">
 					<div class="div12">여행 계획 모아보기</div>
 					<div class="div13">

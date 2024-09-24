@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+	document
+			.addEventListener(
+					'DOMContentLoaded',
+					function() {
+						document
+								.querySelector('.nav-CheckMySchedule-button')
+								.addEventListener(
+										'click',
+										function() {
+											document
+													.querySelector('.CheckMySchedule-popup').classList
+													.remove('hidden');
+											document.querySelector('.popup-bg').classList
+													.remove('hidden');
+										});
+
+						document
+								.querySelector(
+										'.CheckMySchedule-popup .close-popup')
+								.addEventListener(
+										'click',
+										function() {
+											document
+													.querySelector('.CheckMySchedule-popup').classList
+													.add('hidden');
+											document.querySelector('.popup-bg').classList
+													.add('hidden');
+										});
+
+						document.querySelectorAll('.popup-container').forEach(
+								function(container) {
+									container.addEventListener('click',
+											function(event) {
+												event.stopPropagation();
+											});
+								});
+
+					});
+</script>
+
+
+</head>
+<body>
+
+	<!-- 로그인 팝업 -->
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
+
+	<!-- 팝업 컨테이너 -->
+	<div class="CheckMySchedule-popup fixed inset-0 flex items-center justify-center hidden z-50">
+		<div class="popup-container relative w-[450px] h-[500px] bg-white rounded-lg shadow-lg">
+			<!-- 팝업 헤더 -->
+			<div class="popup-header absolute top-0 left-0 w-full flex justify-between items-start p-8 bg-white border-b">
+				<h2 class="font-bold text-2xl">My일정확인</h2>
+				<button class="close-popup text-3xl font-bold">×</button>
+			</div>
+			<!-- 팝업 바디  -->
+			<div class="popup-body overflow-y-auto mt-[88px] p-8">
+				<div class="w-96 mx-auto space-y-6">
+					<!-- 최근 일정 표시 -->
+					<c:forEach var="plan" items="${plans}">
+						<div class="flex justify-between items-center px-4 py-3 rounded-lg bg-gray-200">
+							<span>${plan.region} 여행 ${plan.startDate} ~ ${plan.endDate}</span>
+						</div>
+					</c:forEach>
+					<!-- 일정이 없는 경우 -->
+					<c:if test="${empty plans}">
+						<div class="text-center text-gray-500">예정된 여행 일정이 없습니다.</div>
+					</c:if>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
