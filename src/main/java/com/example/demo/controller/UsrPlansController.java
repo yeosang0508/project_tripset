@@ -66,9 +66,7 @@ public class UsrPlansController {
 	@ResponseBody
 	public List<TravelPlans> getUserTravelPlan(HttpServletRequest req) {
 		Rq rq = (Rq) req.getAttribute("rq");
-		
 		int loginedMemberId = rq.getLoginedMemberId();
-		
-		return travelPlansService.getRecentPlans(loginedMemberId);
+		return travelPlansService.getRecentPlans(loginedMemberId); 
 	}
 }
