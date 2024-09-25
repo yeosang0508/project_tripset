@@ -44,3 +44,963 @@
 2024-09-26 00:10:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
 2024-09-26 00:11:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2024-09-26 00:11:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:11:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:11:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:12:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:12:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:12:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:12:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:13:15 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:15 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4b685af] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:15 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:15 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1919178098 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:15 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:13:15 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:13:15 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:13:15 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:13:15 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:13:15 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4b685af]
+2024-09-26 00:13:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:13:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:13:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18c014e6] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:43 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:43 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@40114271 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:43 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:13:43 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:13:43 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:13:43 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:13:43 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:13:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18c014e6]
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3906a9fa] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:46 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:46 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@397342889 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:13:46 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:13:46 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3906a9fa]
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25666b82] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:46 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:46 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@769964674 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.T.getRecentPlans - ==>  Preparing: SELECT * FROM `travelPlans` WHERE memberId = ? AND delStatus = 0 ORDER BY startDate DESC
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.T.getRecentPlans - ==> Parameters: 2(Integer)
+2024-09-26 00:13:46 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT *
+FROM `travelPlans`
+WHERE memberId = 2
+AND delStatus = 0
+ORDER BY startDate DESC
+ {executed in 4 msec}
+2024-09-26 00:13:46 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|5  |2        |user567 |2025-01-05 |2025-01-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |인천     |2      |false     |null    |
+|1  |2        |user123 |2024-10-01 |2024-10-10 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |서울     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:13:46 [DEBUG] c.e.d.r.T.getRecentPlans - <==      Total: 3
+2024-09-26 00:13:46 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25666b82]
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4137baa6] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:47 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:47 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1357475318 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:13:47 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:13:47 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4137baa6]
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52978000] was not registered for synchronization because synchronization is not active
+2024-09-26 00:13:47 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:13:47 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@551377819 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8] will not be managed by Spring
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:13:47 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+41. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:13:47 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:13:47 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:13:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52978000]
+2024-09-26 00:13:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:13:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:14:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:14:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:14:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:14:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:15:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:15:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:15:30 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1b035ad8: (connection has passed maxLifetime)
+2024-09-26 00:15:30 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51
+2024-09-26 00:15:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:15:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:15:49 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7b677b3f: (connection has passed maxLifetime)
+2024-09-26 00:15:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@8e0ad60
+2024-09-26 00:15:51 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3a5a7104: (connection has passed maxLifetime)
+2024-09-26 00:15:51 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@49dda75b
+2024-09-26 00:16:00 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5dd0ce59: (connection has passed maxLifetime)
+2024-09-26 00:16:00 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@69d58b22
+2024-09-26 00:16:00 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1769f91e: (connection has passed maxLifetime)
+2024-09-26 00:16:00 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@28e88119
+2024-09-26 00:16:09 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2605bda3: (connection has passed maxLifetime)
+2024-09-26 00:16:09 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@50d408ee
+2024-09-26 00:16:09 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@533302c3: (connection has passed maxLifetime)
+2024-09-26 00:16:09 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@11e902d5
+2024-09-26 00:16:13 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6738b798: (connection has passed maxLifetime)
+2024-09-26 00:16:13 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@20b29535
+2024-09-26 00:16:18 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@462a42ec: (connection has passed maxLifetime)
+2024-09-26 00:16:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@51cf06c1
+2024-09-26 00:16:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:16:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:16:19 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4264f86f: (connection has passed maxLifetime)
+2024-09-26 00:16:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@10f20cfa
+2024-09-26 00:16:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:16:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:17:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:17:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16377dee] was not registered for synchronization because synchronization is not active
+2024-09-26 00:17:38 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:17:38 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1861495654 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:17:38 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 4 msec}
+2024-09-26 00:17:38 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16377dee]
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@624c4400] was not registered for synchronization because synchronization is not active
+2024-09-26 00:17:38 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:17:38 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@30750017 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:17:38 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:17:38 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:17:38 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:17:38 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@624c4400]
+2024-09-26 00:17:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:17:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3457c287] was not registered for synchronization because synchronization is not active
+2024-09-26 00:17:54 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:17:54 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1310206515 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:17:54 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 5 msec}
+2024-09-26 00:17:54 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3457c287]
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a522ed3] was not registered for synchronization because synchronization is not active
+2024-09-26 00:17:54 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:17:54 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@605367442 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:17:54 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:17:54 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:17:54 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:17:54 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a522ed3]
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1711efc9] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:01 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:01 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1884409632 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:18:01 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:18:01 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1711efc9]
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2967cde8] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:01 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:01 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1943315667 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:18:01 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:18:01 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:18:01 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:18:01 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2967cde8]
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a12c6e6] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:02 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:02 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1629752787 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:18:02 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:18:02 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a12c6e6]
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b39a1b] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:02 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:02 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1616621732 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:18:02 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 2 msec}
+2024-09-26 00:18:02 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:18:02 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:18:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b39a1b]
+2024-09-26 00:18:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:18:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57f65309] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:28 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:28 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@645565376 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:18:28 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:18:28 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57f65309]
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6cbfa609] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:28 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:28 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1552449956 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:18:28 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 3 msec}
+2024-09-26 00:18:28 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:18:28 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:18:28 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6cbfa609]
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a6537f1] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:29 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:29 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@414960560 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:18:29 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:18:29 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a6537f1]
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2259aff0] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:29 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:29 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@228270704 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:18:29 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:18:29 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:18:29 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:18:29 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2259aff0]
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@196a316c] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:40 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:40 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1353624112 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:18:40 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:18:40 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@196a316c]
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d9d8651] was not registered for synchronization because synchronization is not active
+2024-09-26 00:18:40 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:18:40 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1211952948 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:18:40 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 4 msec}
+2024-09-26 00:18:40 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:18:40 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:18:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d9d8651]
+2024-09-26 00:18:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:18:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3719873e] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:13 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:13 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@778108554 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:19:13 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:19:13 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3719873e]
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@35d76f03] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:13 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:13 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1603617974 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:19:13 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 3 msec}
+2024-09-26 00:19:13 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:19:13 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:19:13 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@35d76f03]
+2024-09-26 00:19:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:19:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@670652cd] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:27 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:27 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@730657574 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:19:27 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:19:27 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@670652cd]
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d6a156] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:27 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:27 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1870229176 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:19:27 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:19:27 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:19:27 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:19:27 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d6a156]
+2024-09-26 00:19:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:19:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@227b1c33] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:55 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:55 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1904822038 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:19:55 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 2 msec}
+2024-09-26 00:19:55 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@227b1c33]
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18d64053] was not registered for synchronization because synchronization is not active
+2024-09-26 00:19:55 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:19:55 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1721116576 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:19:55 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:19:55 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:19:55 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:19:55 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18d64053]
+2024-09-26 00:20:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:20:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:20:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:20:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:21:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:21:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:21:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:21:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:22:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:22:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:22:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:22:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:23:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:23:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25336001] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:40 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:40 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1892139682 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:23:40 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 2 msec}
+2024-09-26 00:23:40 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25336001]
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e8ca57] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:40 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:40 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@740949483 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:23:40 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:23:40 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:23:40 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:23:40 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e8ca57]
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@577f4bd7] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:41 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:41 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1808950348 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:23:41 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:23:41 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@577f4bd7]
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7eda7ac1] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:41 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:41 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@925593143 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:23:41 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:23:41 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7eda7ac1]
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a871d] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:41 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:41 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@650969331 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:23:41 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:23:41 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@28a871d]
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d7bc70] was not registered for synchronization because synchronization is not active
+2024-09-26 00:23:41 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:23:41 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2023354775 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:23:41 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:23:41 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:23:41 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:23:41 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d7bc70]
+2024-09-26 00:23:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:23:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:24:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:24:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:24:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:24:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:25:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:25:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:25:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:25:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:26:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:26:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:26:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:26:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:27:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:27:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@497ee780] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:42 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:42 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1335169973 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:27:42 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:27:42 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@497ee780]
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b44985d] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:42 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:42 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1837438166 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:27:42 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:27:42 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:27:42 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:27:42 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b44985d]
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6060c3a4] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:43 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:43 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1242672092 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:27:43 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:27:43 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6060c3a4]
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@161d9af7] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:43 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:43 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@290883953 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:27:43 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:27:43 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:27:43 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:27:43 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@161d9af7]
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e574367] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:47 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:47 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1258262907 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:27:47 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:27:47 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e574367]
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61d561b8] was not registered for synchronization because synchronization is not active
+2024-09-26 00:27:47 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:27:47 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2126431652 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:27:47 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 1 msec}
+2024-09-26 00:27:47 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:27:47 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:27:47 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@61d561b8]
+2024-09-26 00:27:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:27:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:28:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:28:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:28:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:28:48 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:29:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:29:18 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:29:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:29:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:30:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:30:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79632ea3] was not registered for synchronization because synchronization is not active
+2024-09-26 00:30:31 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:30:31 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2100352100 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:30:31 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:30:31 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79632ea3]
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e09f05f] was not registered for synchronization because synchronization is not active
+2024-09-26 00:30:31 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:30:31 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@352765373 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:30:31 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:30:31 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:30:31 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:30:31 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e09f05f]
+2024-09-26 00:30:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:30:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:31:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:31:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:31:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:31:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:32:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:32:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:32:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:32:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:33:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:33:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:33:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:33:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f90246b] was not registered for synchronization because synchronization is not active
+2024-09-26 00:34:08 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:34:08 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@989709291 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:34:08 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 0 msec}
+2024-09-26 00:34:08 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f90246b]
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6426e64b] was not registered for synchronization because synchronization is not active
+2024-09-26 00:34:08 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:34:08 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1379149389 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:34:08 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:34:08 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:34:08 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:34:08 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6426e64b]
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46d2d33b] was not registered for synchronization because synchronization is not active
+2024-09-26 00:34:09 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:34:09 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@133325003 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.M.getMemberById - ==>  Preparing: SELECT * FROM `member` WHERE id = ?
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.M.getMemberById - ==> Parameters: 2(Integer)
+2024-09-26 00:34:09 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT * FROM `member` WHERE id = 2
+ {executed in 1 msec}
+2024-09-26 00:34:09 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|id |regdate             |updatedate          |loginid |loginpw   |authlevel |name |nickname |cellphonenum  |email             |delstatus |deldate |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+|2  |2023-01-01 12:00:00 |2023-01-01 12:00:00 |user123 |password1 |3         |김민준  |민준       |010-1234-5678 |user1@example.com |false     |null    |
+|---|--------------------|--------------------|--------|----------|----------|-----|---------|--------------|------------------|----------|--------|
+
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.M.getMemberById - <==      Total: 1
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46d2d33b]
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55076bde] was not registered for synchronization because synchronization is not active
+2024-09-26 00:34:09 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-09-26 00:34:09 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1599284357 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@63b51c51] will not be managed by Spring
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.T.getTravelPlanById - ==>  Preparing: SELECT * FROM `travelPlans` WHERE id = ?
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.T.getTravelPlanById - ==> Parameters: 9(Integer)
+2024-09-26 00:34:09 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+51. SELECT *
+FROM `travelPlans`
+WHERE id = 9
+ {executed in 0 msec}
+2024-09-26 00:34:09 [INFO ] jdbc.resultsettable - 
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|id |memberid |loginid |startdate  |enddate    |regdate             |updatedate          |region |status |delstatus |deldate |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+|9  |2        |user901 |2025-05-05 |2025-05-15 |2024-09-25 21:51:18 |2024-09-25 21:51:18 |포항     |2      |false     |null    |
+|---|---------|--------|-----------|-----------|--------------------|--------------------|-------|-------|----------|--------|
+
+2024-09-26 00:34:09 [DEBUG] c.e.d.r.T.getTravelPlanById - <==      Total: 1
+2024-09-26 00:34:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55076bde]
+2024-09-26 00:34:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:34:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:34:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:34:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:35:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:35:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:35:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:35:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:36:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:36:19 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-09-26 00:36:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-09-26 00:36:49 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
