@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.TravelPlansRepository;
+import com.example.demo.vo.TravelPlanPlaces;
 import com.example.demo.vo.TravelPlans;
 
 
@@ -42,6 +43,10 @@ public class TravelPlansService {
 		public TravelPlans getTravelPlanById(int travelPlanId) {
 			
 			return travelPlansRepository.getTravelPlanById(travelPlanId);
+		}
+		
+		public List<TravelPlanPlaces> getTravelPlansWithPlacesById(int travelPlanId) {
+			return travelPlansRepository.getTravelPlansWithPlacesById(travelPlanId);
 		}
 
 		
