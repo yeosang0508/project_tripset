@@ -6,8 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.TravelPlansService;
@@ -67,6 +69,17 @@ public class UsrPlansController {
 	public List<TravelPlans> getUserTravelPlan(HttpServletRequest req) {
 		Rq rq = (Rq) req.getAttribute("rq");
 		int loginedMemberId = rq.getLoginedMemberId();
-		return travelPlansService.getRecentPlans(loginedMemberId); 
+		return travelPlansService.getRecentPlans(loginedMemberId);
+	}
+
+	@RequestMapping("/usr/plans/detail")
+	public String showTravelPlanDetail(@RequestParam("id") int travelPlanId, Model model) {
+		// travelPlanId에 해당하는 여행 계획 정보 조회
+		TravelPlans travelPlan = travelPlansService.getTravelPlanById(travelPlanId);
+
+		// 여행 계획 정보 모델에 추가
+		model.addAttribute("travelPlan", travelPlan);
+
+		return "user/plans/planDetail";
 	}
 }

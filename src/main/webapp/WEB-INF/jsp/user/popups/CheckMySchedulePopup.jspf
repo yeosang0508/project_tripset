@@ -3,13 +3,13 @@
 
 <script>
 $(document).ready(function() {
-    // My일정 확인 버튼 클릭 시
+    // My일정 확인 버튼 클릭 시 팝업 열기
     $('.nav-CheckMySchedule-button').click(function() {
         // 팝업과 배경 표시
         $('.CheckMySchedule-popup').removeClass('hidden');
         $('.popup-bg').removeClass('hidden');
 
-        // AJAX 요청으로 데이터를 가져옴
+        // AJAX 요청으로 데이터를 가져옴 (버튼 클릭 시 실행)
         $.ajax({
             url: '/usr/plans/getUserTravelPlan',
             method: 'GET',
@@ -17,14 +17,14 @@ $(document).ready(function() {
             success: function(plans) {
                 var htmlContent = '';
 
-                if (plans.length > 0) {
-                	 plans.forEach(function (plan) {
-                         htmlContent += '<div class="flex justify-between items-center px-4 py-3 rounded-lg bg-gray-200">';
-                         htmlContent += '<a href="/usr/plans/detail?id=${plan.id}" class="block">'
-                         htmlContent += '<span>' + plan.region + ' 여행 ' + plan.startDate + ' ~ ' + plan.endDate + '</span>';
-                         htmlContent += '</a>'
-                         htmlContent += '</div>';
-                     });
+                if (plans && plans.length > 0) {
+                    plans.forEach(function(plan) {
+                        htmlContent += '<div class="flex justify-between items-center px-4 py-3 rounded-lg bg-gray-200">';
+                        htmlContent += '<a href="/usr/plans/detail?id=' + plan.id + '" class="block">';
+                        htmlContent += '<span>' + plan.region + ' 여행 ' + plan.startDate + ' ~ ' + plan.endDate + '</span>';
+                        htmlContent += '</a>';
+                        htmlContent += '</div>';
+                    });
                 } else {
                     htmlContent = '<div class="flex items-center justify-center h-[300px] text-gray-500">예정된 여행 일정이 없습니다.</div>';
                 }
@@ -37,6 +37,7 @@ $(document).ready(function() {
             }
         });
     });
+
     // 팝업 닫기 버튼 클릭 시
     $('.CheckMySchedule-popup .close-popup').click(function() {
         $('.CheckMySchedule-popup').addClass('hidden');
@@ -62,7 +63,6 @@ $(document).ready(function() {
 
 	<div class="popup-bg fixed inset-0 bg-transparent hidden z-40"></div>
 
-
 	<!-- 팝업 컨테이너 -->
 	<div class="CheckMySchedule-popup fixed inset-0 flex items-center justify-center hidden z-50">
 		<div class="popup-container relative w-[450px] h-[500px] bg-white rounded-lg shadow-lg">
@@ -72,9 +72,7 @@ $(document).ready(function() {
 				<button class="close-popup text-3xl font-bold">×</button>
 			</div>
 			<!-- 팝업 body  -->
-			<div class="popup-body relative mt-[88px] p-8">
-				
-			</div>
+			<div class="popup-body relative mt-[88px] p-8"></div>
 		</div>
 	</div>
 

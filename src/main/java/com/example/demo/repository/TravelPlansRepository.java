@@ -43,4 +43,12 @@ public interface TravelPlansRepository {
     		ORDER BY startDate DESC
     		""")
 	List<TravelPlans> getRecentPlans(int loginedMemberId);
+
+    
+    @Select("""
+    		SELECT *
+    		FROM `travelPlans`
+    		WHERE id = #{travelPlanId}
+    		""")
+	TravelPlans getTravelPlanById(int travelPlanId);
 }

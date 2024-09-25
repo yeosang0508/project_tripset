@@ -39,5 +39,10 @@ public class TravelPlansService {
 			return travelPlansRepository.getRecentPlans(loginedMemberId);
 		}
 
+		public TravelPlans getTravelPlanById(int travelPlanId) {
+			
+			return travelPlansRepository.getTravelPlanById(travelPlanId);
+		}
+
 		
 }
