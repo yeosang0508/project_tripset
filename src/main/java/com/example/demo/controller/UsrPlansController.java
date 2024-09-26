@@ -88,4 +88,6 @@ public class UsrPlansController {
 
 		return "user/plans/planDetail";
 	}
+	
+	
 }

@@ -291,7 +291,7 @@
 				<div class="flex justify-end w-full gap-2">
 					<button type="button" id="prev-step" class="prev-button text-black font-semibold rounded-md">이전</button>
 
-					<button type="submit" class="popup-login-button font-semibold rounded-md">가입하기</button>
+					<button type="submit" class="popup-login-button font-semibold hover:bg-blue-700 rounded-md">가입하기</button>
 				</div>
 
 			</form>

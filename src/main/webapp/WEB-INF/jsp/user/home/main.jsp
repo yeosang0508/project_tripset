@@ -7,6 +7,7 @@
 <%@ include file="../popups/signUpPopup.jspf"%>
 <%@ include file="../popups/travelRecommendChecklist.jspf"%>
 <%@ include file="../popups/CheckMySchedulePopup.jspf"%>
+<%@ include file="../popups/ChecklistPopup.jspf"%>
 
 <style>
 html, body {
@@ -321,7 +322,9 @@ html, body {
 			</div>
 			<div class="div11">
 				<div class="image">
+					<button class="nav-checklist-button">
 					<img class="frame-3849" src="/resource/images/checklist.png" />
+					</button>
 				</div>
 				<div class="info">
 					<div class="div12">체크리스트</div>

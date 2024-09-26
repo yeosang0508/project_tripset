@@ -486,7 +486,7 @@ ul.numbered li:before {
 	</div>
 
 	<div class="flex justify-center mt-6">
-		<button id="saveButton" class="w-32 h-10 bg-blue-500 text-white font-bold rounded-lg">저장</button>
+		<button id="saveButton" class="w-32 h-10 bg-blue-500 text-white hover:bg-blue-700 font-bold rounded-lg">저장</button>
 	</div>
 	<!-- Date Range Picker 설정 -->
 	<script type="text/javascript">
@@ -892,4 +892,4 @@ function addDestination(destination) {
 					}
 				});
 	</script>
-</body>' 여기서 디자인만 위랑 같은 디자인을 넣어
+</body>

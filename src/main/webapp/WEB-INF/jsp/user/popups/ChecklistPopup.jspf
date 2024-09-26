@@ -1,0 +1,124 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <style>
+        /* 추가적인 커스텀 스타일을 지정합니다 */
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .checklist-category {
+            margin-bottom: 30px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 체크리스트 팝업 열기
+            document.querySelector('.nav-checklist-button').addEventListener(
+                'click',
+                function() {
+                    document.querySelector('.checklist-popup').classList.remove('hidden');
+                    document.querySelector('.popup-bg').classList.remove('hidden');
+                });
+
+            // 체크리스트 팝업 닫기
+            document.querySelector('.checklist-popup .close-popup')
+                .addEventListener(
+                    'click',
+                    function() {
+                        document.querySelector('.checklist-popup').classList.add('hidden');
+                        document.querySelector('.popup-bg').classList.add('hidden');
+                    });
+
+            // 팝업 내 클릭 이벤트 전파 방지
+            document.querySelectorAll('.popup-container').forEach(
+                function(container) {
+                    container.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                    });
+                });
+        });
+    </script>
+</head>
+<body class="bg-gray-100">
+
+	<div class="popup-bg fixed inset-0 bg-transparent hidden z-40"></div>
+
+    <!-- 체크리스트 팝업 -->
+    <div class="checklist-popup fixed inset-0 flex items-center justify-center hidden z-50">
+        <div class="popup-container w-11/12 max-w-5xl h-5/6 bg-white p-8 rounded-lg shadow-lg relative">
+            <div class="popup-header flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">체크리스트</h2>
+                <button class="close-popup text-3xl font-bold">×</button>
+            </div>
+            <div class="grid grid-cols-4 gap-6">
+                <div class="checklist-category">
+                    <div class="category-title text-blue-500">필수품</div>
+                    <ul>
+                        <li><input type="checkbox" id="item1"><label for="item1" class="ml-2">신분증</label></li>
+                        <li><input type="checkbox" id="item2"><label for="item2" class="ml-2">신용카드</label></li>
+                        <li><input type="checkbox" id="item3"><label for="item3" class="ml-2">현금</label></li>
+                        <li><input type="checkbox" id="item4"><label for="item4" class="ml-2">보조배터리</label></li>
+                        <li><input type="checkbox" id="item5"><label for="item5" class="ml-2">충전기</label></li>
+                        <li><input type="checkbox" id="item6"><label for="item6" class="ml-2">카메라</label></li>
+                        <li><input type="checkbox" id="item7"><label for="item7" class="ml-2">삼각대</label></li>
+                        <li><input type="checkbox" id="item8"><label for="item8" class="ml-2">노트북</label></li>
+                        <li><input type="checkbox" id="item9"><label for="item9" class="ml-2">이어폰</label></li>
+                    </ul>
+                </div>
+                <div class="checklist-category">
+                    <div class="category-title text-blue-500">세면도구 및 개인 관리</div>
+                    <ul>
+                        <li><input type="checkbox" id="item10"><label for="item10" class="ml-2">수건</label></li>
+                        <li><input type="checkbox" id="item11"><label for="item11" class="ml-2">칫솔 & 치약</label></li>
+                        <li><input type="checkbox" id="item12"><label for="item12" class="ml-2">샴푸</label></li>
+                        <li><input type="checkbox" id="item13"><label for="item13" class="ml-2">트리트먼트</label></li>
+                        <li><input type="checkbox" id="item14"><label for="item14" class="ml-2">바디워시</label></li>
+                        <li><input type="checkbox" id="item15"><label for="item15" class="ml-2">샤워타올</label></li>
+                        <li><input type="checkbox" id="item16"><label for="item16" class="ml-2">클렌징폼</label></li>
+                        <li><input type="checkbox" id="item17"><label for="item17" class="ml-2">고데기</label></li>
+                        <li><input type="checkbox" id="item18"><label for="item18" class="ml-2">드라이기</label></li>
+                        <li><input type="checkbox" id="item19"><label for="item19" class="ml-2">헤어에센스</label></li>
+                        <li><input type="checkbox" id="item20"><label for="item20" class="ml-2">빗</label></li>
+                        <li><input type="checkbox" id="item21"><label for="item21" class="ml-2">바디로션</label></li>
+                        <li><input type="checkbox" id="item22"><label for="item22" class="ml-2">면도기</label></li>
+                        <li><input type="checkbox" id="item23"><label for="item23" class="ml-2">물티슈</label></li>
+                        <li><input type="checkbox" id="item24"><label for="item24" class="ml-2">마스크</label></li>
+                    </ul>
+                </div>
+                <div class="checklist-category">
+                    <div class="category-title text-blue-500">비상약 및 건강 관리</div>
+                    <ul>
+                        <li><input type="checkbox" id="item25"><label for="item25" class="ml-2">진통제</label></li>
+                        <li><input type="checkbox" id="item26"><label for="item26" class="ml-2">소화제</label></li>
+                        <li><input type="checkbox" id="item27"><label for="item27" class="ml-2">멀미약</label></li>
+                        <li><input type="checkbox" id="item28"><label for="item28" class="ml-2">알레르기약</label></li>
+                        <li><input type="checkbox" id="item29"><label for="item29" class="ml-2">감기약</label></li>
+                        <li><input type="checkbox" id="item30"><label for="item30" class="ml-2">처방약</label></li>
+                        <li><input type="checkbox" id="item31"><label for="item31" class="ml-2">응급처치 키트(밴드, 소독약)</label></li>
+                    </ul>
+                </div>
+        
+                <div class="checklist-category">
+                    <div class="category-title text-blue-500">메이크업</div>
+                    <ul>
+                        <li><input type="checkbox" id="item32"><label for="item32" class="ml-2">스킨</label></li>
+                        <li><input type="checkbox" id="item33"><label for="item33" class="ml-2">로션</label></li>
+                        <li><input type="checkbox" id="item34"><label for="item34" class="ml-2">수분크림</label></li>
+                        <li><input type="checkbox" id="item35"><label for="item35" class="ml-2">선크림</label></li>
+                        <li><input type="checkbox" id="item36"><label for="item36" class="ml-2">베이스 메이크업</label></li>
+                        <li><input type="checkbox" id="item37"><label for="item37" class="ml-2">아이 메이크업</label></li>
+                        <li><input type="checkbox" id="item38"><label for="item38" class="ml-2">립 메이크업</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition">저장</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -86,7 +86,7 @@ select {
                             <option value="제주">제주</option>
                         </select>
                     </div>
-                    <button type="submit" id="region-confirm-btn" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg mt-4 float-right">확인</button>
+                    <button type="submit" id="region-confirm-btn" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 mt-4 float-right">확인</button>
 			</div>
 		</div>
 	</div>
