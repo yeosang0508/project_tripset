@@ -61,7 +61,8 @@ $(document).ready(function() {
 </head>
 <body>
 
-	<div class="popup-bg fixed inset-0 bg-transparent hidden z-40"></div>
+<div class="popup-bg fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+
 
 	<!-- 팝업 컨테이너 -->
 	<div class="CheckMySchedule-popup fixed inset-0 flex items-center justify-center hidden z-50">

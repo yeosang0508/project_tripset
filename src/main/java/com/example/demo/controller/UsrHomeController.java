@@ -24,5 +24,9 @@ public class UsrHomeController {
 		return "/user/recommended/travelAnswer";
 	}
 
+	@RequestMapping("/usr/article/articleWrite")
+	public String showw() {
 
+		return "/user/article/articleWrite";
+	}
 }
