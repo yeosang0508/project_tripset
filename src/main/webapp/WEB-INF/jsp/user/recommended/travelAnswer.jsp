@@ -11,63 +11,80 @@
 <!-- Tailwind CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-<body class="bg-gray-100">
-	<div class="container mx-auto p-4">
-		<!-- 여행 지역 제목과 스타일 -->
-		<div class="text-4xl font-bold mt-8 mb-8">'${region}' ${style} ✨</div>
+<style>
+html, body {
+	background: linear-gradient(180deg, rgba(218, 235, 255, 1) 12.5%,
+		rgba(220, 236, 255, 1) 25%, rgba(223, 238, 255, 1) 37.5%,
+		rgba(225, 239, 255, 1) 50%, rgba(228, 240, 255, 1) 56.25%,
+		rgba(232, 243, 255, 1) 62.5%, rgba(238, 245, 255, 1) 75%,
+		rgba(238, 245, 255, 1) 87.5%, rgba(255, 255, 255, 1) 100%);
+}
+</style>
 
+<body class="bg-gradient-to-r to-indigo-100 min-h-screen">
+	<!-- 여행 지역 제목과 스타일 -->
+	<header>
+		<h1 class="text-3xl font-bold m-6">'${region}' ${style} ✨</h1>
+	</header>
+	<!-- 추천 장소와 지도 -->
+	<section class="flex flex-col lg:flex-row justify-between mx-auto px-8 md:px-16 space-y-16 lg:space-y-0 lg:space-x-16">
+		<!-- 추천 장소 리스트 -->
+		<div class="lg:w-1/3 bg-white p-8 rounded-lg shadow-lg">
+			<h2 class="text-2xl font-semibold text-indigo-700 mb-6">추천 장소</h2>
+			<c:choose>
+				<c:when test="${empty response}">
+					<p class="text-gray-500">추천 결과가 없습니다.</p>
+				</c:when>
+				<c:otherwise>
+					<ul class="space-y-4">
+						<c:forEach var="location" items="${response}">
+							<!-- 장소 이름 리스트 -->
+							<c:if test="${location.name != ''}">
+								<li class="p-4 border-l-4 border-indigo-500 bg-gray-50 rounded-lg cursor-pointer hover:bg-indigo-100 transition duration-300">
+									<a href="#" class="text-indigo-600 font-semibold" onclick="handleAddressClick('${location.name.replaceFirst('^\\d+\\.\\s*', '')}')">
+										${location.name.replaceFirst('^\\d+\\.\\s*', '')} </a>
+								</li>
+							</c:if>
+						</c:forEach>
+					</ul>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<!-- 오른쪽 카카오 맵 -->
+		<div id="map" class="lg:flex-1 h-96 lg:h-auto bg-gray-200 rounded-lg shadow-lg"></div>
+	</section>
+	<!-- 한 장의 이미지와 정보 -->
+	<section
+		class="flex flex-col md:flex-row items-center justify-center mx-auto px-8 md:px-16 space-y-8 md:space-y-0 md:space-x-16 flex-grow min-h-screen">
 		<!-- 한 장의 이미지 -->
-		<div class="flex justify-start items-center mb-8">
-			<div class="w-2/3 h-96 overflow-hidden relative bg-white rounded-lg shadow-md">
-				<img id="displayImage" class="w-full h-full object-contain" src="" alt="지역 이미지">
-			</div>
-			<div class="w-1/2 ml-4">
-				<ul>
+		<div class="md:flex-1 h-96 md:h-auto bg-gray-200 rounded-lg shadow-lg overflow-hidden flex justify-center items-center">
+			<img id="displayImage" class="w-full h-full object-cover" src="" alt="지역 이미지">
+		</div>
+
+		<!-- 여행 정보 리스트 (상하 가운데 정렬) -->
+		<div class="md:flex-1 bg-white p-8 rounded-lg shadow-lg flex items-center justify-center">
+			<div class="text-center">
+				<h2 class="text-2xl font-semibold text-indigo-700 mb-6">여행 정보</h2>
+				<ul class="space-y-6">
 					<c:forEach var="location" items="${response}">
-							<li class="text-xl font-semibold mb-4">
-								<div>${location.info}</div>
-							</li>
+						<li class="text-lg text-gray-700">${location.info}</li>
 					</c:forEach>
 				</ul>
 			</div>
 		</div>
+	</section>
 
-		<!-- 콘텐츠 레이아웃 -->
-		<div class="flex justify-center items-start space-x-8">
-			<!-- 왼쪽 리스트 -->
-			<div class="w-1/4 bg-white p-4 rounded-lg shadow-md">
-				<c:choose>
-					<c:when test="${empty response}">
-						<p>추천 결과가 없습니다.</p>
-					</c:when>
-					<c:otherwise>
-						<ul class="space-y-4">
-							<c:forEach var="location" items="${response}">
-								<!-- 장소 이름 리스트 -->
-								<c:if test="${location.name != ''}">
-									<li class="p-4 border rounded-lg cursor-pointer hover:bg-gray-100">
-										<a href="#" onclick="handleAddressClick('${location.name.replaceFirst('^\\d+\\.\\s*', '')}')">
-											${location.name.replaceFirst('^\\d+\\.\\s*', '')}
-										</a>
-									</li>
-								</c:if>
-							</c:forEach>
-						</ul>
-					</c:otherwise>
-				</c:choose>
-			</div>
 
-			<!-- 오른쪽 카카오 맵 -->
-			<div id="map" class="w-3/5 h-96 bg-gray-200 rounded-lg shadow-md"></div>
-		</div>
 
-		<!-- 홈 버튼 -->
-		<div class="mt-8 text-center">
-			<button onclick="location.href='../home/main'" class="px-8 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">홈으로</button>
-		</div>
-	</div>
+	<!-- 홈 버튼 -->
+	<footer class="bg-white shadow-lg text-center flex items-center justify-center">
+		<button onclick="location.href='../home/main'"
+			class="w-24 h-9 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 float-right">홈으로</button>
+	</footer>
+</body>
 
-	<script>
+
+<script>
 		// 카카오 맵 초기화 및 장소 검색 함수
 		var infowindow = new kakao.maps.InfoWindow({
 			zIndex: 1
@@ -123,8 +140,9 @@
 		// API 키
 		const API_KEY = 'APIKEY';
 
+		const region = '${region}';
 		// API를 통해 이미지 불러오기
-		fetch('http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=' + API_KEY + '&MobileOS=ETC&MobileApp=AppTest&keyword=제주도&numOfRows=10&pageNo=1')
+		fetch('http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=' + API_KEY + '&MobileOS=ETC&MobileApp=AppTest&keyword='+ encodeURIComponent(region) +'&numOfRows=10&pageNo=1')
 			.then(response => response.text()) // XML 데이터를 텍스트로 가져옴
 			.then(data => {
 				const parser = new DOMParser();
@@ -145,4 +163,4 @@
 			.catch(error => console.error('Error fetching data:', error));
 	</script>
 
-	<%@ include file="../common/foot.jspf"%>
+<%@ include file="../common/foot.jspf"%>
