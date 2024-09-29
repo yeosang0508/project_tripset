@@ -56,11 +56,21 @@ html, body {
 	<!-- 한 장의 이미지와 정보 -->
 	<section
 		class="flex flex-col md:flex-row items-center justify-center mx-auto px-8 md:px-16 space-y-8 md:space-y-0 md:space-x-16 flex-grow min-h-screen">
-		<!-- 한 장의 이미지 -->
-		<div class="md:flex-1 h-96 md:h-auto bg-gray-200 rounded-lg shadow-lg overflow-hidden flex justify-center items-center">
-			<img id="displayImage" class="w-full h-full object-cover" src="" alt="지역 이미지">
-		</div>
 
+
+		<div class="relative flex justify-center items-center mb-8">
+			<!-- 좌측 버튼 -->
+			<button id="prevBtn" class="absolute left-0 z-10 p-4 bg-gray-300 rounded-full hover:bg-gray-500 focus:outline-none">&#10094;</button>
+
+			<!-- 이미지 슬라이드 -->
+			<div class=" h-96 overflow-hidden relative bg-white rounded-lg shadow-md">
+				<img id="displayImage" class="w-full h-full object-contain" src="" alt="지역 이미지">
+			</div>
+
+			<!-- 우측 버튼 -->
+			<button id="nextBtn" class="absolute right-0 z-10 p-4 bg-gray-300 rounded-full hover:bg-gray-500 focus:outline-none">&#10095;</button>
+		</div>
+		
 		<!-- 여행 정보 리스트 (상하 가운데 정렬) -->
 		<div class="md:flex-1 bg-white p-8 rounded-lg shadow-lg flex items-center justify-center">
 			<div class="text-center">
@@ -78,8 +88,7 @@ html, body {
 
 	<!-- 홈 버튼 -->
 	<footer class="bg-white shadow-lg text-center flex items-center justify-center">
-		<button onclick="location.href='../home/main'"
-			class="w-24 h-9 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 float-right">홈으로</button>
+		<button onclick="location.href='../home/main'" class="w-24 h-9 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 float-right">홈으로</button>
 	</footer>
 </body>
 
@@ -137,11 +146,14 @@ html, body {
 			});
 		}
 
-		// API 키
 		const API_KEY = 'APIKEY';
 
 		const region = '${region}';
+		
 		// API를 통해 이미지 불러오기
+		let images = [];
+		let currentIndex = 0;
+		
 		fetch('http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=' + API_KEY + '&MobileOS=ETC&MobileApp=AppTest&keyword='+ encodeURIComponent(region) +'&numOfRows=10&pageNo=1')
 			.then(response => response.text()) // XML 데이터를 텍스트로 가져옴
 			.then(data => {
@@ -150,17 +162,32 @@ html, body {
 
 				const imageUrlElements = xmlDoc.getElementsByTagName("galWebImageUrl");
 
-				if (imageUrlElements.length > 0) {
-					const imageUrl = imageUrlElements[0].textContent;
-					console.log('Image URL:', imageUrl);
-
-					// 이미지 URL을 <img> 태그의 src 속성에 설정
-					document.getElementById('displayImage').src = imageUrl;
+		        if (imageUrlElements.length > 0) {
+		            for (let i = 0; i < imageUrlElements.length; i++) {
+		                images.push(imageUrlElements[i].textContent);
+		            }
+		            // 첫 번째 이미지를 표시
+		            document.getElementById('displayImage').src = images[currentIndex];
 				} else {
 					console.log('No galWebImageUrl elements found.');
 				}
 			})
 			.catch(error => console.error('Error fetching data:', error));
+		
+		// 슬라이드 이미지 변경 함수
+		function changeSlide(direction) {
+		    currentIndex += direction;
+		    if (currentIndex < 0) {
+		        currentIndex = images.length - 1; // 마지막 이미지로
+		    } else if (currentIndex >= images.length) {
+		        currentIndex = 0; // 첫 번째 이미지로
+		    }
+		    document.getElementById('displayImage').src = images[currentIndex];
+		}
+
+		// 좌우 버튼 클릭 시 이동
+		document.getElementById('prevBtn').addEventListener('click', () => changeSlide(-1));
+		document.getElementById('nextBtn').addEventListener('click', () => changeSlide(1));
 	</script>
 
 <%@ include file="../common/foot.jspf"%>
