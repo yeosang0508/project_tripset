@@ -19,14 +19,14 @@
 				<input type="hidden" name="boardId" value="${param.boardId }" />
 				<div class="flex">
 					<select class="select select-sm select-bordered
-						max-w-xs" name="searchKeywordTypeCode"
-						data-value="${param.searchKeywordTypeCode } ">
+						max-w-xs" name="searchKeywordTypeCode" data-value="${param.searchKeywordTypeCode } ">
 						<option value="title">title</option>
 						<option value="body">body</option>
 						<option value="title,body">title+body</option>
 						<option value="region">region</option>
-					</select> <label class="ml-3 input input-bordered input-sm flex items-center gap-2"> <input type="text"
-						placeholder="Search" name="searchKeyword" value="${param.searchKeyword }" />
+					</select>
+					<label class="ml-3 input input-bordered input-sm flex items-center gap-2">
+						<input type="text" placeholder="Search" name="searchKeyword" value="${param.searchKeyword }" />
 						<button type="submit">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
     <path fill-rule="evenodd"
@@ -57,8 +57,8 @@
 						<td style="text-align: center;">${article.id}</td>
 						<td style="text-align: center;">${article.regDate.substring(0,10)}</td>
 						<td style="text-align: center;">
-							<a class="hover:underline" href="detail?id=${article.id}">${article.title} <c:if
-									test="${article.extra__repliesCount > 0 }">
+							<a class="hover:underline" href="detail?id=${article.id}">${article.title}
+								<c:if test="${article.extra__repliesCount > 0 }">
 									<span style="color: red;">[${article.extra__repliesCount }]</span>
 								</c:if>
 							</a>
@@ -111,4 +111,7 @@
 
 </section>
 
+<footer class="bg-white text-left flex items-end justify-end mr-10">
+	<button onclick="location.href='/usr/article/write'" class="w-24 h-9 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 float-right">작성하기</button>
+</footer>
 <%@ include file="../common/foot.jspf"%>

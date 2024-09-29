@@ -24,4 +24,5 @@ public class UsrHomeController {
 		return "/user/recommended/travelAnswer";
 	}
 
+
 }
