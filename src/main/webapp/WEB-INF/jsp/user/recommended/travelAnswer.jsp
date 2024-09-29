@@ -70,10 +70,10 @@ html, body {
 			<!-- 우측 버튼 -->
 			<button id="nextBtn" class="absolute right-0 z-10 p-4 bg-gray-300 rounded-full hover:bg-gray-500 focus:outline-none">&#10095;</button>
 		</div>
-		
+
 		<!-- 여행 정보 리스트 (상하 가운데 정렬) -->
 		<div class="md:flex-1 bg-white p-8 rounded-lg shadow-lg flex items-center justify-center">
-			<div class="text-center">
+			<div>
 				<h2 class="text-2xl font-semibold text-indigo-700 mb-6">여행 정보</h2>
 				<ul class="space-y-6">
 					<c:forEach var="location" items="${response}">
@@ -92,60 +92,68 @@ html, body {
 	</footer>
 </body>
 
+<script>
+    // 지도 컨테이너 확인용 콘솔 로그
+    var mapContainer = document.getElementById('map'); 
+    console.log(mapContainer); // 컨테이너 확인
+
+    var mapOption = {
+        center: new kakao.maps.LatLng(36.332326, 127.434211), // 지도 중심 좌표
+        level: 3 // 지도 확대 레벨
+    };
+
+    // 지도를 생성
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 장소 검색 객체 생성
+    var ps = new kakao.maps.services.Places();
+    var infowindow = new kakao.maps.InfoWindow({zIndex: 1});
+
+    function handleAddressClick(address, event) {
+        if (event) event.preventDefault();
+
+        // 주소 클릭 시 호출 여부 확인하기
+        console.log("주소 클릭됨:", address);
+        
+        // 키워드 검색
+        ps.keywordSearch(address, function(data, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                console.log("검색 결과:", data);
+
+                var bounds = new kakao.maps.LatLngBounds();
+
+                for (var i = 0; i < data.length; i++) {
+                    displayMarker(data[i]);
+                    bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                }
+
+                map.setBounds(bounds); // 지도의 범위를 검색 결과에 맞게 설정
+            } else {
+                console.log("검색 실패:", status);
+            }
+        });
+    }
+
+    // 마커를 지도에 표시하는 함수
+    function displayMarker(place) {
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x)
+        });
+
+        kakao.maps.event.addListener(marker, 'click', function() {
+            var infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>'
+            });
+            infowindow.open(map, marker);
+        });
+    }
+    
+    
+</script>
+
 
 <script>
-		// 카카오 맵 초기화 및 장소 검색 함수
-		var infowindow = new kakao.maps.InfoWindow({
-			zIndex: 1
-		});
-
-		var mapContainer = document.getElementById('map'); 
-		var mapOption = {
-			center: new kakao.maps.LatLng(36.332326, 127.434211),
-			level: 3
-		};
-
-		// 지도를 생성    
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-
-		// 장소 검색 객체를 생성
-		var ps = new kakao.maps.services.Places();
-
-		function handleAddressClick(address) {
-			
-			ps.keywordSearch(address, placesSearchCB);
-		}
-
-		function placesSearchCB(data, status, pagination) {
-			if (status === kakao.maps.services.Status.OK) {
-				console.log("검색 결과: ", data);
-
-				var bounds = new kakao.maps.LatLngBounds();
-
-				for (var i = 0; i < data.length; i++) {
-					displayMarker(data[i]);
-					bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-				}
-
-				map.setBounds(bounds);
-			} else {
-				console.log("검색 결과가 없습니다.");
-			}
-		}
-
-		function displayMarker(place) {
-		
-			var marker = new kakao.maps.Marker({
-				map: map,
-				position: new kakao.maps.LatLng(place.y, place.x)
-			});
-			
-			kakao.maps.event.addListener(marker, 'click', function () {
-				infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-				infowindow.open(map, marker);
-			});
-		}
-
 		const API_KEY = 'APIKEY';
 
 		const region = '${region}';
