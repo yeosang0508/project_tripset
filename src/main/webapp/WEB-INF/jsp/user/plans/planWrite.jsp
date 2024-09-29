@@ -4,6 +4,7 @@
 
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../popups/regionalSelectionPopup.jspf"%>
+<%@ include file="../popups/CheckMySchedulePopup.jspf"%>
 
 <!-- Include Kakao Maps -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
@@ -18,205 +19,143 @@
 <!-- Custom CSS -->
 <style>
 body {
-	font-family: 'Arial', sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
 #container {
-	display: flex;
-	height: 100vh;
-	width: 100vw;
-	box-sizing: border-box;
+    display: flex;
+    height: 75vh;
+    width: 90vw;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #ffffff;
 }
 
+/* Map Container */
 #map-container {
-	flex: 2;
-	position: relative;
-	align-items: center;
+    flex: 2;
+    position: relative;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid #d0d0d0;
 }
 
 #map {
-	width: 800px;
-	height: 600px;
-	
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
+/* Sidebar */
 #sidebar {
-	flex: 1;
-	background-color: #f5f5f5;
-	padding: 20px;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 15px 15px 0;
+    overflow-y: auto;
 }
 
 .container-layout {
-	display: flex;
-	flex-direction: row;
-	gap: 20px;
-	padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
 }
 
-.map-container-layout {
-	flex: 2;
-	position: relative;
-}
-
-.sidebar-layout {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	flex-direction: column
+/* Date Picker */
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .date-picker {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0;
-	background-color: #f9f9f9;
-	border-radius: 5px;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-	height: 40px;
-	flex-grow: 1;
-}
-
-.date-picker-container {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-.date-picker-container svg {
-	margin-right: 5px;
-	cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    flex-grow: 1;
 }
 
 .date-picker input {
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	border-radius: 5px;
-	font-size: 14px;
-	outline: none;
-	background-color: inherit;
-	text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    background-color: inherit;
+    text-align: center;
+    border: 1px solid #d0d0d0;
 }
 
-#daterange {
-	width: 100%;
-	max-width: 300px;
-	height: 100%;
-	font-size: 18px;
-	border: none;
-	border-radius: 5px;
-	box-sizing: border-box;
-	background-color: inherit;
-	font-weight: bold;
-	text-align: center;
-}
-
-.map_wrap, .map_wrap * {
-	margin: 0;
-	padding: 0;
-	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-	font-size: 15px;
-}
-
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
-	color: #000;
-	text-decoration: none;
-}
-
-.map_wrap {
-	flex-grow: 1;
-}
-
-#menu_wrap {
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	height: 40px;
-}
-
-.bg_white {
-	background: #fff;
-}
-
-#placesList {
-	max-height: 400px;
-	overflow-y: auto;
-	position: absolute;
-	width: 100%;
-	background-color: #fff;
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-	z-index: 2;
-}
-
-#menu_wrap hr {
-	display: block;
-	border: 0;
-	margin: 3px 0;
-}
-
-#menu_wrap .option {
-	text-align: center;
-}
-
-#menu_wrap .option p {
-	margin: 10px 0;
-}
-
-#menu_wrap .option button {
-	margin-left: 5px;
-}
-
-/* 검색창 스타일 */
+/* Search Box */
 .search-box {
-	display: flex;
-	align-items: center;
-	height: 40px;
-	width: 100%;
-	max-width: 600px;
-	background-color: #f9f9f9;
-	border-radius: 10px;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #f0f7ff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .search-txt {
-	flex-grow: 1;
-	border: none;
-	outline: none;
-	font-size: 16px;
-	padding: 10px;
-	height: 40px;
-	background-color: #f9f9f9;
-	border-radius: 10px 0 0 10px;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #d0d0d0;
 }
 
 .search-btn {
-	background-color: #58aaff;
-	color: white;
-	border: none;
-	padding: 10px 15px;
-	border-radius: 0 10px 10px 0;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 40px;
-}
-
-.search-btn i {
-	font-size: 2em;
+    background-color: #58aaff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 1px solid #58aaff;
 }
 
 .search-btn:hover {
-	background-color: #007bff;
+    background-color: #007bff;
 }
 
+#placesList {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    margin-top: 10px;
+}
 #placesList li {
 	list-style: none;
 }
@@ -263,8 +202,7 @@ body {
 	float: left;
 	position: absolute;
 	width: 36px;
-	height: 37px;
-	margin: 10px 0 0 10px;
+	height: 30px;
 	background:
 		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
 		no-repeat;
@@ -330,22 +268,6 @@ body {
 	background-position: 0 -654px;
 }
 
-#pagination {
-	margin: 10px auto;
-	text-align: center;
-}
-
-#pagination a {
-	display: inline-block;
-	margin-right: 10px;
-}
-
-#pagination .on {
-	font-weight: bold;
-	cursor: default;
-	color: #777;
-}
-
 #numbered-list {
 	z-index: 1;
 }
@@ -389,24 +311,25 @@ ul.numbered li:before {
 	text-align: center;
 }
 
-/* 페이지 네이션 스타일 */
+/* Pagination */
 .pagination {
-	margin-top: 20px;
-	text-align: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .pagination button {
-	padding: 5px 10px;
-	margin: 0 5px;
-	background-color: #27A4FC;
-	color: white;
-	border: none;
-	cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #27A4FC;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .pagination button:disabled {
-	background-color: #ccc;
-	cursor: not-allowed;
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 </style>
 
@@ -475,7 +398,6 @@ ul.numbered li:before {
 							</button>
 						</form>
 					</div>
-					<hr>
 					<ul id="placesList"></ul>
 				</div>
 				<div>
@@ -607,7 +529,7 @@ function addDestination(destination) {
 
 		var mapContainer = document.getElementById('map'), mapOption = {
 			center : new kakao.maps.LatLng(36.332326, 127.434211), // 사용자 위치 확인 안될 경우 대전역으로 기본값 
-			level : 3
+			level : 2
 		};
 
 		// 지도를 생성합니다    

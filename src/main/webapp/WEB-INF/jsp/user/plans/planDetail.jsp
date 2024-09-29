@@ -7,6 +7,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
 
 <style>
+
 body {
 	font-family: 'Arial', sans-serif;
 	margin: 0;
