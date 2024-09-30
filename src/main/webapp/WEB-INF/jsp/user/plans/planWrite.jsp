@@ -63,7 +63,6 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 0 15px 15px 0;
-    overflow-y: auto;
 }
 
 .container-layout {
@@ -485,7 +484,14 @@ function addDestination(destination) {
         savedPlaces.push(destination);
         const listEl = document.getElementById('numbered-list');
         const li = document.createElement('li');
-        li.textContent = destination;
+
+        // li 요소에 flexbox 적용하여 아이콘과 텍스트를 수직 가운데 정렬 
+        li.style.display = 'flex';
+        li.style.alignItems = 'center';
+        li.style.justifyContent = 'space-between';
+        
+        // 리스트 항목에 목적지와 아이콘을 추가
+        li.innerHTML = destination + `<i class="bi bi-dash-square-dotted" style="cursor: pointer; margin-left: 10px;"></i>`;
         listEl.appendChild(li);
 
         // 목적지를 localStorage에 저장
@@ -499,14 +505,14 @@ function addDestination(destination) {
                 addMarker(placePosition, savedPlaces.length - 1);
                 map.setCenter(placePosition); // 지도의 중심을 해당 위치로 이동
                 savedPlacesCoordinates.push(placePosition);
-                
+
                 removeMarker(); // 기존 마커 제거
-                
+
                 //저장된 좌표들만 마커로 표시
                 savedPlacesCoordinates.forEach((position, index) => {
-                	addMarker(position, index);
+                    addMarker(position, index);
                 });
-                
+
                 // 지도의 중심을 마지막 추가된 위치로 이동
                 map.setCenter(placePosition);
             } else {
@@ -514,12 +520,40 @@ function addDestination(destination) {
             }
         });
 
-        console.log(localStorage.getItem('savedPlaces'));
+        // 삭제 버튼 클릭 시 동작
+        li.querySelector('i').addEventListener('click', function() {
+            removeDestination(destination, li);
+        });
     } else {
         alert('이미 추가된 목적지입니다.');
     }
 }
 
+// 목적지를 제거하는 함수
+function removeDestination(destination, listItem) {
+    // savedPlaces 배열에서 목적지 제거
+    const index = savedPlaces.indexOf(destination);
+    if (index > -1) {
+        savedPlaces.splice(index, 1);
+    }
+
+    // savedPlacesCoordinates 배열에서도 좌표 제거
+    savedPlacesCoordinates.splice(index, 1);
+
+    // 리스트에서 해당 항목 제거
+    listItem.remove();
+
+    // localStorage 업데이트
+    localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
+
+    // 마커 갱신 (기존 마커를 제거하고 남은 마커만 다시 추가)
+    removeMarker();
+    savedPlacesCoordinates.forEach((position, index) => {
+        addMarker(position, index);
+    });
+
+    console.log('Updated places:', savedPlaces);
+}
 </script>
 
 	<!-- Kakao Map 설정 -->

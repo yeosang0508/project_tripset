@@ -49,6 +49,7 @@
 select {
 	max-height: 150px;
 	overflow-y: auto;
+	direction: 1tr;
 }
 </style>
 
