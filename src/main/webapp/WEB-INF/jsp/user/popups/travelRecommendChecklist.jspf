@@ -19,6 +19,20 @@
 				document.querySelector('.travelRecommend-popup').classList
 						.add('hidden');
 				document.querySelector('.popup-bg').classList.add('hidden');
+
+				// 폼 필드 초기화
+				const form = document.forms['travelRecommend'];
+				form.reset();
+
+				// select 요소의 레이블을 초기값으로 업데이트
+				const selectBoxes = document
+						.querySelectorAll('.selectbox select');
+				selectBoxes.forEach(function(select) {
+					const defaultOption = select
+							.querySelector('option:first-child').textContent;
+					const label = select.parentElement.querySelector('label');
+					label.textContent = defaultOption;
+				});
 			}
 		});
 	});
@@ -174,19 +188,19 @@
 							<h2 class="text-xl font-bold text-blue-500">여행은 누구와 가나요?</h2>
 							<div class="relative flex flex-wrap items-start gap-4 top-2">
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="who"  value="혼자" class="w-4 h-4" onchange="checkboxGroup1(this)">
+									<input type="checkbox" name="who" value="혼자" class="w-4 h-4" onchange="checkboxGroup1(this)">
 									<span class="text-base">혼자</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="who"  value="친구와" class="w-4 h-4" onchange="checkboxGroup1(this)">
+									<input type="checkbox" name="who" value="친구와" class="w-4 h-4" onchange="checkboxGroup1(this)">
 									<span class="text-base">친구와</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="who"  value="가족과" class="w-4 h-4" onchange="checkboxGroup1(this)">
+									<input type="checkbox" name="who" value="가족과" class="w-4 h-4" onchange="checkboxGroup1(this)">
 									<span class="text-base">가족과</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="who"  value="연인과" class="w-4 h-4" onchange="checkboxGroup1(this)">
+									<input type="checkbox" name="who" value="연인과" class="w-4 h-4" onchange="checkboxGroup1(this)">
 									<span class="text-base">연인과</span>
 								</label>
 							</div>
@@ -200,15 +214,15 @@
 									<span class="text-base">당일치기</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="how"  value="1박 2일" class="w-4 h-4" onchange="checkboxGroup2(this)">
+									<input type="checkbox" name="how" value="1박 2일" class="w-4 h-4" onchange="checkboxGroup2(this)">
 									<span class="text-base">1박 2일</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="how"  value="2박 3일" class="w-4 h-4" onchange="checkboxGroup2(this)">
+									<input type="checkbox" name="how" value="2박 3일" class="w-4 h-4" onchange="checkboxGroup2(this)">
 									<span class="text-base">2박 3일</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="how"  value="3박 4일" class="w-4 h-4" onchange="checkboxGroup2(this)">
+									<input type="checkbox" name="how" value="3박 4일" class="w-4 h-4" onchange="checkboxGroup2(this)">
 									<span class="text-base">3박 4일</span>
 								</label>
 							</div>
@@ -218,15 +232,15 @@
 							<h2 class="text-xl font-bold text-blue-500">선호하는 여행일정은 어떻게 되나요?</h2>
 							<div class="relative flex flex-wrap items-start gap-4 top-2">
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="time"  value="널널하게" class="w-4 h-4" onchange="checkboxGroup3(this)">
+									<input type="checkbox" name="time" value="널널하게" class="w-4 h-4" onchange="checkboxGroup3(this)">
 									<span class="text-base">널널하게</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="time"  value="1시간마다" class="w-4 h-4" onchange="checkboxGroup3(this)">
+									<input type="checkbox" name="time" value="1시간마다" class="w-4 h-4" onchange="checkboxGroup3(this)">
 									<span class="text-base">1시간마다</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="time"  value="2시간마다" class="w-4 h-4" onchange="checkboxGroup3(this)">
+									<input type="checkbox" name="time" value="2시간마다" class="w-4 h-4" onchange="checkboxGroup3(this)">
 									<span class="text-base">2시간마다</span>
 								</label>
 							</div>
@@ -236,35 +250,35 @@
 							<h2 class="text-xl font-bold text-blue-500">선호하는 여행스타일은 무엇인가요?</h2>
 							<div class="relative flex flex-wrap items-start gap-4 top-2">
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="맛집투어" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="맛집투어" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">맛집투어</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="액티비티" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="액티비티" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">액티비티</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="문화체험" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="문화체험" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">문화체험</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="힐링여행" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="힐링여행" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">힐링 여행</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="예술탐방" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="예술탐방" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">예술 탐방</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="쇼핑중심" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="쇼핑중심" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">쇼핑 중심</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="자연속힐링" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="자연속힐링" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">자연 속 힐링</span>
 								</label>
 								<label class="flex items-center space-x-2">
-									<input type="checkbox" name="style"  value="럭셔리여행" class="w-4 h-4" onchange="checkboxGroup4(this)">
+									<input type="checkbox" name="style" value="럭셔리여행" class="w-4 h-4" onchange="checkboxGroup4(this)">
 									<span class="text-base">럭셔리 여행</span>
 								</label>
 							</div>
@@ -278,6 +292,7 @@
 						<div class="selectbox items-center border border-gray-300 rounded-md">
 							<label for="region">원하시는 지역이 있나요?</label>
 							<select name="region" id="region">
+								<option value="" disabled selected>원하시는 지역이 있나요?</option>
 								<option value="서울">서울</option>
 								<option value="부산">부산</option>
 								<option value="대구">대구</option>

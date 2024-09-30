@@ -6,7 +6,8 @@
 <%@ include file="../popups/signUpPopup.jspf"%>
 
 <!-- Include Kakao Maps -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY
+&libraries=services"></script>
 
 <!-- Tailwind CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">

@@ -108,41 +108,23 @@ h1 {
 	</div>
 
 	<div class="timeline-container">
-		<!-- 1일차 -->
+	
+	<!-- 왼쪽 -->
 		<div class="timeline-item left">
 			<img src="https://via.placeholder.com/300x200" alt="1일차">
-			<h3>1일차: 대전 도착 및 시내 관광</h3>
-			<p>대전역 도착, 시내 주요 관광지 탐방</p>
+			<input class="input input-ghost w-full max-w-xs" name="title" autocomplete="off" type="text" placeholder="제목을 입력해주세요" />
+			<textarea placeholder="관련 내용을 입력해주세요" class="textarea textarea-bordered textarea-sm w-full max-w-xs"></textarea>
 		</div>
 
-		<!-- 2일차 -->
+	<!-- 오른쪽 -->
 		<div class="timeline-item right">
 			<img src="https://via.placeholder.com/300x200" alt="2일차">
-			<h3>2일차: 한밭수목원 & 대전 엑스포 과학공원</h3>
-			<p>한밭수목원 산책 및 대전 엑스포 과학공원 탐방</p>
-		</div>
-
-		<!-- 3일차 -->
-		<div class="timeline-item left">
-			<img src="https://via.placeholder.com/300x200" alt="3일차">
-			<h3>3일차: 유성 온천 & 대청호</h3>
-			<p>유성 온천에서 휴식, 대청호 드라이브</p>
-		</div>
-
-		<!-- 4일차 -->
-		<div class="timeline-item right">
-			<img src="https://via.placeholder.com/300x200" alt="4일차">
-			<h3>4일차: 계족산 황톳길 걷기</h3>
-			<p>계족산에서 황톳길 걷기 체험</p>
-		</div>
-
-		<!-- 5일차 -->
-		<div class="timeline-item left">
-			<img src="https://via.placeholder.com/300x200" alt="5일차">
-			<h3>5일차: 대전 오월드</h3>
-			<p>대전 오월드 방문 후 출발</p>
+			<input class="input input-ghost w-full max-w-xs" name="title" autocomplete="off" type="text" placeholder="제목을 입력해주세요" />
+			<textarea placeholder="관련 내용을 입력해주세요" class="textarea textarea-bordered textarea-sm w-full max-w-xs"></textarea>
 		</div>
 	</div>
+
+	<i class="bi bi-plus-lg"></i>
 
 
 </body>

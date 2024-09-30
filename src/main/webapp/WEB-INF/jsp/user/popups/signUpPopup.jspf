@@ -23,6 +23,21 @@
 									.add('hidden');
 							document.querySelector('.popup-bg').classList
 									.add('hidden');
+							
+							// 폼 필드 초기화
+							const formStep1 = document.forms['step1'];
+							formStep1.reset();
+							const formStep2 = document.forms['step2'];
+							formStep2.reset();
+							
+							// hidden 필드 초기화
+					        document.getElementById('hiddenLoginId').value = '';
+					        document.getElementById('hiddenLoginPw').value = '';
+
+					        // 유효성 검사 메시지 초기화
+					        document.getElementById('loginIdCheck').innerHTML = '';
+					        document.getElementById('loginPwCheck').innerHTML = '';
+					        document.getElementById('loginPwChk').innerHTML = '';
 						});
 
 		document.querySelectorAll('.popup-container').forEach(
@@ -68,8 +83,10 @@
 		const nextStepButton = document.getElementById('next-step');
 
 		if (nextStepButton) { // 요소가 존재하는지 확인
-			nextStepButton.addEventListener('click', function() {
+			nextStepButton.addEventListener('click', function(event) {
 
+				// 기본 동작을 막아야 form이 submit되지 않고 다음으로 넘어가는 것을 방지
+				event.preventDefault();
 				// 입력된 값을 가져옴
 				loginId = document.getElementById('loginId').value.trim();
 				loginPw = document.getElementById('loginPw').value.trim();
@@ -82,6 +99,12 @@
 					alert('아이디를 입력해주세요');
 					return;
 				}
+				
+				if(!validLoginId){
+					alert('유효한 아이디를 입력해주세요');
+					return;
+				}
+				
 				// 비밀번호 유효성 검사
 				if (loginPw.length === 0) {
 					alert('비밀번호를 입력해주세요');
@@ -100,6 +123,10 @@
 				/* step2에 loginId, loginPw 넘길 수 있도록 step1에서 입력한 값 설정 */
 				document.getElementById('hiddenLoginId').value = loginId;
 				document.getElementById('hiddenLoginPw').value = loginPw;
+				
+				// step2로 넘어감 ()
+				document.getElementById('step1').classList.add('hidden');
+				document.getElementById('step2').classList.remove('hidden');
 
 			});
 		} else {
@@ -246,7 +273,7 @@
 			<h2 class="text-center font-bold text-2xl mb-8">SIGNUP</h2>
 
 
-			<form id="step1" class="input-container w-full flex flex-col items-center">
+			<form name="step1" id="step1" class="input-container w-full flex flex-col items-center">
 				<label class="block text-left font-bold text-lg w-full mb-1">아이디</label>
 				<input onkeyup="checkLoginIdDupDebounced(this);" type="text" id="loginId" name="loginId"
 					class="input-field w-full h-[40px] px-4 border rounded-md mb-2" autocomplete="off" placeholder="아이디 입력해주세요(6~20자)" />
@@ -268,7 +295,7 @@
 			</form>
 
 
-			<form id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp" method="POST"
+			<form name="step2" id="step2" class="input-container w-full flex flex-col items-center hidden" action="../member/doSignUp" method="POST"
 				onsubmit="JoinForm__submit(this); return false;">
 
 				<!-- hidden 필드를 통해서 이전 단계에서 받은 loginId와 loginPw를 서버로 전송 -->

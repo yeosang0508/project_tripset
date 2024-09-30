@@ -19,6 +19,10 @@
 									.add('hidden');
 							document.querySelector('.popup-bg').classList
 									.add('hidden');
+							
+							// 폼 필드 초기화
+							const form = document.forms['login'];
+							form.reset();
 						});
 
 		document.querySelectorAll('.popup-container').forEach(

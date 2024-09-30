@@ -4,10 +4,10 @@
 
 <%@ include file="../common/head.jspf"%>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY
+&libraries=services"></script>
 
 <style>
-
 body {
 	font-family: 'Arial', sans-serif;
 	margin: 0;
@@ -156,7 +156,7 @@ body {
 				</div>
 			</div>
 			<div id="sidebar text-left">
-				<div class="font-bold mt-20">${travelPlan.region}여행✨${travelPlan.startDate} ~ ${travelPlan.endDate}</div>
+				<div class="font-bold mt-20">${travelPlan.region}여행✨${travelPlan.startDate}~ ${travelPlan.endDate}</div>
 
 				<div id="travelPlanInfo">
 					<ul class="steps">
@@ -168,27 +168,7 @@ body {
 			</div>
 		</div>
 	</div>
-<body>
-	<div id="main-content">
-		<div id="container">
-			<div id="map-container">
-				<div id="staticMap">
-					<div id="map" style="width: 100%; height: 400px;"></div>
-				</div>
-			</div>
-			<div id="sidebar text-left">
-				<div class="font-bold mt-20">${travelPlan.region}여행✨ ${travelPlan.startDate} ~ ${travelPlan.endDate}</div>
-				<div id="travelPlanInfo">
-					<ul class="steps">
-						<c:forEach var="plan" items="${travelPlaces}" varStatus="status">
-							<li class="step step-neutral" data-content="${status.index + 1}">${plan.placeName}</li>
-						</c:forEach>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	    <script>
+	<script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(36.332326, 127.434211), // 지도의 중심좌표 (대전역)
