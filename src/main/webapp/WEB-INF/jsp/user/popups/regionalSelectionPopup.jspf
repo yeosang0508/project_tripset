@@ -18,52 +18,17 @@
 						});
 	});
 </script>
-
-<style>
-.selectbox select {
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #d1d5db;
-	border-radius: 8px;
-	background-color: #f9fafb;
-	appearance: none;
-	outline: none;
-	cursor: pointer;
-}
-
-.selectbox {
-	position: relative;
-}
-
-.selectbox::after {
-	content: '▼';
-	font-size: 12px;
-	color: #6b7280;
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	transform: translateY(-50%);
-	pointer-events: none;
-}
-
-select {
-	max-height: 150px;
-	overflow-y: auto;
-	direction: 1tr;
-}
-</style>
-
 </head>
 <body>
 	<!-- 지역 선택 팝업 -->
-	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70  z-40"></div>
+	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 z-40"></div>
 	<div class="region-popup fixed inset-0 flex items-center justify-center z-50">
-		<div class="popup-container w-72 h-60 p-8 bg-white rounded-lg shadow-lg relative">
+		<div class="popup-container w-72 h-auto p-8 bg-white rounded-lg shadow-lg relative">
 			<div class="popup-body mt-10">
 				<h2 class="text-center font-bold text-2xl">어디로 가나요?</h2>
-				<div class="selectbox mt-2 w-56">
-					<select name="region" id="region-select">
-						<option value="none" selected>지역을 선택해주세요</option>
+				<div class="selectbox">
+					<select name="region" id="region-select" class="select select-bordered w-full max-w-xs">
+						<option value="none" disabled selected>지역을 선택해주세요</option>
 						<option value="서울">서울</option>
 						<option value="부산">부산</option>
 						<option value="대구">대구</option>
