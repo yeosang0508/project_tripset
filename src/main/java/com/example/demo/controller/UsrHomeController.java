@@ -29,4 +29,6 @@ public class UsrHomeController {
 
 		return "/user/article/articleWrite";
 	}
+	
 }
+
