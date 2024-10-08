@@ -47,23 +47,23 @@ html, body {
 
 				<!-- 지역 선택 버튼 -->
 				<div class="region grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9 gap-4">
-					<div class="Seoul border border-gray-300 rounded-lg py-2 px-4 text-center">서울</div>
-					<div class="Busan border border-gray-300 rounded-lg py-2 px-4 text-center">부산</div>
-					<div class="Daegu border border-gray-300 rounded-lg py-2 px-4 text-center">대구</div>
-					<div class="Incheon border border-gray-300 rounded-lg py-2 px-4 text-center">인천</div>
-					<div class="Gwangju border border-gray-300 rounded-lg py-2 px-4 text-center">광주</div>
-					<div class="Daejeon border border-gray-300 rounded-lg py-2 px-4 text-center">대전</div>
-					<div class="Ulsan border border-gray-300 rounded-lg py-2 px-4 text-center">울산</div>
-					<div class="Sejong border border-gray-300 rounded-lg py-2 px-4 text-center">세종</div>
-					<div class="Gyeonggi border border-gray-300 rounded-lg py-2 px-4 text-center">경기</div>
-					<div class="Gangwon border border-gray-300 rounded-lg py-2 px-4 text-center">강원</div>
-					<div class="Chungbuk border border-gray-300 rounded-lg py-2 px-4 text-center">충북</div>
-					<div class="Chungnam border border-gray-300 rounded-lg py-2 px-4 text-center">충남</div>
-					<div class="Jeonbuk border border-gray-300 rounded-lg py-2 px-4 text-center">전북</div>
-					<div class="Jeonnam border border-gray-300 rounded-lg py-2 px-4 text-center">전남</div>
-					<div class="Gyeongbuk border border-gray-300 rounded-lg py-2 px-4 text-center">경북</div>
-					<div class="Gyeongnam border border-gray-300 rounded-lg py-2 px-4 text-center">경남</div>
-					<div class="Jeju border border-gray-300 rounded-lg py-2 px-4 text-center">제주</div>
+					<button class="Seoul border border-gray-300 rounded-lg py-2 px-4 text-center">서울</button>
+					<button class="Busan border border-gray-300 rounded-lg py-2 px-4 text-center">부산</button>
+					<button class="Daegu border border-gray-300 rounded-lg py-2 px-4 text-center">대구</button>
+					<button class="Incheon border border-gray-300 rounded-lg py-2 px-4 text-center">인천</button>
+					<button class="Gwangju border border-gray-300 rounded-lg py-2 px-4 text-center">광주</button>
+					<button class="Daejeon border border-gray-300 rounded-lg py-2 px-4 text-center">대전</button>
+					<button class="Ulsan border border-gray-300 rounded-lg py-2 px-4 text-center">울산</button>
+					<button class="Sejong border border-gray-300 rounded-lg py-2 px-4 text-center">세종</button>
+					<button class="Gyeonggi border border-gray-300 rounded-lg py-2 px-4 text-center">경기</button>
+					<button class="Gangwon border border-gray-300 rounded-lg py-2 px-4 text-center">강원</button>
+					<button class="Chungbuk border border-gray-300 rounded-lg py-2 px-4 text-center">충북</button>
+					<button class="Chungnam border border-gray-300 rounded-lg py-2 px-4 text-center">충남</button>
+					<button class="Jeonbuk border border-gray-300 rounded-lg py-2 px-4 text-center">전북</button>
+					<button class="Jeonnam border border-gray-300 rounded-lg py-2 px-4 text-center">전남</button>
+					<button class="Gyeongbuk border border-gray-300 rounded-lg py-2 px-4 text-center">경북</button>
+					<button class="Gyeongnam border border-gray-300 rounded-lg py-2 px-4 text-center">경남</button>
+					<button class="Jeju border border-gray-300 rounded-lg py-2 px-4 text-center">제주</button>
 				</div>
 
 				<!-- 선택 버튼 -->
