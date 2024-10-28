@@ -51,3 +51,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# application.yml 설정 파일 무시
+src/main/resources/application.yml
+

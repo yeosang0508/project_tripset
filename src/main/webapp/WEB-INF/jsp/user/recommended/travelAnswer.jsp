@@ -5,8 +5,12 @@
 <%@ include file="../popups/loginPopup.jspf"%>
 <%@ include file="../popups/signUpPopup.jspf"%>
 
+
 <!-- Include Kakao Maps -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoMapKey}&libraries=services"></script>
+
+
+
 
 <!-- Tailwind CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -22,6 +26,7 @@ html, body {
 </style>
 
 <body class="bg-gradient-to-r to-indigo-100 min-h-screen">
+
 	<!-- 여행 지역 제목과 스타일 -->
 	<header>
 		<h1 class="text-3xl font-bold m-6">'${region}' ${style} ✨</h1>
@@ -154,15 +159,14 @@ html, body {
 
 
 <script>
-		const API_KEY = 'APIKEY';
-
+		
 		const region = '${region}';
 		
 		// API를 통해 이미지 불러오기
 		let images = [];
 		let currentIndex = 0;
 		
-		fetch('http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=' + API_KEY + '&MobileOS=ETC&MobileApp=AppTest&keyword='+ encodeURIComponent(region) +'&numOfRows=10&pageNo=1')
+		fetch('http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${tourApiKey}&MobileOS=ETC&MobileApp=AppTest&keyword='+ encodeURIComponent(region) +'&numOfRows=10&pageNo=1')
 			.then(response => response.text()) // XML 데이터를 텍스트로 가져옴
 			.then(data => {
 				const parser = new DOMParser();

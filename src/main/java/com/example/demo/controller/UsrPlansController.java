@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,8 +30,14 @@ public class UsrPlansController {
 	@Autowired
 	private TravelPlansService travelPlansService;
 
+	@Value("${api.kakao.map-key}")
+	private String kakaoMapKey;
+
 	@RequestMapping("/usr/plans/write")
 	public String showWrite(HttpServletRequest req, Model model) {
+
+		// JSP에서 사용할 API 키를 모델에 담아 전달
+		model.addAttribute("kakaoMapKey", kakaoMapKey);
 
 		return "/user/plans/planWrite";
 
@@ -77,17 +84,16 @@ public class UsrPlansController {
 		// travelPlanId에 해당하는 여행 계획 정보 조회
 		TravelPlans travelPlan = travelPlansService.getTravelPlanById(travelPlanId);
 		List<TravelPlanPlaces> travelPlaces = travelPlansService.getTravelPlansWithPlacesById(travelPlanId);
-		
+
 		// 여행 계획 정보 모델에 추가
 		model.addAttribute("travelPlan", travelPlan);
-		
+
 		// 여행 계획 장소 모델에 추가
 		model.addAttribute("travelPlaces", travelPlaces);
-		
+
 		System.err.println(travelPlaces);
 
 		return "user/plans/planDetail";
 	}
-	
-	
+
 }
