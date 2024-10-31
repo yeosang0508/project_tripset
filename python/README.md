@@ -63,7 +63,7 @@ ModuleNotFoundError 오류가 발생할 경우:
 .\venv\Scripts\activate  # Windows
 ```
 
-API 키 설정이 필요한 경우:
+API 키 설정 :
 
 - OpenAI API를 사용하려면 `.env` 파일에 다음과 같이 API 키를 설정한다.
 
