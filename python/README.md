@@ -1,4 +1,4 @@
-# tripset 환경 설정 및 실행 가이드 (VSCode)
+# tripset 환경 설정 및 실행 가이드 (VSCode 버전 1.95)
 
 ## 1. 경로 설정
 
