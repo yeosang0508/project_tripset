@@ -1,4 +1,4 @@
-# tripset 환경 설정 및 실행 가이드 (VSCode)
+# tripset 환경 설정 및 실행 가이드 (VSCode 버전 1.95)
 
 ## 1. 경로 설정
 
@@ -63,7 +63,7 @@ ModuleNotFoundError 오류가 발생할 경우:
 .\venv\Scripts\activate  # Windows
 ```
 
-API 키 설정이 필요한 경우:
+API 키 설정 :
 
 - OpenAI API를 사용하려면 `.env` 파일에 다음과 같이 API 키를 설정한다.
 
