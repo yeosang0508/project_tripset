@@ -90,7 +90,7 @@ public class UsrPlansController {
 
 		// 여행 계획 장소 모델에 추가
 		model.addAttribute("travelPlaces", travelPlaces);
-
+		model.addAttribute("kakaoMapKey", kakaoMapKey);
 		System.err.println(travelPlaces);
 
 		return "user/plans/planDetail";

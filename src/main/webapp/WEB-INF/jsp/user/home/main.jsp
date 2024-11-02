@@ -288,78 +288,79 @@ html, body {
 </style>
 </head>
 <body>
+  <div class="container mx-auto">
+    <!-- 주요 기능 -->
+    <div class="contents">
+      <div class="tripset">
+        <div class="tripset2">
+          <div class="trip-set">TRIPSET</div>
+          <div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
+        </div>
+        <div class="div8">
+          <a href="../plans/write" class="write">
+            <div class="arrow">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="div10">
+        <div class="div11">
+          <div class="image">
+            <button class="nav-reservation-button">
+              <img class="frame-3849" src="/resource/images/reservation.png" alt="항공 및 숙박 예약" />
+            </button>
+          </div>
+          <div class="info">
+            <div class="div12">항공 및 숙박 예약하기</div>
+            <div class="div13">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</div>
+          </div>
+        </div>
 
+        <div class="div11">
+          <div class="image">
+            <button class="nav-checklist-button">
+              <img class="frame-3849" src="/resource/images/checklist.png" alt="체크리스트" />
+            </button>
+          </div>
+          <div class="info">
+            <div class="div12">체크리스트</div>
+            <div class="div13">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</div>
+          </div>
+        </div>
 
-	<!-- 주요기능 -->
+        <div class="div11">
+          <div class="image">
+            <button class="nav-travelRecommend-button">
+              <img class="frame-3849" src="/resource/images/customtravel.png" alt="맞춤형 여행 추천" />
+            </button>
+          </div>
+          <div class="info">
+            <div class="div12">맞춤형 여행 추천 서비스</div>
+            <div class="div13">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</div>
+          </div>
+        </div>
 
-	<div class="contents">
-		<div class="tripset">
-			<div class="tripset2">
-				<div class="trip-set">TRIPSET</div>
-				<div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
-			</div>
-			<div class="div8">
-				<a href="../plans/write" class="write">
-					<div class="arrow">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="div10">
-			<div class="div11">
-				<div class="image">
-					<button class="nav-reservation-button">
-						<img class="frame-3849" src="/resource/images/reservation.png" />
-					</button>
-				</div>
-				<div class="info">
-					<div class="div12">항공 및 숙박 예약하기</div>
-					<div class="div13">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</div>
-				</div>
-			</div>
-			<div class="div11">
-				<div class="image">
-					<button class="nav-checklist-button">
-					<img class="frame-3849" src="/resource/images/checklist.png" />
-					</button>
-				</div>
-				<div class="info">
-					<div class="div12">체크리스트</div>
-					<div class="div13">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</div>
-				</div>
-			</div>
-			<div class="div11">
-				<div class="image">
-					<button class="nav-travelRecommend-button">
-						<img class="frame-3849" src="/resource/images/customtravel.png" />
-					</button>
-				</div>
-				<div class="info">
-					<div class="div12">맞춤형 여행 추천 서비스</div>
-					<div class="div13">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</div>
-				</div>
-			</div>
-			<div class="div11">
-
-				<div class="image">
-					<a href="/usr/article/list" class="button">
-						<img class="frame-3849" src="/resource/images/article.png" />
-					</a>
-				</div>
-
-				<div class="info">
-					<div class="div12">여행 계획 모아보기</div>
-					<div class="div13">
-						다양한 사람들이 공유한 여행 계획을 확인해보세요!
-						<br />
-						다른 사람들의 경험을 참고하여 더욱 알찬 여행을 준비해보세요.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="div11">
+          <div class="image">
+            <a href="/usr/article/list" class="button">
+              <img class="frame-3849" src="/resource/images/article.png" alt="여행 계획 모아보기" />
+            </a>
+          </div>
+          <div class="info">
+            <div class="div12">여행 계획 모아보기</div>
+            <div class="div13">
+              다양한 사람들이 공유한 여행 계획을 확인해보세요!
+              <br />
+              다른 사람들의 경험을 참고하여 더욱 알찬 여행을 준비해보세요.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 	<%@ include file="../common/foot.jspf"%>

@@ -3,8 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="../common/head.jspf"%>
+<%@ include file="../popups/CheckMySchedulePopup.jspf"%>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+<!-- Include Kakao Maps -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoMapKey}&libraries=services"></script>
 
 <style>
 body {
@@ -174,7 +176,7 @@ body {
                 level: 7 // 지도의 확대 레벨
             };
 
-        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성
         
         // 목적지 배열 (사용자가 원하는 목적지로 수정할 수 있다)
         var travelPlaces = [
