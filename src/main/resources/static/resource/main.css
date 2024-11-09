@@ -1,0 +1,238 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-width: 1100px;
+	height: 100%;
+	background: linear-gradient(180deg, rgba(218, 235, 255, 1) 12.5%,
+		rgba(220, 236, 255, 1) 25%, rgba(223, 238, 255, 1) 37.5%,
+		rgba(225, 239, 255, 1) 50%, rgba(228, 240, 255, 1) 56.25%,
+		rgba(232, 243, 255, 1) 62.5%, rgba(238, 245, 255, 1) 75%,
+		rgba(238, 245, 255, 1) 87.5%, rgba(255, 255, 255, 1) 100%);
+}
+
+.container * {
+	box-sizing: border-box;
+}
+
+.contents {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 20px;
+	flex-grow: 1;
+	position: relative;
+	line-height: 2.0;
+}
+
+.description {
+	line-height: 1.8;
+	color: #000000;
+	text-align: left;
+	font-family: "Inter-Medium", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	position: relative;
+	width: 100%;
+}
+
+.tripset {
+	padding: 10px 90px 0 90px;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	position: relative;
+}
+
+.tripset2 {
+	padding: 0 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 612px;
+	max-width: 100%;
+	position: relative;
+}
+
+.trip-set {
+	color: #000000;
+	text-align: left;
+	font-family: "Inter-Bold", sans-serif;
+	font-size: 52px;
+	line-height: 56px;
+	font-weight: 700;
+	position: relative;
+}
+
+.action-link {
+	flex-shrink: 0;
+	width: 51.49px;
+	height: 24px;
+	position: relative;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+.arrow span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-10px, -10px); /* 고정된 이동 거리 */
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(10px, 10px); /* 고정된 이동 거리 */
+    }
+}
+
+
+.features {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100%;
+	position: relative;
+}
+
+.feature {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	align-items: center;
+	justify-content: flex-start;
+	flex: 1;
+	height: 434.47px;
+	position: relative;
+}
+
+.image {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	position: relative;
+}
+
+.button, .frame-3849 {
+	background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+	border-radius: 10px;
+	flex: 1;
+	height: 334.3px;
+	position: relative;
+	overflow: hidden;
+	object-fit: cover;
+}
+
+.info {
+	padding: 0 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+	position: relative;
+}
+
+.title {
+	color: #000000;
+	text-align: left;
+	font-family: "Inter-Regular", sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: bold;
+	position: relative;
+	width: 100%;
+}
+
+.text-small {
+	color: #000000;
+	text-align: left;
+	font-family: "Inter-Regular", sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: 400;
+	position: relative;
+	width: 100%;
+	margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+	.tripset {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px;
+	}
+	.hidden-on-mobile {
+		display: none;
+	}
+	.centered-frame {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 10px;
+	}
+	.top-right {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		gap: 10px;
+	}
+	.small-button, .signup-btn {
+		font-size: 12px;
+		padding: 5px 10px;
+	}
+}
+
+@media (min-width: 769px) {
+	.hidden-on-desktop {
+		display: flex;
+	}
+	.top-right-align {
+		justify-content: flex-end;
+	}
+	.large-button, .signup-btn {
+		font-size: 16px;
+		padding: 14px 24px;
+	}
+}

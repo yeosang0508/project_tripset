@@ -17,13 +17,13 @@ body {
 	background-color: #ffffff;
 }
 
-#main-content {
+main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#container {
+.container {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -34,7 +34,6 @@ body {
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 	border-radius: 15px;
 	overflow: hidden;
-	overflow-y: auto;
 	padding: 20px;
 }
 
@@ -51,7 +50,7 @@ body {
 	border-radius: 10px;
 }
 
-#sidebar {
+aside {
 	width: 100%;
 	background-color: #f9f9f9;
 	padding: 20px;
@@ -72,8 +71,19 @@ body {
 }
 
 #travelPlanInfo {
-	text-align: center;
-	margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+    white-space: nowrap; /* 한 줄에 나열되도록 설정 */
+}
+
+#travelPlanInfo ul {
+    display: inline-flex; /* 가로로 나열 */
+    gap: 10px; /* 항목 간 간격 */
+}
+
+#travelPlanInfo ul li {
+    min-width: 80px; /* 각 항목의 최소 너비 설정 */
 }
 
 #travelPlanInfo h3 {
@@ -145,30 +155,32 @@ body {
 .distanceInfo:after {
 	content: none;
 }
+
+
 </style>
 
 <body>
 
-	<div id="main-content">
-		<div id="container">
+	<main>
+		<section class="container">
 			<div id="map-container">
 				<div id="staticMap">
 					<div id="map" style="width: 100%; height: 400px;"></div>
 				</div>
 			</div>
-			<div id="sidebar text-left">
-				<div class="font-bold mt-20">${travelPlan.region}여행✨${travelPlan.startDate}~ ${travelPlan.endDate}</div>
+			<aside>
+				<h2 class="font-bold mt-5">${travelPlan.region}여행✨${travelPlan.startDate}~ ${travelPlan.endDate}</h2>
 
-				<div id="travelPlanInfo">
+				<section id="travelPlanInfo">
 					<ul class="steps">
 						<c:forEach var="plan" items="${travelPlaces}" varStatus="status">
 							<li class="step step-neutral" data-content="${status.index + 1}">${plan.placeName}</li>
 						</c:forEach>
 					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+				</section>
+			</aside>
+		</section>
+	</main>
 	<script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" href="/resource/main.css" />
 
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../popups/reservationPopup.jspf"%>
@@ -9,358 +10,80 @@
 <%@ include file="../popups/CheckMySchedulePopup.jspf"%>
 <%@ include file="../popups/ChecklistPopup.jspf"%>
 
-<style>
-html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(180deg, rgba(218, 235, 255, 1) 12.5%,
-		rgba(220, 236, 255, 1) 25%, rgba(223, 238, 255, 1) 37.5%,
-		rgba(225, 239, 255, 1) 50%, rgba(228, 240, 255, 1) 56.25%,
-		rgba(232, 243, 255, 1) 62.5%, rgba(238, 245, 255, 1) 75%,
-		rgba(238, 245, 255, 1) 87.5%, rgba(255, 255, 255, 1) 100%);
-}
 
-.div * {
-	box-sizing: border-box;
-}
+<main class="container mx-auto">
+	<!-- Introduction Section -->
+	<section class="contents">
+		<header class="tripset">
+			<div class="tripset2">
+				<h1 class="trip-set">TRIPSET</h1>
+				<p class="description">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</p>
+			</div>
+			<nav class="action-link">
+				<a href="../plans/write" class="write">
+					<div class="arrow">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</a>
+			</nav>
+		</header>
 
-.contents {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	width: 100%;
-	padding: 20px;
-	flex-grow: 1;
-	position: relative;
-	line-height: 2.0;
-}
+		<!-- Feature Section -->
+		<section class="features">
+			<article class="feature">
+				<figure class="image">
+					<button class="nav-reservation-button">
+						<img class="frame-3849" src="/resource/images/reservation.png" alt="항공 및 숙박 예약" />
+					</button>
+				</figure>
+				<div class="info">
+					<h2 class="title">항공 및 숙박 예약하기</h2>
+					<p class="description">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</p>
+				</div>
+			</article>
 
-.div12, .div13, .paintings2, .paintings3 {
-	line-height: 1.8; /* 기존 1.6에서 1.8로 줄 간격을 넓힘 */
-}
+			<article class="feature">
+				<figure class="image">
+					<button class="nav-checklist-button">
+						<img class="frame-3849" src="/resource/images/checklist.png" alt="체크리스트" />
+					</button>
+				</figure>
+				<div class="info">
+					<h2 class="title">체크리스트</h2>
+					<p class="description">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</p>
+				</div>
+			</article>
 
-.tripset {
-	padding: 10px 90px 0 90px;
-	display: flex;
-	flex-direction: row;
-	gap: 20px;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	width: 100%;
-	position: relative;
-}
+			<article class="feature">
+				<figure class="image">
+					<button class="nav-travelRecommend-button">
+						<img class="frame-3849" src="/resource/images/customtravel.png" alt="맞춤형 여행 추천" />
+					</button>
+				</figure>
+				<div class="info">
+					<h2 class="title">맞춤형 여행 추천 서비스</h2>
+					<p class="description">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</p>
+				</div>
+			</article>
 
-.tripset2 {
-	padding: 0 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 17px;
-	align-items: flex-start;
-	justify-content: flex-start;
-	width: 612px;
-	max-width: 100%;
-	position: relative;
-}
+			<article class="feature">
+				<figure class="image">
+					<a href="/usr/article/list" class="button">
+						<img class="frame-3849" src="/resource/images/article.png" alt="여행 계획 모아보기" />
+					</a>
+				</figure>
+				<div class="info">
+					<h2 class="title">여행 계획 모아보기</h2>
+					<p class="description">
+						다양한 사람들이 공유한 여행 계획을 확인해보세요!
+						<br />
+					</p>
+				</div>
+			</article>
+		</section>
+	</section>
+</main>
 
-.trip-set {
-	color: #000000;
-	text-align: left;
-	font-family: "Inter-Bold", sans-serif;
-	font-size: 52px;
-	line-height: 56px;
-	font-weight: 700;
-	position: relative;
-}
-
-.div7 {
-	color: #000000;
-	text-align: left;
-	font-family: "Inter-Medium", sans-serif;
-	font-size: 16px;
-	font-weight: 500;
-	position: relative;
-	width: 100%;
-}
-
-.div8 {
-	flex-shrink: 0;
-	width: 51.49px;
-	height: 24px;
-	position: relative;
-}
-
-.div9 {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	top: 0;
-	overflow: visible;
-}
-
-.div10 {
-	display: flex;
-	flex-direction: row;
-	gap: 24px;
-	align-items: flex-start;
-	justify-content: flex-start;
-	width: 100%;
-	position: relative;
-}
-
-.div11 {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	align-items: center;
-	justify-content: flex-start;
-	flex: 1;
-	height: 434.47px;
-	position: relative;
-}
-
-.image {
-	padding: 10px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	position: relative;
-}
-
-.button, .frame-3849 {
-	background: linear-gradient(to left, #d9d9d9, #d9d9d9);
-	border-radius: 10px;
-	flex: 1;
-	height: 334.3px;
-	position: relative;
-	overflow: hidden;
-	object-fit: cover;
-}
-
-.info {
-	padding: 0 15px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	width: 100%;
-	position: relative;
-}
-
-.div12 {
-	color: #000000;
-	text-align: left;
-	font-family: "Inter-Regular", sans-serif;
-	font-size: 14px;
-	line-height: 16px;
-	font-weight: bold;
-	position: relative;
-	width: 100%;
-}
-
-.div13 {
-	color: #000000;
-	text-align: left;
-	font-family: "Inter-Regular", sans-serif;
-	font-size: 11px;
-	line-height: 16px;
-	font-weight: 400;
-	position: relative;
-	width: 100%;
-	margin-top: 10px;
-}
-
-.paintings2 {
-	color: var(--black, #161412);
-	text-align: left;
-	font-family: "Inter-Regular", sans-serif;
-	font-size: 16px;
-	line-height: 26px;
-	letter-spacing: 0.88px;
-	font-weight: 400;
-	text-transform: uppercase;
-	position: relative;
-}
-
-.paintings3 {
-	color: var(--black, #161412);
-	text-align: left;
-	font-family: "Inter-Regular", sans-serif;
-	font-size: 14px;
-	line-height: 26px;
-	letter-spacing: 0.88px;
-	font-weight: 400;
-	text-transform: uppercase;
-	position: relative;
-}
-
-@media ( max-width : 768px) {
-	.div2 {
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		padding: 10px;
-	}
-	.div3 {
-		display: none;
-	}
-	.frame-3848 {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: 10px;
-	}
-	.div4 {
-		position: absolute;
-		right: 10px;
-		top: 10px;
-		gap: 10px;
-	}
-	.div5, .signup-btn {
-		font-size: 12px;
-		padding: 5px 10px;
-	}
-}
-
-@media ( min-width : 769px) {
-	.div3 {
-		display: flex;
-	}
-	.div4 {
-		justify-content: flex-end;
-	}
-	.div5, .signup-btn {
-		font-size: 16px;
-		padding: 14px 24px;
-	}
-}
-
-.arrow {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	transform: rotate(-90deg);
-	cursor: pointer;
-}
-
-.arrow span {
-	display: block;
-	width: 1.5vw;
-	height: 1.5vw;
-	border-bottom: 5px solid black;
-	border-right: 5px solid black;
-	transform: rotate(45deg);
-	margin: -10px;
-	animation: animate 2s infinite;
-}
-
-.arrow span:nth-child(2) {
-	animation-delay: -0.2s;
-}
-
-.arrow span:nth-child(3) {
-	animation-delay: -0.4s;
-}
-
-@keyframes animate {
-    0% {
-        opacity: 0;
-        transform: rotate(45deg) translate(-20px, -20px);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: rotate(45deg) translate(20px, 20px);
-    }
-}
-
-</style>
-</head>
-<body>
-  <div class="container mx-auto">
-    <!-- 주요 기능 -->
-    <div class="contents">
-      <div class="tripset">
-        <div class="tripset2">
-          <div class="trip-set">TRIPSET</div>
-          <div class="div7">당신만의 여행 계획을 세우고, 특별한 경험을 만들어 보세요. 여행지 추천, 일정 관리, 체크리스트까지 한 곳에서 편리하게!</div>
-        </div>
-        <div class="div8">
-          <a href="../plans/write" class="write">
-            <div class="arrow">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </a>
-        </div>
-      </div>
-      
-      <div class="div10">
-        <div class="div11">
-          <div class="image">
-            <button class="nav-reservation-button">
-              <img class="frame-3849" src="/resource/images/reservation.png" alt="항공 및 숙박 예약" />
-            </button>
-          </div>
-          <div class="info">
-            <div class="div12">항공 및 숙박 예약하기</div>
-            <div class="div13">여행 계획할 때 필요한 항공편과 숙박 예약을 할 수 있도록 바로 이동할 수 있습니다.</div>
-          </div>
-        </div>
-
-        <div class="div11">
-          <div class="image">
-            <button class="nav-checklist-button">
-              <img class="frame-3849" src="/resource/images/checklist.png" alt="체크리스트" />
-            </button>
-          </div>
-          <div class="info">
-            <div class="div12">체크리스트</div>
-            <div class="div13">여행 전 챙겨야 할 필수 아이템을 놓치지 않도록 확인해보세요.</div>
-          </div>
-        </div>
-
-        <div class="div11">
-          <div class="image">
-            <button class="nav-travelRecommend-button">
-              <img class="frame-3849" src="/resource/images/customtravel.png" alt="맞춤형 여행 추천" />
-            </button>
-          </div>
-          <div class="info">
-            <div class="div12">맞춤형 여행 추천 서비스</div>
-            <div class="div13">AI 맞춤형 추천으로 완벽한 여행을 계획하세요!</div>
-          </div>
-        </div>
-
-        <div class="div11">
-          <div class="image">
-            <a href="/usr/article/list" class="button">
-              <img class="frame-3849" src="/resource/images/article.png" alt="여행 계획 모아보기" />
-            </a>
-          </div>
-          <div class="info">
-            <div class="div12">여행 계획 모아보기</div>
-            <div class="div13">
-              다양한 사람들이 공유한 여행 계획을 확인해보세요!
-              <br />
-              다른 사람들의 경험을 참고하여 더욱 알찬 여행을 준비해보세요.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-	<%@ include file="../common/foot.jspf"%>
+<%@ include file="../common/foot.jspf"%>
