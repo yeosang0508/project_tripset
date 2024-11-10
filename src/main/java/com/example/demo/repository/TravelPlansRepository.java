@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -53,4 +54,12 @@ public interface TravelPlansRepository {
 			WHERE travelPlans.id = #{id}
 			""")
 	List<TravelPlanPlaces> getTravelPlansWithPlacesById(@Param("id") int travelPlanId);
+
+	// travelPlanPlaces 테이블에서 travelPlanId에 해당하는 레코드 삭제
+	@Delete("DELETE FROM travelPlanPlaces WHERE travelPlanId = #{travelPlanId}")
+	void deleteTravelPlanPlaces(int travelPlanId);
+
+	// travelPlans 테이블에서 travelPlanId에 해당하는 레코드 삭제
+	@Delete("DELETE FROM travelPlans WHERE id = #{travelPlanId}")
+	void deleteTravelPlan(int travelPlanId);
 }

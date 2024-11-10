@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/resource/planDetail.css" />
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../popups/CheckMySchedulePopup.jspf"%>
+<%@ include file="../popups/CheckDeletePopup.jspf" %>
 
 <!-- Include Kakao Maps -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoMapKey}&libraries=services"></script>
@@ -28,7 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
 			</div>
 		</div>
 		<aside>
-			<h2 class="font-bold">${travelPlan.region}여행 ✨ ${travelPlan.startDate} ~ ${travelPlan.endDate}</h2>
+			<div class="flex justify-between items-center w-full">
+				<h2 class="font-bold">${travelPlan.region}여행✨${travelPlan.startDate}~${travelPlan.endDate}</h2>
+				<div class="flex gap-2">
+					<div class="text-gray-500 cursor-pointer">수정</div>
+					<div class=" nav-delete-button text-gray-500 cursor-pointer">삭제</div>
+				</div>
+			</div>
+
 
 			<!-- 여행 계획 정보 슬라이더 -->
 			<section id="travelPlanSlider">

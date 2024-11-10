@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -90,10 +93,32 @@ public class UsrPlansController {
 
 		// 여행 계획 장소 모델에 추가
 		model.addAttribute("travelPlaces", travelPlaces);
+		model.addAttribute("travelPlanId", travelPlanId);
 		model.addAttribute("kakaoMapKey", kakaoMapKey);
 		System.err.println(travelPlaces);
 
 		return "user/plans/planDetail";
+	}
+	
+	
+	@PostMapping("/usr/plans/delete")
+	@ResponseBody
+	public Map<String, Object> deleteTravelPlan(@RequestBody Map<String, Integer> requestData) {
+	    int travelPlanId = requestData.get("travelPlanId");
+
+	    Map<String, Object> response = new HashMap<>();
+	    
+	    try {
+	        travelPlansService.deleteTravelPlan(travelPlanId);
+	        response.put("success", true);
+	        response.put("message", "일정이 삭제되었습니다.");
+	    } catch (Exception e) {
+	        response.put("success", false);
+	        response.put("message", "해당 일정 id를 찾지 못했습니다.");
+	        System.err.println("Exception: " + e.getMessage());
+	    }
+
+	    return response;
 	}
 
 }

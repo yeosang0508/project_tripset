@@ -49,5 +49,12 @@ public class TravelPlansService {
 			return travelPlansRepository.getTravelPlansWithPlacesById(travelPlanId);
 		}
 
+		@Transactional
+		public void deleteTravelPlan(int travelPlanId) {
+		    travelPlansRepository.deleteTravelPlanPlaces(travelPlanId);
+		    travelPlansRepository.deleteTravelPlan(travelPlanId);
+		}
+
+
 		
 }

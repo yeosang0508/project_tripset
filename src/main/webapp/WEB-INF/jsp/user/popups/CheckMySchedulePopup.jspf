@@ -19,11 +19,12 @@ $(document).ready(function() {
 
                 if (plans && plans.length > 0) {
                     plans.forEach(function(plan) {
-                        htmlContent += '<div class="flex justify-between items-center px-4 py-3 rounded-lg bg-gray-200">';
-                        htmlContent += '<a href="/usr/plans/detail?id=' + plan.id + '" class="block">';
-                        htmlContent += '<span>' + plan.region + ' 여행 ' + plan.startDate + ' ~ ' + plan.endDate + '</span>';
-                        htmlContent += '</a>';
-                        htmlContent += '</div>';
+                    	htmlContent += '<div class="flex justify-between items-center px-4 py-3 rounded-lg bg-gray-200">';
+                    	htmlContent += '<a href="/usr/plans/detail?id=' + plan.id + '" class="block flex-1">';
+                    	htmlContent += '<span>' + plan.region + ' 여행 ' + plan.startDate + ' ~ ' + plan.endDate + '</span>';
+                    	htmlContent += '</a>';
+                    	htmlContent += '</div>';
+
                     });
                 } else {
                     htmlContent = '<div class="flex items-center justify-center h-[300px] text-gray-500">예정된 여행 일정이 없습니다.</div>';
@@ -71,9 +72,11 @@ $(document).ready(function() {
 			<div class="popup-header absolute top-0 left-0 w-full flex justify-between items-start p-6">
 				<h2 class="font-bold text-2xl">My일정확인</h2>
 				<button class="close-popup text-3xl font-bold">×</button>
+				
 			</div>
 			<!-- 팝업 body  -->
 			<div class="popup-body relative mt-[88px] p-8"></div>
+			
 		</div>
 	</div>
 
