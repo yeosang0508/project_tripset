@@ -1,10 +1,11 @@
-'<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<link rel="stylesheet" href="/resource/planUpdate.css" />
 <%@ include file="../common/head.jspf"%>
-<%@ include file="../popups/regionalSelectionPopup.jspf"%>
 <%@ include file="../popups/CheckMySchedulePopup.jspf"%>
+<%@ include file="../popups/loginPopup.jspf"%>
+<%@ include file="../popups/signUpPopup.jspf"%>
 
 <!-- Include Kakao Maps -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoMapKey}&libraries=services"></script>
@@ -16,349 +17,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<!-- Custom CSS -->
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-#container {
-    display: flex;
-    height: 75vh;
-    width: 90vw;
-    max-width: 1200px;
-    margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-/* Map Container */
-#map-container {
-    flex: 2;
-    position: relative;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    border-right: 1px solid #d0d0d0;
-}
-
-#map {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
-/* Sidebar */
-#sidebar {
-    flex: 1;
-    background-color: #f9f9f9;
-    padding: 30px 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0 15px 15px 0;
-}
-
-.container-layout {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Date Picker */
-.date-picker-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.date-picker {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    height: 40px;
-    flex-grow: 1;
-}
-
-.date-picker input {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    border-radius: 5px;
-    font-size: 14px;
-    outline: none;
-    background-color: inherit;
-    text-align: center;
-    border: 1px solid #d0d0d0;
-}
-
-/* Search Box */
-.search-box {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 100%;
-    max-width: 400px;
-    background-color: #f0f7ff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.search-txt {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    padding: 10px;
-    height: 40px;
-    border-radius: 10px 0 0 10px;
-    border: 1px solid #d0d0d0;
-}
-
-.search-btn {
-    background-color: #58aaff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    border: 1px solid #58aaff;
-}
-
-.search-btn:hover {
-    background-color: #007bff;
-}
-
-#placesList {
-    max-height: 400px;
-    overflow-y: auto;
-    position: relative;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-    margin-top: 10px;
-}
-#placesList li {
-	list-style: none;
-}
-
-#placesList .item {
-	position: relative;
-	border-bottom: 1px solid #888;
-	overflow: hidden;
-	cursor: pointer;
-	min-height: 65px;
-}
-
-#placesList .item span {
-	display: block;
-	margin-top: 4px;
-}
-
-#placesList .item h5, #placesList .item .info {
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-#placesList .item .info {
-	padding: 10px 0 10px 55px;
-}
-
-#placesList .info .gray {
-	color: #8a8a8a;
-}
-
-#placesList .info .jibun {
-	padding-left: 26px;
-	background:
-		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
-		no-repeat;
-}
-
-#placesList .info .tel {
-	color: #009900;
-}
-
-#placesList .item .markerbg {
-	float: left;
-	position: absolute;
-	width: 36px;
-	height: 30px;
-	background:
-		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
-		no-repeat;
-}
-
-#placesList .item .marker_1 {
-	background-position: 0 -10px;
-}
-
-#placesList .item .marker_2 {
-	background-position: 0 -56px;
-}
-
-#placesList .item .marker_3 {
-	background-position: 0 -102px
-}
-
-#placesList .item .marker_4 {
-	background-position: 0 -148px;
-}
-
-#placesList .item .marker_5 {
-	background-position: 0 -194px;
-}
-
-#placesList .item .marker_6 {
-	background-position: 0 -240px;
-}
-
-#placesList .item .marker_7 {
-	background-position: 0 -286px;
-}
-
-#placesList .item .marker_8 {
-	background-position: 0 -332px;
-}
-
-#placesList .item .marker_9 {
-	background-position: 0 -378px;
-}
-
-#placesList .item .marker_10 {
-	background-position: 0 -423px;
-}
-
-#placesList .item .marker_11 {
-	background-position: 0 -470px;
-}
-
-#placesList .item .marker_12 {
-	background-position: 0 -516px;
-}
-
-#placesList .item .marker_13 {
-	background-position: 0 -562px;
-}
-
-#placesList .item .marker_14 {
-	background-position: 0 -608px;
-}
-
-#placesList .item .marker_15 {
-	background-position: 0 -654px;
-}
-
-#numbered-list {
-	z-index: 1;
-}
-
-ul.numbered {
-	margin-top: 30px;
-	border-left: 3px solid #b3b3b3;
-	counter-reset: numbered-list;
-	margin-left: 10px;
-	position: relative;
-}
-
-ul.numbered li {
-	font-size: 16px;
-	line-height: 1.2;
-	margin-bottom: 30px;
-	padding-left: 30px;
-	position: relative;
-}
-
-ul.numbered li:last-child {
-	border-left: 3px solid white;
-	margin-left: -3px;
-}
-
-ul.numbered li:before {
-	background-color: #b3b3b3;
-	border: 3px solid white;
-	border-radius: 50%;
-	color: white;
-	content: counter(numbered-list);
-	counter-increment: numbered-list;
-	display: block;
-	font-weight: bold;
-	width: 30px;
-	height: 30px;
-	margin-left: 4px;
-	line-height: 30px;
-	position: absolute;
-	left: -21px;
-	text-align: center;
-}
-
-/* Pagination */
-.pagination {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pagination button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #27A4FC;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.pagination button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-</style>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const regionSelect = document.getElementById('region-select');
-		const regionConfirmBtn = document.getElementById('region-confirm-btn');
-
-		regionConfirmBtn.addEventListener('click',
-				function() {
-					const selectedRegion = regionSelect.value;
-					if (selectedRegion) {
-						localStorage.setItem('selectedRegion', selectedRegion);
-						document.querySelector('.region-popup').classList
-								.add('hidden');
-						document.querySelector('.popup-bg').classList
-								.add('hidden');
-					} else {
-						alert('지역을 선택해주세요!');
-					}
-
-					console.log(selectedRegion);
-				});
-	});
-</script>
-
 </head>
 <body>
-	<%@ include file="../popups/loginPopup.jspf"%>
-	<%@ include file="../popups/signUpPopup.jspf"%>
 
 	<div id="container" class="container-layout">
 		<!-- Map Container -->
@@ -375,7 +35,7 @@ ul.numbered li:before {
 						d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
             </svg>
 				<div class="date-picker">
-					<input type="text" name="date" id="daterange" placeholder="날짜를 선택해주세요" />
+					<input type="text" name="date" id="daterange" />
 				</div>
 				<svg id="nextDay" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -397,7 +57,8 @@ ul.numbered li:before {
 							</button>
 						</form>
 					</div>
-					<ul id="placesList"></ul>
+					<ul id="placesList">
+					</ul>
 				</div>
 				<div>
 					<ul class="numbered" id="numbered-list"></ul>
@@ -410,150 +71,197 @@ ul.numbered li:before {
 		<button id="saveButton" class="w-32 h-10 bg-blue-500 text-white hover:bg-blue-700 font-bold rounded-lg">저장</button>
 	</div>
 	<!-- Date Range Picker 설정 -->
-	<script type="text/javascript">
-		$(function() {
-			let currentDate = moment();
-			let startDate = currentDate;
-			let endDate = currentDate;
+	<script>
+$(function() {
+    // JSP에서 전달받은 startDate와 endDate 값을 JavaScript 변수에 할당
+    let startDate = '${travelPlan.getStartDate()}';
+    let endDate = '${travelPlan.getEndDate()}';
 
-			function updateDateDisplay() {
-				$('#daterange').val(currentDate.format('YYYY/MM/DD')); // 현재 날짜만 표시
-			}
-
-			updateDateDisplay();
-
-			$('input[name="date"]').daterangepicker(
-					{
-						locale : {
-							format : 'YYYY/MM/DD',
-							applyLabel : "확인",
-							cancelLabel : "취소",
-							daysOfWeek : [ "일", "월", "화", "수", "목", "금", "토" ],
-							monthNames : [ "1월", "2월", "3월", "4월", "5월", "6월",
-									"7월", "8월", "9월", "10월", "11월", "12월" ]
-						},
-						startDate : currentDate,
-						endDate : currentDate
-					},
-					function(start, end) {
-						startDate = start;
-						endDate = end;
-						currentDate = startDate.clone(); // 선택된 범위의 첫날을 현재 날짜로 설정
-						updateDateDisplay(); // 현재 날짜를 필드에 업데이트
-
-						// localStorage에 startDate와 endDate를 저장
-						localStorage.setItem('startDate', startDate
-								.format('YYYY/MM/DD'));
-						localStorage.setItem('endDate', endDate
-								.format('YYYY/MM/DD'));
-						console.log('Start Date:', startDate
-								.format('YYYY/MM/DD'));
-						console.log('End Date:', endDate.format('YYYY/MM/DD'));
-					});
-
-			// 이전 날짜로 이동
-			$('#prevDay').on('click', function() {
-				if (currentDate.isAfter(startDate)) { // 시작 날짜보다 크면 이전 날짜로 이동 가능
-					currentDate = currentDate.subtract(1, 'days');
-					updateDateDisplay();
-				} else {
-					alert("이전 날짜로 이동할 수 없습니다.");
-				}
-			});
-
-			// 다음 날짜로 이동
-			$('#nextDay').on('click', function() {
-				if (currentDate.isSameOrBefore(endDate)) { // 종료 날짜보다 같거나 작을 때만 이동 가능
-					updateDateDisplay();
-					currentDate = currentDate.add(1, 'days');
-				} else {
-					alert("다음 날짜로 이동할 수 없습니다.");
-				}
-			});
-		});
-	</script>
-
-<script>
-
-// numbered-list에 추가된 장소의 좌표를 저장할 배열
-var savedPlacesCoordinates = [];
-
-//목적지를 numbered-list에 추가하는 함수
-function addDestination(destination) {
-    if (!savedPlaces.includes(destination)) {
-        savedPlaces.push(destination);
-        const listEl = document.getElementById('numbered-list');
-        const li = document.createElement('li');
-
-        // li 요소에 flexbox 적용하여 아이콘과 텍스트를 수직 가운데 정렬 
-        li.style.display = 'flex';
-        li.style.alignItems = 'center';
-        li.style.justifyContent = 'space-between';
-        
-        // 리스트 항목에 목적지와 아이콘을 추가
-        li.innerHTML = destination + `<i class="bi bi-dash-square-dotted" style="cursor: pointer; margin-left: 10px;"></i>`;
-        listEl.appendChild(li);
-
-        // 목적지를 localStorage에 저장
-        localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
-
-        // 검색어로 장소 검색 후 해당 위치의 좌표를 가져옴
-        ps.keywordSearch(destination, function(data, status) {
-            if (status === kakao.maps.services.Status.OK) {
-                // 검색된 첫 번째 장소의 좌표를 가져와 마커를 표시
-                const placePosition = new kakao.maps.LatLng(data[0].y, data[0].x);
-                addMarker(placePosition, savedPlaces.length - 1);
-                map.setCenter(placePosition); // 지도의 중심을 해당 위치로 이동
-                savedPlacesCoordinates.push(placePosition);
-
-                removeMarker(); // 기존 마커 제거
-
-                //저장된 좌표들만 마커로 표시
-                savedPlacesCoordinates.forEach((position, index) => {
-                    addMarker(position, index);
-                });
-
-                // 지도의 중심을 마지막 추가된 위치로 이동
-                map.setCenter(placePosition);
-            } else {
-                console.error('목적지의 좌표를 찾을 수 없습니다.');
-            }
-        });
-
-        // 삭제 버튼 클릭 시 동작
-        li.querySelector('i').addEventListener('click', function() {
-            removeDestination(destination, li);
-        });
-    } else {
-        alert('이미 추가된 목적지입니다.');
-    }
-}
-
-// 목적지를 제거하는 함수
-function removeDestination(destination, listItem) {
-    // savedPlaces 배열에서 목적지 제거
-    const index = savedPlaces.indexOf(destination);
-    if (index > -1) {
-        savedPlaces.splice(index, 1);
+    console.log(startDate);
+    console.log(endDate);
+    
+    function updateDateDisplay() {
+        $('#daterange').val(startDate + ' - ' + endDate); // 기본적으로 설정된 날짜 범위를 표시
     }
 
-    // savedPlacesCoordinates 배열에서도 좌표 제거
-    savedPlacesCoordinates.splice(index, 1);
+    updateDateDisplay();
 
-    // 리스트에서 해당 항목 제거
-    listItem.remove();
+    // Date Range Picker 초기화
+    $('input[name="date"]').daterangepicker(
+        {
+            locale : {
+                format : 'YYYY/MM/DD',
+                applyLabel : "확인",
+                cancelLabel : "취소",
+                daysOfWeek : [ "일", "월", "화", "수", "목", "금", "토" ],
+                monthNames : [ "1월", "2월", "3월", "4월", "5월", "6월",
+                        "7월", "8월", "9월", "10월", "11월", "12월" ]
+            },
+            startDate : startDate,
+            endDate : endDate
+        },
+        function(start, end) {
+            // 선택한 날짜 범위를 startDate와 endDate로 업데이트
+            startDate = start.format('YYYY/MM/DD');
+            endDate = end.format('YYYY/MM/DD');
+            updateDateDisplay();
 
-    // localStorage 업데이트
-    localStorage.setItem('savedPlaces', JSON.stringify(savedPlaces));
+            // localStorage에 startDate와 endDate를 저장
+            localStorage.setItem('startDate', startDate);
+            localStorage.setItem('endDate', endDate);
 
-    // 마커 갱신 (기존 마커를 제거하고 남은 마커만 다시 추가)
-    removeMarker();
-    savedPlacesCoordinates.forEach((position, index) => {
-        addMarker(position, index);
+            console.log('Start Date:', startDate);
+            console.log('End Date:', endDate);
+        }
+    );
+
+    // 이전 날짜로 이동
+    $('#prevDay').on('click', function() {
+        if (moment(startDate).isAfter(startDate)) { // 시작 날짜보다 크면 이전 날짜로 이동 가능
+            startDate = moment(startDate).subtract(1, 'days').format('YYYY/MM/DD');
+            updateDateDisplay();
+        } else {
+            alert("이전 날짜로 이동할 수 없습니다.");
+        }
     });
 
-    console.log('Updated places:', savedPlaces);
-}
+    // 다음 날짜로 이동
+    $('#nextDay').on('click', function() {
+        if (moment(endDate).isSameOrBefore(endDate)) { // 종료 날짜보다 같거나 작을 때만 이동 가능
+            startDate = moment(startDate).add(1, 'days').format('YYYY/MM/DD');
+            updateDateDisplay();
+        } else {
+            alert("다음 날짜로 이동할 수 없습니다.");
+        }
+    });
+});
+</script>
+	<script>
+    // 서버에서 전달된 travelPlaces 정보를 JavaScript 배열로 변환
+    var travelPlaces = [
+        <c:forEach var="plan" items="${travelPlaces}" varStatus="status">
+            "${plan.placeName}"<c:if test="${!status.last}">,</c:if>
+        </c:forEach>
+    ];
+
+    var savedPlaces = []; // 목적지 이름 배열
+    var savedPlacesCoordinates = []; // 좌표 배열
+    var markers = []; // 생성된 마커 배열
+
+    console.log("Travel Places Array:", travelPlaces); // 확인용
+
+    // 페이지 로드 후 travelPlaces 데이터를 numbered-list에 추가
+    document.addEventListener("DOMContentLoaded", function() {
+        const listEl = document.getElementById('numbered-list');
+        if (!listEl) {
+            console.error("Element with id 'numbered-list' not found.");
+            return;
+        }
+        
+
+        travelPlaces.forEach(function(destination) {
+            console.log("Adding destination:", destination); // 확인용
+            addDestination(destination);
+        });
+    });
+
+    // 목적지를 numbered-list와 지도에 추가하는 함수
+    function addDestination(destination) {
+        if (!savedPlaces.includes(destination)) {
+            savedPlaces.push(destination);
+
+            const listEl = document.getElementById('numbered-list');
+            if (!listEl) {
+                console.error("Element with id 'numbered-list' not found.");
+                return;
+            }
+
+            // 리스트 항목 생성
+            const li = document.createElement('li');
+            li.style.display = 'flex';
+            li.style.alignItems = 'center';
+            li.style.justifyContent = 'space-between';
+            li.style.padding = '5px 0';
+
+            // 텍스트와 삭제 아이콘을 개별적으로 추가
+            const text = document.createElement('span');
+            text.textContent = destination;
+            
+            const removeIcon = document.createElement('i');
+            removeIcon.classList.add('bi', 'bi-dash-square-dotted');
+            removeIcon.style.cursor = 'pointer';
+            removeIcon.style.marginLeft = '10px';
+
+            // 삭제 아이콘 클릭 시 목적지 제거
+            removeIcon.addEventListener('click', function(event) {
+                event.stopPropagation(); // 부모 클릭 이벤트 전파 방지
+                removeDestination(destination, li);
+            });
+
+            li.appendChild(text);
+            li.appendChild(removeIcon);
+            listEl.appendChild(li);
+
+            searchAndAddMarker(destination);
+        } else {
+            console.warn("Destination already added:", destination);
+        }
+    }
+
+    // 장소 검색 후 좌표를 가져와 마커 추가하는 함수
+    function searchAndAddMarker(destination) {
+        ps.keywordSearch(destination, function(data, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                const placePosition = new kakao.maps.LatLng(data[0].y, data[0].x);
+                savedPlacesCoordinates.push(placePosition);
+                updateMarkers();
+            } else {
+                console.error('Unable to find coordinates for:', destination);
+            }
+        });
+    }
+
+    // 목적지를 제거하는 함수
+    function removeDestination(destination, listItem) {
+        const index = savedPlaces.indexOf(destination);
+        if (index > -1) {
+            savedPlaces.splice(index, 1);
+            savedPlacesCoordinates.splice(index, 1);
+            listItem.remove();
+            updateMarkers();
+        }
+        console.log('Updated places:', savedPlaces);
+    }
+
+    // 마커를 생성하고 지도 위에 마커를 표시하는 함수
+    function addMarker(position, idx) {
+        var marker = new kakao.maps.Marker({
+            position: position,
+            map: map,
+            title: savedPlaces[idx],
+            zIndex: idx + 1
+        });
+        markers.push(marker);
+    }
+
+    // 모든 마커를 제거하고 현재 저장된 위치로 다시 마커를 추가
+    function updateMarkers() {
+        removeMarker();
+
+        savedPlacesCoordinates.forEach((position, index) => {
+            addMarker(position, index);
+        });
+
+        if (savedPlacesCoordinates.length > 0) {
+            map.setCenter(savedPlacesCoordinates[savedPlacesCoordinates.length - 1]);
+        }
+    }
+
+    // 지도 위의 모든 마커를 제거하는 함수
+    function removeMarker() {
+        markers.forEach(marker => marker.setMap(null));
+        markers = [];
+    }
 </script>
 
 	<!-- Kakao Map 설정 -->

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			<div class="flex justify-between items-center w-full">
 				<h2 class="font-bold">${travelPlan.region}여행✨${travelPlan.startDate}~${travelPlan.endDate}</h2>
 				<div class="flex gap-2">
-					<div class="text-gray-500 cursor-pointer">수정</div>
+					<div class="text-gray-500 cursor-pointer" onclick= "location.href='/usr/plans/update?id=${travelPlan.id}'">수정</div>
 					<div class=" nav-delete-button text-gray-500 cursor-pointer">삭제</div>
 				</div>
 			</div>

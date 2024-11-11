@@ -73,7 +73,52 @@ public class UsrPlansController {
 
 		return Ut.jsReplace("저장되었습니다.", "/usr/plans/list");
 	}
+	
+	@RequestMapping("/usr/plans/update")
+	public String doUpdate(@RequestParam("id") int travelPlanId, HttpServletRequest req, Model model) {
+		TravelPlans travelPlan = travelPlansService.getTravelPlanById(travelPlanId);
+		List<TravelPlanPlaces> travelPlaces = travelPlansService.getTravelPlansWithPlacesById(travelPlanId);
 
+		System.err.println(travelPlan.getStartDate());
+		System.err.println(travelPlan.getEndDate());
+		
+		// JSP에서 사용할 API 키를 모델에 담아 전달
+		model.addAttribute("kakaoMapKey", kakaoMapKey);
+		model.addAttribute("travelPlanId", travelPlanId);
+		model.addAttribute("travelPlaces", travelPlaces);
+		model.addAttribute("travelPlan", travelPlan);
+		return "/user/plans/planUpdate";
+
+	}
+
+	@RequestMapping("/usr/plans/doUpdateTravelPlan")
+	@ResponseBody
+	public String doUpdateTravelPlan(@RequestBody Map<String, Object> requestData, HttpServletRequest req) {
+		// 로그인 확인
+		Rq rq = (Rq) req.getAttribute("rq");
+		boolean isLogined = rq.isLogined();
+
+		if (isLogined == false) {
+			return Ut.jsHistoryBack("F-1", "로그인 먼저 해주세요");
+		}
+
+		// 로그인된 사용자 정보 가져오기
+		int loginedMemberId = rq.getLoginedMemberId();
+		Member loginedMember = rq.getLoginedMember();
+		String loginId = loginedMember.getLoginId();
+
+		// 요청 데이터에서 startDate, endDate, region, places 추출
+		String startDate = (String) requestData.get("startDate");
+		String endDate = (String) requestData.get("endDate");
+		String region = (String) requestData.get("region");
+		List<String> places = (List<String>) requestData.get("places");
+
+		// 여행 일정 저장 로직 (여기서 여행 일정과 지역, 목적지 리스트를 함께 저장하도록 구현해야 함)
+		travelPlansService.createTravelPlan(loginedMemberId, loginId, startDate, endDate, region, places);
+
+		return Ut.jsReplace("저장되었습니다.", "/usr/plans/list");
+	}
+	
 	@RequestMapping("/usr/plans/getUserTravelPlan")
 	@ResponseBody
 	public List<TravelPlans> getUserTravelPlan(HttpServletRequest req) {

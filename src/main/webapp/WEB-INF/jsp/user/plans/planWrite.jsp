@@ -268,47 +268,67 @@ body {
 }
 
 #numbered-list {
-	z-index: 1;
+    z-index: 1;
+    margin-right: 10px;
 }
 
 ul.numbered {
-	margin-top: 30px;
-	border-left: 3px solid #b3b3b3;
-	counter-reset: numbered-list;
-	margin-left: 10px;
-	position: relative;
+    margin-top: 30px;
+    counter-reset: numbered-list;
+    margin-left: 10px;
+    position: relative;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-left: 20px;
+}
+
+/* Custom scrollbar styling for WebKit browsers */
+ul.numbered::-webkit-scrollbar {
+    width: 10px;
+}
+
+ul.numbered::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 20px;
+}
+
+ul.numbered::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
 }
 
 ul.numbered li {
-	font-size: 16px;
-	line-height: 1.2;
-	margin-bottom: 30px;
-	padding-left: 30px;
-	position: relative;
-}
-
-ul.numbered li:last-child {
-	border-left: 3px solid white;
-	margin-left: -3px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 ul.numbered li:before {
-	background-color: #b3b3b3;
-	border: 3px solid white;
-	border-radius: 50%;
-	color: white;
-	content: counter(numbered-list);
-	counter-increment: numbered-list;
-	display: block;
-	font-weight: bold;
-	width: 30px;
-	height: 30px;
-	margin-left: 4px;
-	line-height: 30px;
-	position: absolute;
-	left: -21px;
-	text-align: center;
+    content: counter(numbered-list);
+    counter-increment: numbered-list;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 10px; 
 }
+
+ul.numbered li i {
+    margin-left: auto; 
+    cursor: pointer;
+    color: #666; 
+}
+
 
 /* Pagination */
 .pagination {
