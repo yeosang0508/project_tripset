@@ -93,16 +93,50 @@
 
 ---
 
+# tripset 환경 설정 및 실행 가이드⭐
+
+
 ## 요구사항
 
 이 프로젝트는 Spring Boot와 다양한 라이브러리들을 사용하여 구성되어 있습니다. 클론 후 실행하기 위해 필요한 요구 사항과 설정 방법을 안내합니다.
 
 이 프로젝트를 실행하기 위해 필요한 필수 요구 사항과 주요 라이브러리 및 버전은 다음과 같습니다.
 
+
+## 필수 설치 프로그램
+
+아래 프로그램들을 설치하여 개발 환경을 설정하세요. 각 프로그램의 다운로드 링크를 포함하여 표로 정리했습니다.
+
+| 프로그램       | 설명                                     | 다운로드 링크                                                                                                                                                        |
+|----------------|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **STS4**       | Spring Tool Suite 4, 스프링 개발 도구      | [다운로드 STS4](https://spring.io/tools)                                                                                                                            |
+| **VSCode**     | Visual Studio Code(버전 1.95), 코드 편집기            | [다운로드 VSCode](https://code.visualstudio.com/)                                                                                                                   |
+| **XAMPP**      | Apache, MySQL, PHP 및 Perl 통합 패키지      | [다운로드 XAMPP](https://www.apachefriends.org/index.html)                                                                                                          |
+| **SQLyog**     | MySQL GUI 도구                            | [다운로드 SQLyog](https://sqlyog.com/)                                                                                                                              |
+| **Python**     | Python(버전 3.10.0) 프로그래밍 언어                    | [다운로드 Python](https://www.python.org/downloads/)                                                                                                                |
+
+---
+
+위 프로그램들을 설치하고 설정한 후, 가이드에 따라 프로젝트 환경을 구성하세요.
+
 ### 필수 소프트웨어
 
-- **Java**: Java Development Kit (JDK) 버전 17 이상이 필요합니다.
-- **Maven**: 프로젝트의 종속성을 관리하기 위해 Maven이 필요합니다.
+1. **Java**
+- Java Development Kit (JDK) 버전 17 이상이 필요합니다.
+- 설치 여부 확인 : `java --version`
+
+2. **Maven**
+- 프로젝트의 종속성을 관리하기 위해 Maven이 필요합니다.
+- 설치 여부 확인 : `mvn -version`
+
+3. **MySQL**
+- 프로젝트에 `.env` 파일에 실제 키와 정보를 저장합니다.
+```
+DB_USERNAME=root
+DB_PASSWORD=your_password
+KAKAO_MAP_KEY=your_kakao_api_key
+TOUR_API_KEY=your_tour_api_key
+```
 
 ### application.yml 설정
 
@@ -123,3 +157,89 @@ api:
 - [Public Data Portal](https://www.data.go.kr/data/15101914/openapi.do)에서 활용 신청 후 발급받은 API 키를 `your-tour-api-key` 부분에 입력합니다.
 
 <img src="https://github.com/user-attachments/assets/b2b6bbff-1e29-477f-b1d1-0c8555e3b1b9" alt="Tour API Key 설정 화면" width="50%">
+
+### 패키지 설치(pom.xml 의존성)
+- 이 프로젝트의 의존성은 `pom.xml` 파일에 정의되어 있습니다. 아래 명령어를 통해 필요한 라이브러리를 자동으로 설치합니다.
+```bash
+mvn clean install
+```
+
+### 애플리케이션 실행 
+- 의존성 설치와 환경 설정이 완료되면, 아래 명령어를 통해 Spring Boot 애플리케이션을 실행할 수 있다.
+```bash
+mvn spring-boot:run
+```
+
+
+## 설치 가이드🪛 (STS4)
+
+## 1. 경로 설정
+
+터미널에서 프로젝트 디렉터리로 이동
+
+```bash
+cd <your_project_directory>/project_tripset/python
+```
+
+## 2. 가상 환경 생성 및 활성화
+
+Python 가상 환경을 생성한 후 활성화합니다.
+
+```bash
+python -m venv venv # 가상 환경 생성
+
+.\venv\Scripts\activate # 가상 환경 활성화
+```
+
+## 3. 필수 패키지 설치
+
+가상 환경 안에서 필요한 라이브러리들을 설치합니다.
+
+```bash
+# Flask 설치 (웹 프레임워크)
+pip install flask
+
+# Flask-CORS 설치 (CORS 문제 해결을 위한 라이브러리)
+pip install flask-cors
+
+# OpenAI 설치 (OpenAI API 사용을 위한 라이브러리)
+pip install openai
+
+# python-dotenv 설치 (.env 파일의 환경 변수 로딩을 위한 라이브러리)
+pip install python-dotenv
+
+```
+
+## 4. pip 업그레이드 (경고 발생 시)
+
+패키지 설치 중 WARNING 메시지가 발생하면 pip를 업그레이드 한다.
+
+```bash
+<your_project_directory>\project_tripset\python\venv\Scripts\python.exe -m pip install --upgrade pip
+```
+
+## 5. 프로그램 실행
+
+필수 패키지 설치가 완료되면 다음 명령어로 main.py 파일을 실행합니다.
+
+```bash
+python main.py
+```
+
+## 6. 문제 해결
+
+ModuleNotFoundError 오류가 발생할 경우:
+
+- 가상 환경이 활성화되었는지 확인하고, 가상 환경이 비활성화되었다면 다시 활성화하세요.
+
+```bash
+.\venv\Scripts\activate  # Windows
+```
+
+API 키 설정 :
+
+- [OpenAI API](https://platform.openai.com/account/api-keys)를 사용하려면 `.env` 파일에 다음과 같이 API 키를 설정한다.
+
+```python
+OpenAI_KEY = your-openai-api-key
+```
