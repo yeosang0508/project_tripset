@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.vo.TravelPlanPlaces;
 import com.example.demo.vo.TravelPlans;
@@ -46,7 +47,7 @@ public interface TravelPlansRepository {
 	TravelPlans getTravelPlanById(int travelPlanId);
 
 	@Select("""
-			SELECT travelPlans.id,
+			SELECT travelPlanPlaces.id,
 			travelPlanPlaces.placeName
 			FROM travelPlans
 			INNER JOIN travelPlanPlaces
@@ -62,4 +63,26 @@ public interface TravelPlansRepository {
 	// travelPlans 테이블에서 travelPlanId에 해당하는 레코드 삭제
 	@Delete("DELETE FROM travelPlans WHERE id = #{travelPlanId}")
 	void deleteTravelPlan(int travelPlanId);
+
+	   // memberId로 여행 계획을 조회하는 쿼리
+    @Select("""
+        SELECT * FROM travelPlans
+        WHERE memberId = #{memberId}
+        """)
+    List<TravelPlans> findByMemberId(@Param("memberId") int memberId);
+
+    // memberId로 여행 계획에 포함된 장소를 조회하는 쿼리
+    @Select("""
+        SELECT travelPlanPlaces.id, travelPlanPlaces.placeName, travelPlanPlaces.travelPlanId, travelPlanPlaces.regDate
+        FROM travelPlanPlaces
+        JOIN travelPlans ON travelPlanPlaces.travelPlanId = travelPlans.id
+        WHERE travelPlans.memberId = #{memberId}
+        """)
+    List<TravelPlanPlaces> findPlacesByMemberId(@Param("memberId") int memberId);
+
+    // 현재 게시글 ID 조회
+    @Select("""
+        SELECT MAX(id) FROM article
+        """)
+    int getCurrentArticleId();
 }

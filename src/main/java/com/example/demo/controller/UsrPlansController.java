@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -78,11 +79,18 @@ public class UsrPlansController {
 	public String doUpdate(@RequestParam("id") int travelPlanId, HttpServletRequest req, Model model) {
 		TravelPlans travelPlan = travelPlansService.getTravelPlanById(travelPlanId);
 		List<TravelPlanPlaces> travelPlaces = travelPlansService.getTravelPlansWithPlacesById(travelPlanId);
-
+		
+		travelPlaces.forEach(place -> System.err.println(place.getId()));
+		
+		List<Integer> placeIds = travelPlaces.stream()
+                .map(TravelPlanPlaces::getId) // 각 객체의 id 추출
+                .collect(Collectors.toList());
+		
 		System.err.println(travelPlan.getStartDate());
 		System.err.println(travelPlan.getEndDate());
 		
 		// JSP에서 사용할 API 키를 모델에 담아 전달
+		model.addAttribute("placeIds", placeIds);
 		model.addAttribute("kakaoMapKey", kakaoMapKey);
 		model.addAttribute("travelPlanId", travelPlanId);
 		model.addAttribute("travelPlaces", travelPlaces);
@@ -94,30 +102,33 @@ public class UsrPlansController {
 	@RequestMapping("/usr/plans/doUpdateTravelPlan")
 	@ResponseBody
 	public String doUpdateTravelPlan(@RequestBody Map<String, Object> requestData, HttpServletRequest req) {
-		// 로그인 확인
-		Rq rq = (Rq) req.getAttribute("rq");
-		boolean isLogined = rq.isLogined();
+	    // 로그인 확인
+	    Rq rq = (Rq) req.getAttribute("rq");
+	    boolean isLogined = rq.isLogined();
 
-		if (isLogined == false) {
-			return Ut.jsHistoryBack("F-1", "로그인 먼저 해주세요");
-		}
+	    if (!isLogined) {
+	        return Ut.jsHistoryBack("F-1", "로그인 먼저 해주세요");
+	    }
 
-		// 로그인된 사용자 정보 가져오기
-		int loginedMemberId = rq.getLoginedMemberId();
-		Member loginedMember = rq.getLoginedMember();
-		String loginId = loginedMember.getLoginId();
+	    // 로그인된 사용자 정보 가져오기
+	    int loginedMemberId = rq.getLoginedMemberId();
+	    Member loginedMember = rq.getLoginedMember();
+	    String loginId = loginedMember.getLoginId();
+	    List<String> places = (List<String>) requestData.get("places");
 
-		// 요청 데이터에서 startDate, endDate, region, places 추출
-		String startDate = (String) requestData.get("startDate");
-		String endDate = (String) requestData.get("endDate");
-		String region = (String) requestData.get("region");
-		List<String> places = (List<String>) requestData.get("places");
+	    // 필요한 데이터 추출
+	    List<Integer> placeIds = (List<Integer>) requestData.get("placeIds"); // travelPlanId와 동일한 역할을 하는 리스트
+	    String startDate = (String) requestData.get("startDate");
+	    String endDate = (String) requestData.get("endDate");
+	    String region = (String) requestData.get("region");
+	
 
-		// 여행 일정 저장 로직 (여기서 여행 일정과 지역, 목적지 리스트를 함께 저장하도록 구현해야 함)
-		travelPlansService.createTravelPlan(loginedMemberId, loginId, startDate, endDate, region, places);
+	    // 여행 계획 업데이트 서비스 호출
+	    travelPlansService.updateTravelPlan(loginedMemberId, loginId, placeIds, startDate, endDate, region, places);
 
-		return Ut.jsReplace("저장되었습니다.", "/usr/plans/list");
+	    return Ut.jsReplace("저장되었습니다.", "/usr/plans/list");
 	}
+
 	
 	@RequestMapping("/usr/plans/getUserTravelPlan")
 	@ResponseBody

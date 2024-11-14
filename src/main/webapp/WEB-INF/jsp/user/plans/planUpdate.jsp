@@ -16,7 +16,8 @@
 <!-- Include Date Range Picker -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
+<input type="hidden" id="travelPlanId" value="${placeIds}" />
+<input type="hidden" id="region" value="${travelPlan.getRegion()}" />
 </head>
 <body>
 
@@ -287,7 +288,7 @@ $(function() {
 
 		// 장소 선택 시 저장된 지역을 기반으로 키워드 검색
 		function searchPlaces() {
-			const savedRegion = localStorage.getItem('selectedRegion');
+			const savedRegion = localStorage.getItem('region');
 			let keyword = document.getElementById('keyword').value;
 
 			if (savedRegion && keyword) {
@@ -514,46 +515,55 @@ $(function() {
 		}
 	</script>
 	<script>
-		document.getElementById('saveButton').addEventListener(
-				'click',
-				function() {
-					// localStorage에 저장된 값 가져오기
-					const savedPlaces = JSON.parse(localStorage
-							.getItem('savedPlaces'))
-							|| [];
-					const startDate = localStorage.getItem('startDate');
-					const endDate = localStorage.getItem('endDate');
-					const selectedRegion = localStorage
-							.getItem('selectedRegion');
+	document.getElementById('saveButton').addEventListener(
+			'click',
+			function() {
+				// localStorage에 저장된 값 가져오기
+				const savedPlaces = JSON.parse(localStorage
+						.getItem('savedPlaces'))
+						|| [];
+				
+				const travelPlanId = document.getElementById('travelPlanId').value;
+				const startDate = localStorage.getItem('startDate');
+				const endDate = localStorage.getItem('endDate');
+				const selectedRegion = localStorage
+						.getItem('selectedRegion');
 
-					// 저장할 데이터를 하나의 객체로 구성
-					const dataToSend = {
-						places : savedPlaces,
-						startDate : startDate,
-						endDate : endDate,
-						region : selectedRegion
-					};
+				console.log(localStorage.getItem('selectedRegion'));
+				
+				
+				// 저장할 데이터를 하나의 객체로 구성
+				const dataToSend = {
+					id: travelPlanId,
+					places : savedPlaces,
+					startDate : startDate,
+					endDate : endDate,
+					region : selectedRegion
+				};
 
-					// 저장할 목적지 배열이 비어있는지 확인
-					if (savedPlaces.length > 0 && startDate && endDate
-							&& selectedRegion) {
-						$.ajax({
-							type : 'POST',
-							url : '/usr/plans/doWriteTravelPlan',
-							contentType : 'application/json',
-							data : JSON.stringify(dataToSend),
-							success : function(response) {
-								alert('일정이 저장되었습니다.');
-								window.location.href = '/usr/home/main';
-							},
-							error : function(xhr, status, error) {
-								console.error('저장 중 오류 발생:', error);
-								alert('저장 중 오류가 발생했습니다.');
-							}
-						});
-					} else {
-						alert('저장할 목적지, 날짜 또는 지역 정보가 부족합니다.');
-					}
-				});
+				console.log(dataToSend);
+				
+				// 저장할 목적지 배열이 비어있는지 확인
+				if (savedPlaces.length > 0 && startDate && endDate
+						&& selectedRegion) {
+					$.ajax({
+						type : 'POST',
+						url : '/usr/plans/doUpdateTravelPlan',
+						contentType : 'application/json',
+						data : JSON.stringify(dataToSend),
+						success : function(response) {
+							alert('일정이 저장되었습니다.');
+							window.location.href = '/usr/home/main';
+						},
+						error : function(xhr, status, error) {
+							console.error('저장 중 오류 발생:', error);
+							alert('저장 중 오류가 발생했습니다.');
+						}
+					});
+				} else {
+					alert('저장할 목적지, 날짜 또는 지역 정보가 부족합니다.');
+				}
+			});
+
 	</script>
 </body>
