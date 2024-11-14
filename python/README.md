@@ -5,7 +5,7 @@
 터미널에서 프로젝트 디렉터리로 이동
 
 ```bash
-cd C:\work_ssa\sts-4.24.0.RELEASE-workspace-1\project_tripset\python
+cd <your_project_directory>\project_tripset\python
 ```
 
 ## 2. 가상 환경 생성 및 활성화
@@ -42,7 +42,7 @@ pip install python-dotenv
 패키지 설치 중 WARNING 메시지가 발생하면 pip를 업그레이드 한다.
 
 ```bash
-C:\work_ssa\sts-4.24.0.RELEASE-workspace-1\project_tripset\python\venv\Scripts\python.exe -m pip install --upgrade pip
+<your_project_directory>\project_tripset\python\venv\Scripts\python.exe -m pip install --upgrade pip
 ```
 
 ## 5. 프로그램 실행
