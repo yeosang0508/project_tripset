@@ -239,6 +239,7 @@ ModuleNotFoundError 오류가 발생할 경우:
 API 키 설정 :
 
 - [OpenAI API](https://platform.openai.com/account/api-keys)를 사용하려면 `.env` 파일에 다음과 같이 API 키를 설정한다.
+- `cd <your_project_directory>/project_tripset/python` 이 위치에 `.env` 파일 생성한다.
 
 ```python
 OpenAI_KEY = your-openai-api-key
