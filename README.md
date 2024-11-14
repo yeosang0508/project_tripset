@@ -1,4 +1,5 @@
-<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:87CEEB,100:B0E0E6&height=200&section=header&text=TRIPSET&fontSize=90&fontColor=FFFFFF" />
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:87CEEB,100:B0E0E6&height=200&section=header&text=TRIPSET&fontSize=90&fontColor=FFFFFF" style="width:100%;" />
+
 <h2> 프로젝트 소개✈️ </h2>
 
 이 프로젝트는 여행 계획의 복잡함을 줄이고, 사용자가 한 곳에서 모든 여행 준비를 할 수 있도록 돕기 위해 개발된 **종합 여행 일정 관리 플랫폼**입니다. 사용자는 일정 관리, 여행지 추천, 체크리스트, 예약 정보, 커뮤니티 기능 등을 이 플랫폼을 통해 간편하게 이용할 수 있습니다. 많은 사람들이 여행 일정을 계획하면서 여러 사이트를 오가거나 필요한 정보를 수집하는 데 시간을 소모합니다. 이 플랫폼은 그런 번거로움을 줄이고, 사용자가 여행 계획에 소요되는 시간을 절약하고 스트레스를 줄일 수 있도록 설계되었습니다. 직관적인 인터페이스와 종합적인 기능 제공을 통해, 사용자가 보다 효율적으로 여행을 준비할 수 있도록 지원하는 것을 목표로 합니다.
@@ -90,3 +91,35 @@
 
 ![커뮤니티(write)](https://github.com/user-attachments/assets/4f3e2bd5-6b06-4928-acdd-e5a0145b8ba9)
 
+---
+
+## 요구사항
+
+이 프로젝트는 Spring Boot와 다양한 라이브러리들을 사용하여 구성되어 있습니다. 클론 후 실행하기 위해 필요한 요구 사항과 설정 방법을 안내합니다.
+
+이 프로젝트를 실행하기 위해 필요한 필수 요구 사항과 주요 라이브러리 및 버전은 다음과 같습니다.
+
+### 필수 소프트웨어
+
+- **Java**: Java Development Kit (JDK) 버전 17 이상이 필요합니다.
+- **Maven**: 프로젝트의 종속성을 관리하기 위해 Maven이 필요합니다.
+
+### application.yml 설정
+
+```yaml
+api:
+  kakao:
+    map-key: your-kakao-map-api-key
+  tour:
+    api-key: your-tour-api-key
+```
+#### 1. Kakao API Key 설정
+- [Kakao Developers](https://developers.kakao.com/)에서 API 키를 발급받아 `your-kakao-map-api-key` 부분에 입력합니다.
+- *주의사항* :  Kakao Developers에서 `내 애플리케이션 > 앱 설정 > 플랫폼`으로 이동하여 프로젝트의 사이트 도메인과 포트 번호를 정확하게 설정해야 합니다.
+
+<img src="https://github.com/user-attachments/assets/a4e5cd50-94bd-4ad9-a2a3-e3d8c26abe43" alt="Kakao API Key 설정 화면" width="50%">
+
+#### 2. Tour API Key 설정
+- [Public Data Portal](https://www.data.go.kr/data/15101914/openapi.do)에서 활용 신청 후 발급받은 API 키를 `your-tour-api-key` 부분에 입력합니다.
+
+<img src="https://github.com/user-attachments/assets/b2b6bbff-1e29-477f-b1d1-0c8555e3b1b9" alt="Tour API Key 설정 화면" width="50%">
