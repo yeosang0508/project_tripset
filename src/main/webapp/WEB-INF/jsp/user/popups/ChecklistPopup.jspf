@@ -66,8 +66,6 @@
 		const form = document.forms['checklist'];
 		// 버튼 클릭 시 실행될 이벤트 리스너
 		saveButton.addEventListener('click', function() {
-			// alert 창 띄우기
-			alert('저장이 완료되었습니다.');
 
 			form.reset();
 			// 팝업 닫기
