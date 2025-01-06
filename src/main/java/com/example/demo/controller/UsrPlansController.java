@@ -36,7 +36,7 @@ public class UsrPlansController {
 
 	@Value("${api.kakao.map-key}")
 	private String kakaoMapKey;
-
+	
 	@RequestMapping("/usr/plans/write")
 	public String showWrite(HttpServletRequest req, Model model) {
 

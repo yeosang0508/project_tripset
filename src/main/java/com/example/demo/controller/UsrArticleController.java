@@ -128,20 +128,23 @@ public class UsrArticleController extends BaseTravelPlanController {
 
 	@RequestMapping("/usr/article/write")
 	public String showWrite(Model model, HttpServletRequest req) {
-//        // 요청 속성에서 memberId 가져오기
-//        Integer memberId = (Integer) req.getAttribute("memberId");
-//
-//        // memberId가 없는 경우 처리
-//        if (memberId == null) {
-//            return "redirect:/usr/member/login"; // 로그인 페이지로 리다이렉트
-//        }
-//
-//        // 여행 계획과 장소 정보 가져오기
-//        List<TravelPlans> travelPlans = travelPlansService.getTravelPlansByMemberId(memberId);
-//        List<TravelPlanPlaces> travelPlaces = travelPlansService.getTravelPlanPlacesByMemberId(memberId);
-//
-//        model.addAttribute("travelPlans", travelPlans);
-//        model.addAttribute("travelPlaces", travelPlaces);
+		
+		Rq rq = (Rq)req.getAttribute("rq");
+		
+        // 요청 속성에서 loginedMemberId 가져오기
+        Integer memberId = (Integer) rq.getLoginedMemberId();
+        
+        // 여행 계획과 장소 정보 가져오기
+        List<TravelPlans> travelPlans = travelPlansService.getTravelPlansByMemberId(memberId);
+        List<TravelPlanPlaces> travelPlaces = travelPlansService.getTravelPlanPlacesByMemberId(memberId);
+
+        model.addAttribute("travelPlans", travelPlans);
+        model.addAttribute("travelPlaces", travelPlaces);
+        
+        System.err.println(travelPlans);
+        System.err.println(travelPlaces);
+        
+ 
 
 		int currentId = travelPlansService.getCurrentArticleId();
 		model.addAttribute("currentId", currentId);

@@ -16,9 +16,97 @@
 							document.querySelector('.popup-bg').classList
 									.add('hidden');
 						});
+	
+			  const dropdownButton = document.getElementById('dropdownButton'); // 드롭다운 버튼
+			  const dropdownMenu = document.getElementById('dropdownMenu'); // 드롭다운 메뉴
+			  const dropdownItems = document.querySelectorAll('.dropdown-item'); // 드롭다운 항목들
+			  const regionConfirmBtn = document.getElementById('region-confirm-btn'); // 확인 버튼
+
+			  let selectedRegion = null; // 선택된 지역 값을 저장
+
+			  // 드롭다운 버튼 클릭 시 메뉴 표시/숨기기
+			  dropdownButton.addEventListener('click', function () {
+			    dropdownMenu.classList.toggle('hidden'); // 메뉴 표시/숨기기
+			  });
+
+			  // 드롭다운 항목 클릭 시 선택 처리
+			  dropdownItems.forEach(function (item) {
+			    item.addEventListener('click', function () {
+			      selectedRegion = item.getAttribute('data-value'); // 선택된 값 저장
+			      dropdownButton.textContent = selectedRegion; // 버튼에 선택된 값 표시
+			      dropdownMenu.classList.add('hidden'); // 드롭다운 메뉴 닫기
+			    });
+			  });
+
+			  // 확인 버튼 클릭 시 로컬 저장 및 팝업 닫기
+			  regionConfirmBtn.addEventListener('click', function () {
+			    if (selectedRegion) {
+			      localStorage.setItem('selectedRegion', selectedRegion); // 선택된 지역을 로컬 저장소에 저장
+			      document.querySelector('.region-popup').classList.add('hidden'); // 팝업 닫기
+			      document.querySelector('.popup-bg').classList.add('hidden'); // 배경 닫기
+			      console.log(`선택된 지역: ${selectedRegion}`); // 콘솔에 선택된 지역 출력
+			    } else {
+			      alert('지역을 선택해주세요!'); // 지역이 선택되지 않은 경우 경고
+			    }
+			  });
+
+			  // 팝업 외부 클릭 시 메뉴 닫기 (선택 사항)
+			  document.addEventListener('click', function (event) {
+			    if (
+			      !dropdownButton.contains(event.target) &&
+			      !dropdownMenu.contains(event.target)
+			    ) {
+			      dropdownMenu.classList.add('hidden');
+			    }
+			  });
+
 	});
 </script>
 </head>
+
+<style>
+/* 드롭다운 버튼 */
+.dropdown-button {
+	display: block;
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: white;
+	text-align: left;
+	cursor: pointer;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown-menu {
+	position: absolute;
+	width: 200px;
+	max-height: 200px; 
+	overflow-y: auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: white;
+	z-index: 1;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* 숨김 */
+.hidden {
+	display: none;
+}
+
+/* 드롭다운 항목 */
+.dropdown-item {
+	padding: 8px 10px;
+	cursor: pointer;
+}
+
+.dropdown-item:hover {
+	background-color: #f0f0f0;
+}
+</style>
 <body>
 	<!-- 지역 선택 팝업 -->
 	<div class="popup-bg fixed inset-0 bg-black bg-opacity-70 z-40"></div>
@@ -26,34 +114,33 @@
 		<div class="popup-container w-72 h-auto p-8 bg-white rounded-lg shadow-lg relative">
 			<div class="popup-body mt-10">
 				<h2 class="text-center font-bold text-2xl">어디로 가나요?</h2>
-				<div class="selectbox">
-					<select name="region" id="region-select" class="select select-bordered w-full max-w-xs">
-						<option value="none" disabled selected>지역을 선택해주세요</option>
-						<option value="서울">서울</option>
-						<option value="부산">부산</option>
-						<option value="대구">대구</option>
-						<option value="인천">인천</option>
-						<option value="광주">광주</option>
-						<option value="대전">대전</option>
-						<option value="울산">울산</option>
-						<option value="세종">세종</option>
-						<option value="경기">경기</option>
-						<option value="강원">강원</option>
-						<option value="충북">충북</option>
-						<option value="충남">충남</option>
-						<option value="경북">경북</option>
-						<option value="경남">경남</option>
-						<option value="전북">전북</option>
-						<option value="전남">전남</option>
-						<option value="제주">제주</option>
-					</select>
+				<div id="region-select" class="selectbox">
+					<button id="dropdownButton" class="dropdown-button">지역을 선택해주세요 ▼</button>
+					<ul id="dropdownMenu" class="dropdown-menu hidden">
+						<li class="dropdown-item" data-value="서울">서울</li>
+						<li class="dropdown-item" data-value="부산">부산</li>
+						<li class="dropdown-item" data-value="대구">대구</li>
+						<li class="dropdown-item" data-value="인천">인천</li>
+						<li class="dropdown-item" data-value="광주">광주</li>
+						<li class="dropdown-item" data-value="대전">대전</li>
+						<li class="dropdown-item" data-value="울산">울산</li>
+						<li class="dropdown-item" data-value="세종">세종</li>
+						<li class="dropdown-item" data-value="경기">경기</li>
+						<li class="dropdown-item" data-value="강원">강원</li>
+						<li class="dropdown-item" data-value="충북">충북</li>
+						<li class="dropdown-item" data-value="충남">충남</li>
+						<li class="dropdown-item" data-value="경북">경북</li>
+						<li class="dropdown-item" data-value="경남">경남</li>
+						<li class="dropdown-item" data-value="전북">전북</li>
+						<li class="dropdown-item" data-value="전남">전남</li>
+						<li class="dropdown-item" data-value="제주">제주</li>
+					</ul>
 				</div>
-				<button type="submit" id="region-confirm-btn" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 mt-4 float-right">확인</button>
+				<button type="submit" id="region-confirm-btn" class="w-20 h-7 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-700 mt-4 float-right">
+					확인</button>
 			</div>
 		</div>
 	</div>
-
-
 
 </body>
 </html>

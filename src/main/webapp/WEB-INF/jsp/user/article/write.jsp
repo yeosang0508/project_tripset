@@ -91,15 +91,10 @@
 		<section class="p-6 rounded-lg shadow-md mb-8 border border-blue-200">
 			<h2 class="text-2xl font-bold mb-4">📋 내 일정 목록</h2>
 			<div class="flex overflow-x-auto space-x-4">
-				<c:forEach var="plan" items="${travelPlaces}" varStatus="status">
+				<c:forEach var="plan" items="${travelPlans}" varStatus="status">
 					<div class="p-4 rounded-lg flex items-center justify-between min-w-[250px] border border-blue-300">
 						<div>
-							<span class="font-bold text-lg">${plan.placeName}</span>
-							<span class="block text-md text-gray-600">일정 ${status.index + 1}</span>
-						</div>
-						<div class="flex gap-2 ml-2">
-							<button class="text-blue-600 hover:text-blue-800" onclick="editSchedule(${status.index + 1})">수정</button>
-							<button class="text-red-600 hover:text-red-800" onclick="deleteSchedule(${status.index + 1})">삭제</button>
+							<span class="font-bold text-lg">${status.index + 1}. ${plan.region}</span>
 						</div>
 					</div>
 				</c:forEach>
